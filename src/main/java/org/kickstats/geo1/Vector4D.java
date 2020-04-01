@@ -59,4 +59,17 @@ public class Vector4D {
     public double getP3() {
         return p3;
     }// getP3()
+    
+    
+    /**
+     * Returns a string representation of this vector.
+     * 
+     * @return A string representation of this vector.
+     */
+    @Override
+    public String toString() {
+        return "";
+    }// toString()
+    
+    
 }// Vector4D

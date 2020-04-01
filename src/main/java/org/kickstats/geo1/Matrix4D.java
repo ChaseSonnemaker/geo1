@@ -8,4 +8,6 @@ package org.kickstats.geo1;
  */
 public class Matrix4D {
     
+    double[][] elements = new double[4][4];
+    
 }// Matrix4D

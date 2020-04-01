@@ -17,4 +17,10 @@ public class Matrix4D {
         
     }// Matrix4D
     
+    
+    public double get(int row, int column) {
+        return elements[row][column];
+    }// get(int, int)
+    
+    
 }// Matrix4D

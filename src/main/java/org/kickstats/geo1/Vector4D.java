@@ -8,4 +8,9 @@ package org.kickstats.geo1;
  */
 public class Vector4D {
     
+    double p0;
+    double p1;
+    double p2;
+    double p3;
+    
 }

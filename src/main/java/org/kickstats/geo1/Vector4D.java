@@ -75,12 +75,23 @@ public class Vector4D {
     /**
      * Adds this vector and another vector of 4 elements together.
      * 
-     * @param v A vector of 4 elements.
+     * @param v A vector of 4 elements to be added to this vector.
      * @return A vector of 4 elements that is the sum of the other two vectors.
      */
     public Vector4D add(Vector4D v) {
         return new Vector4D(0, 0, 0, 0);
     }// add(Vector4D)
     
+    
+    /**
+     * Dot multiplies this vector with another vector of 4 elements.
+     * 
+     * @param v A vector of 4 elements to be multiplied with this vector.
+     * @return A number that is the product of the dot multiplication of the 
+     * other two vectors.
+     */
+    public double dot(Vector4D v) {
+        return 0.0;
+    }// dot(Vector4D v)
     
 }// Vector4D

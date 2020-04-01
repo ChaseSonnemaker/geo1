@@ -72,4 +72,15 @@ public class Vector4D {
     }// toString()
     
     
+    /**
+     * Adds this vector and another vector of 4 elements together.
+     * 
+     * @param v A vector of 4 elements.
+     * @return A vector of 4 elements that is the sum of the other two vectors.
+     */
+    public Vector4D add(Vector4D v) {
+        return new Vector4D(0, 0, 0, 0);
+    }// add(Vector4D)
+    
+    
 }// Vector4D

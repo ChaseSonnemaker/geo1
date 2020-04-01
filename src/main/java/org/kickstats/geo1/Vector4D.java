@@ -13,4 +13,4 @@ public class Vector4D {
     double p2;
     double p3;
     
-}
+}// Vector4D

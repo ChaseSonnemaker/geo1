@@ -13,7 +13,9 @@ public class Vector4D {
     private double p2;
     private double p3;
     
-    
+    /**
+     * Creates a 4 element vector where each element is equal to 0.
+     */
     public Vector4D() {
         this.p0 = 0;
         this.p1 = 0;

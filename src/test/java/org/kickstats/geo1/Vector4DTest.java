@@ -133,50 +133,50 @@ public class Vector4DTest {
         assertEquals(expResult.getP3(), result.getP3(), 1E-8);
     }
 
-    /**
-     * Test of rotateX method, of class Vector4D.
-     */
-    @Test
-    public void testRotateX() {
-        System.out.println("rotateX");
-        double angle = 0.0;
-        Vector4D instance = null;
-        Vector4D expResult = null;
-        Vector4D result = instance.rotateX(angle);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of rotateY method, of class Vector4D.
-     */
-    @Test
-    public void testRotateY() {
-        System.out.println("rotateY");
-        double angle = 0.0;
-        Vector4D instance = null;
-        Vector4D expResult = null;
-        Vector4D result = instance.rotateY(angle);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of rotateZ method, of class Vector4D.
-     */
-    @Test
-    public void testRotateZ() {
-        System.out.println("rotateZ");
-        double angle = 0.0;
-        Vector4D instance = null;
-        Vector4D expResult = null;
-        Vector4D result = instance.rotateZ(angle);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    /**
+//     * Test of rotateX method, of class Vector4D.
+//     */
+//    @Test
+//    public void testRotateX() {
+//        System.out.println("rotateX");
+//        double angle = 0.0;
+//        Vector4D instance = null;
+//        Vector4D expResult = null;
+//        Vector4D result = instance.rotateX(angle);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of rotateY method, of class Vector4D.
+//     */
+//    @Test
+//    public void testRotateY() {
+//        System.out.println("rotateY");
+//        double angle = 0.0;
+//        Vector4D instance = null;
+//        Vector4D expResult = null;
+//        Vector4D result = instance.rotateY(angle);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of rotateZ method, of class Vector4D.
+//     */
+//    @Test
+//    public void testRotateZ() {
+//        System.out.println("rotateZ");
+//        double angle = 0.0;
+//        Vector4D instance = null;
+//        Vector4D expResult = null;
+//        Vector4D result = instance.rotateZ(angle);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of scale method, of class Vector4D.

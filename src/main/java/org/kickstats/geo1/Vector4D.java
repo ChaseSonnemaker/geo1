@@ -94,4 +94,15 @@ public class Vector4D {
         return 0.0;
     }// dot(Vector4D v)
     
+    
+    /**
+     * Returns the magnitude of this vector.
+     * 
+     * @return The magnitude of this vector.
+     */
+    public double magnitude() {
+        return 0.0;
+    }// magnitude()
+    
+    
 }// Vector4D

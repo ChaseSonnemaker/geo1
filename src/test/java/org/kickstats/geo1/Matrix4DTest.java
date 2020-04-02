@@ -23,11 +23,9 @@ public class Matrix4DTest {
         int row = 0;
         int column = 0;
         Matrix4D instance = new Matrix4D();
-        double expResult = 0.0;
+        double expResult = 1.0;
         double result = instance.get(row, column);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 1E-8);
     }
 
     /**

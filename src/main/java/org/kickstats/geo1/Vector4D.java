@@ -119,4 +119,40 @@ public class Vector4D {
     }// translate(double, double, double)
     
     
+    /**
+     * Rotates this vector representing a line in 3D space about the x-axis.
+     * 
+     * @param angle The angle (radians) of rotation about the x-axis.
+     * @return A vector of 4 elements representing the new position of the 
+     * rotated original vector.
+     */
+    public Vector4D rotateX(double angle) {
+        return new Vector4D(0, 0, 0, 0);
+    }// rotateX(double)
+    
+    
+    /**
+     * Rotates this vector representing a line in 3D space about the y-axis.
+     * 
+     * @param angle The angle (radians) of rotation about the y-axis.
+     * @return A vector of 4 elements representing the new position of the 
+     * rotated original vector.
+     */
+    public Vector4D rotateY(double angle) {
+        return new Vector4D(0, 0, 0, 0);
+    }// rotateY(double)
+    
+    
+    /**
+     * Rotates this vector representing a line in 3D space about the z-axis.
+     * 
+     * @param angle The angle (radians) of rotation about the z-axis.
+     * @return A vector of 4 elements representing the new position of the 
+     * rotated original vector.
+     */
+    public Vector4D rotateZ(double angle) {
+        return new Vector4D(0, 0, 0, 0);
+    }// rotateZ(double)
+    
+    
 }// Vector4D

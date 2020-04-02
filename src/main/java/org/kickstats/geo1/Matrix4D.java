@@ -55,4 +55,16 @@ public class Matrix4D {
     }// multiply(Matrix4D)
     
     
+    /**
+     * Multiplies this matrix by a vector with 4 elements.
+     * 
+     * @param v The vector with 4 elements this matrix is to be multiplied by.
+     * @return A vector of length 4 that is the product of this matrix and 
+     * a vector.
+     */
+    public Vector4D multiply(Vector4D v) {
+        return new Vector4D(0, 0, 0, 0);
+    }// multiply(Vector4D)
+    
+    
 }// Matrix4D

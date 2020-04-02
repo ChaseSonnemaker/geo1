@@ -106,7 +106,7 @@ public class Vector4D {
     
     
     /**
-     * Translates a vector of 4 elements representing a line in 3D space.
+     * Translates this vector representing a line in 3D space.
      * 
      * @param x Distance to move in the x direction.
      * @param y Distance to move in the y direction.

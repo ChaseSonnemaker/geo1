@@ -39,7 +39,7 @@ public class Matrix4D {
      * @param value The value to set at the specified position.
      */
     public final void set(int row, int column, double value) {
-        
+        this.elements[row][column] = value;
     }// set(int, int, double)
     
     

@@ -14,7 +14,7 @@ public class Matrix4D {
      * Creates a 4x4 identity matrix.
      */
     public Matrix4D() {
-        
+        this.identity();
     }// Matrix4D
     
     
@@ -26,7 +26,7 @@ public class Matrix4D {
      * @return The value at the specified row and column of this matrix.
      */
     public double get(int row, int column) {
-        return elements[row][column];
+        return this.elements[row][column];
     }// get(int, int)
     
     

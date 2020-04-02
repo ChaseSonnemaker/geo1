@@ -68,12 +68,10 @@ public class Vector4DTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Vector4D instance = null;
-        String expResult = "";
+        Vector4D instance = new Vector4D(4, 3, 2, 1);
+        String expResult = "(4, 3, 2, 1)";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**

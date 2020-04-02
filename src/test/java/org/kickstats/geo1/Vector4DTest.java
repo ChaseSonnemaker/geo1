@@ -15,50 +15,14 @@ public class Vector4DTest {
     }
 
     /**
-     * Test of getP0 method, of class Vector4D.
-     */
-    @Test
-    public void testGetP0() {
-        System.out.println("getP0");
-        Vector4D instance = new Vector4D(4, 3, 2, 1);
-        double expResult = 4;
-        double result = instance.getP0();
-        assertEquals(expResult, result, 1E-8);
-    }
-
-    /**
      * Test of getP1 method, of class Vector4D.
      */
     @Test
-    public void testGetP1() {
-        System.out.println("getP1");
+    public void testGet() {
+        System.out.println("get");
         Vector4D instance = new Vector4D(4, 3, 2, 1);
         double expResult = 3;
-        double result = instance.getP1();
-        assertEquals(expResult, result, 1E-8);
-    }
-
-    /**
-     * Test of getP2 method, of class Vector4D.
-     */
-    @Test
-    public void testGetP2() {
-        System.out.println("getP2");
-        Vector4D instance = new Vector4D(4, 3, 2, 1);
-        double expResult = 2.0;
-        double result = instance.getP2();
-        assertEquals(expResult, result, 1E-8);
-    }
-
-    /**
-     * Test of getP3 method, of class Vector4D.
-     */
-    @Test
-    public void testGetP3() {
-        System.out.println("getP3");
-        Vector4D instance = new Vector4D(4, 3, 2, 1);
-        double expResult = 1.0;
-        double result = instance.getP3();
+        double result = instance.get(2);
         assertEquals(expResult, result, 1E-8);
     }
 

@@ -31,6 +31,19 @@ public class Matrix4D {
     
     
     /**
+     * Sets the value at a specified position in this 
+     * matrix to a specified value.
+     * 
+     * @param row The row of the element to set.
+     * @param column The column of the element to set.
+     * @param value The value to set at the specified position.
+     */
+    public final void set(int row, int column, double value) {
+        
+    }// set(int, int, double)
+    
+    
+    /**
      * Returns a string representation of this matrix.
      * 
      * Each number in the matrix is formatted to be 8 digits so 

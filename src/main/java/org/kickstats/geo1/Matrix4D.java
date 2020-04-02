@@ -75,4 +75,19 @@ public class Matrix4D {
     }// multiply(Vector4D)
     
     
+    /**
+     * Transforms this matrix into a matrix that models a translation of a
+     * position in 3D space.
+     * 
+     * This position is can be represented by a vector of 4 elements. 
+     * 
+     * @param x The distance the vector will move in the x-direction.
+     * @param y The distance the vector will move in the y-direction.
+     * @param z The distance the vector will move in the z-direction.
+     */
+    public final void translate(double x, double y, double z) {
+        
+    }// translate(double, double, double)
+    
+    
 }// Matrix4D

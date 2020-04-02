@@ -184,15 +184,16 @@ public class Vector4DTest {
     @Test
     public void testScale() {
         System.out.println("scale");
-        double x = 0.0;
-        double y = 0.0;
-        double z = 0.0;
-        Vector4D instance = null;
-        Vector4D expResult = null;
+        double x = 2.0;
+        double y = 2.0;
+        double z = 2.0;
+        Vector4D instance = new Vector4D(4, 3, 2, 1);
+        Vector4D expResult = new Vector4D(8, 6, 4, 1);
         Vector4D result = instance.scale(x, y, z);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult.getP0(), result.getP0(), 1E-8);
+        assertEquals(expResult.getP1(), result.getP1(), 1E-8);
+        assertEquals(expResult.getP2(), result.getP2(), 1E-8);
+        assertEquals(expResult.getP3(), result.getP3(), 1E-8);
     }
     
 }

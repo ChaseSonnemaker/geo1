@@ -183,7 +183,13 @@ public class Matrix4D {
      * @param angle The angle (radians) of the rotation about the z-axis.
      */
     public final void rotateZ(double angle) {
-        
+        double cos = cos(angle);
+        double sin = sin(angle);
+        this.identity();
+        this.set(0, 0, cos);
+        this.set(0, 1, -sin);
+        this.set(1, 0, sin);
+        this.set(1, 1, cos);
     }// rotateZ(double)
     
     

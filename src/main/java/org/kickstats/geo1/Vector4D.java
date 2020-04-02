@@ -138,4 +138,10 @@ public class Vector4D {
     }// magnitude()
     
     
+    
+    public Vector4D normalize() {
+        return new Vector4D();
+    }// normalize()
+    
+    
 }// Vector4D

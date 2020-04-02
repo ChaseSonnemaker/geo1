@@ -95,4 +95,18 @@ public class Vector4DTest {
         }// if
     }
     
+    /**
+     * Test of cross method, of class Vector4D.
+     */
+    @Test
+    public void testCross() {
+        System.out.println("cross");
+        Vector4D v = new Vector4D(2, 3, 4);
+        Vector4D instance = new Vector4D(4, 3, 2);
+        Vector4D expResult = new Vector4D(-6, 12, -6);
+        Vector4D result = instance.cross(v);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// if
+    }
 }

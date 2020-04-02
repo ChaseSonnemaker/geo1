@@ -144,4 +144,8 @@ public class Vector4D {
     }// normalize()
     
     
+    public Vector4D cross(Vector4D v) {
+        return new Vector4D();
+    }// cross()
+    
 }// Vector4D

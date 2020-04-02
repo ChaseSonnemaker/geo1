@@ -42,7 +42,20 @@ public class Vector4D {
         this.h = 1;
     }// Vector4D(double, double, double)
     
-    
+    /**
+     * Creates a 4 element vector where each element is specified.
+     * 
+     * This can be used to model a position in 3D space.
+     * 
+     * @param x The first element in the vector. Models the x-axis coordinate
+     * when modeling 3D space.
+     * @param y The second element in the vector. Models the y-axis coordinate 
+     * when modeling 3D space.
+     * @param z The third element in the vector. Models the z-axis coordinate
+     * when modeling 3D space.
+     * @param h The final element in the vector. Models the homogeneous 
+     * coordinate when modeling 3D space.
+     */
     public Vector4D(double x, double y, double z, double h) {
         this.x = x;
         this.y = y;

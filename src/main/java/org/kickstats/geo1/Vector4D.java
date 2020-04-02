@@ -68,7 +68,8 @@ public class Vector4D {
      */
     @Override
     public String toString() {
-        return "";
+        return "(" + this.p0 + ", " + this.p1 + ", " 
+                + this.p2 + ", " + this.p3 + ")";
     }// toString()
     
     

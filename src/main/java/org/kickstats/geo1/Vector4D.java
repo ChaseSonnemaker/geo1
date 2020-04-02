@@ -80,7 +80,12 @@ public class Vector4D {
      * @return A vector of 4 elements that is the sum of the other two vectors.
      */
     public Vector4D add(Vector4D v) {
-        return new Vector4D(0, 0, 0, 0);
+        double sum0 = this.p0 + v.p0;
+        double sum1 = this.p1 + v.p1;
+        double sum2 = this.p2 + v.p2;
+        double sum3 = this.p3 + v.p3;
+        
+        return new Vector4D(sum0, sum1, sum2, sum3);
     }// add(Vector4D)
     
     

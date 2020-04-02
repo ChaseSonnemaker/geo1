@@ -66,13 +66,27 @@ public class Matrix4DTest {
     @Test
     public void testMultiply_Matrix4D() {
         System.out.println("multiply");
-        Matrix4D m = null;
+        Matrix4D m = new Matrix4D();
+        m.set(1, 1, 1);
+        m.set(2, 2, 2);
+        m.set(3, 3, 3);
+        m.set(4, 4, 4);
         Matrix4D instance = new Matrix4D();
-        Matrix4D expResult = null;
+        instance.set(1, 1, 1);
+        instance.set(2, 2, 2);
+        instance.set(3, 3, 3);
+        instance.set(4, 4, 4);
+        Matrix4D expResult = new Matrix4D();
+        expResult.set(1, 1, 1);
+        expResult.set(2, 2, 4);
+        expResult.set(3, 3, 9);
+        expResult.set(4, 4, 16);
         Matrix4D result = instance.multiply(m);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(result.get(i, j), expResult.get(i, j), 1E-8);
+            }// for
+        }// for
     }
 
     /**

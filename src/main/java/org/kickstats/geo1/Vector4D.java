@@ -155,4 +155,18 @@ public class Vector4D {
     }// rotateZ(double)
     
     
+    /**
+     * Scales this vector representing a line in 3D space.
+     * 
+     * @param x The factor by which to scale the x direction.
+     * @param y The factor by which to scale the y direction.
+     * @param z The factor by which to scale the z direction.
+     * @return A vector of 4 elements representing the new position of 
+     * the scaled original vector.
+     */
+    public Vector4D scale(double x, double y, double z) {
+        return new Vector4D(0, 0, 0, 0);
+    }// scale(double, double, double)
+    
+    
 }// Vector4D

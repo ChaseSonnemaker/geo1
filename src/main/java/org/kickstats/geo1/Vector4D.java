@@ -138,7 +138,13 @@ public class Vector4D {
     }// magnitude()
     
     
-    
+    /**
+     * Normalizes this vector such that it has the same direction but has
+     * a magnitude (length) equal to 1.
+     * 
+     * @return A new vector with the same direction as this vector but a
+     * magnitude equal to 1.
+     */
     public Vector4D normalize() {
         return new Vector4D();
     }// normalize()

@@ -47,6 +47,9 @@ public class Matrix4DTest {
     public void testIdentity() {
         System.out.println("identity");
         Matrix4D instance = new Matrix4D();
+        instance.set(3, 3, 15);
+        instance.set(1, 0, 56);
+        instance.set(0, 2, 1004);
         instance.identity();
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {

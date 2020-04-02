@@ -150,6 +150,22 @@ public class Vector4D {
     }// normalize()
     
     
+    /**
+     * Creates a 4 element vector that is the result of a cross multiplication
+     * between this vector and another 4 element vector.
+     * 
+     * This cross multiplication and the resulting vector finds position in 3D
+     * space that is perpendicular to the positions represented by both this 
+     * vector and another 4 element vector. As such, the final element in the 
+     * vector representing the homogeneous coordinate will be ignored and 
+     * assumed to be equal to 1.
+     * 
+     * @param v Another 4 element vector which is to be cross multiplied with 
+     * this 4 element vector.
+     * @return A 4 element vector that represents a position in 3D space that 
+     * is perpendicular to the other two spaces represented by the other two
+     * vectors.
+     */
     public Vector4D cross(Vector4D v) {
         return new Vector4D();
     }// cross()

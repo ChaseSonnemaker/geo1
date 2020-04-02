@@ -188,18 +188,23 @@ public class Vector4D {
      * 
      * This cross multiplication and the resulting vector finds position in 3D
      * space that is perpendicular to the positions represented by both this 
-     * vector and another 4 element vector. As such, the final element in the 
-     * vector representing the homogeneous coordinate will be ignored and 
-     * assumed to be equal to 1.
+     * vector and another 4 element vector using the right-hand rule. 
+     * As such, the final element in the vector representing the homogeneous 
+     * coordinate will be ignored and assumed to be equal to 1.
      * 
      * @param v Another 4 element vector which is to be cross multiplied with 
      * this 4 element vector.
      * @return A 4 element vector that represents a position in 3D space that 
      * is perpendicular to the other two spaces represented by the other two
-     * vectors.
+     * vectors. Multiplying each of the three positional elements of the return
+     * matrix will also give a perpendicular vector.
      */
     public Vector4D cross(Vector4D v) {
-        return new Vector4D();
+        double newX = this.y * v.z - this.z * v.y;
+        double newY = this.z * v.x - this.x * v.z;
+        double newZ = this.x * v.y - this.y * v.x;
+        return new Vector4D(newX, newY, newZ);
     }// cross()
+    
     
 }// Vector4D

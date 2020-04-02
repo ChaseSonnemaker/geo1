@@ -20,12 +20,10 @@ public class Vector4DTest {
     @Test
     public void testGetP0() {
         System.out.println("getP0");
-        Vector4D instance = null;
-        double expResult = 0.0;
+        Vector4D instance = new Vector4D(4, 3, 2, 1);
+        double expResult = 4;
         double result = instance.getP0();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 1E-8);
     }
 
     /**

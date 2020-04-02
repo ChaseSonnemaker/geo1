@@ -97,7 +97,8 @@ public class Vector4D {
      * other two vectors.
      */
     public double dot(Vector4D v) {
-        return 0.0;
+        return this.p0 * v.p0 + this.p1 * v.p1 + 
+                this.p2 * v.p2 + this.p3 * v.p3;
     }// dot(Vector4D v)
     
     

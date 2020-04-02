@@ -22,6 +22,14 @@ public class Vector4D {
     }// Vector4D()
     
     
+    public Vector4D(double x, double y, double z) {
+        this.p0 = x;
+        this.p1 = y;
+        this.p2 = z;
+        this.p3 = 1;
+    }// Vector4D(double, double, double)
+    
+    
     public Vector4D(double p0, double p1, double p2, double p3) {
         this.p0 = p0;
         this.p1 = p1;

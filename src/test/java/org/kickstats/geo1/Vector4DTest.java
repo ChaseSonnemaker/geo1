@@ -15,7 +15,7 @@ public class Vector4DTest {
     }
 
     /**
-     * Test of getP1 method, of class Vector4D.
+     * Test of get method, of class Vector4D.
      */
     @Test
     public void testGet() {

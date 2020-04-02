@@ -90,4 +90,43 @@ public class Matrix4D {
     }// translate(double, double, double)
     
     
+    /**
+     * Transforms this matrix into a matrix that models a rotation about the
+     * x-axis of a position in 3D space.
+     * 
+     * This position can be represented by a vector of 4 elements.
+     * 
+     * @param angle The angle (radians) of the rotation about the x-axis.
+     */
+    public final void rotateX(double angle) {
+        
+    }// rotateX(double)
+    
+    
+    /**
+     * Transforms this matrix into a matrix that models a rotation about the
+     * y-axis of a position in 3D space.
+     * 
+     * This position can be represented by a vector of 4 elements.
+     * 
+     * @param angle The angle (radians) of the rotation about the y-axis.
+     */
+    public final void rotateY(double angle) {
+        
+    }// rotateY(double)
+    
+    
+    /**
+     * Transforms this matrix into a matrix that models a rotation about the
+     * z-axis of a position in 3D space.
+     * 
+     * This position can be represented by a vector of 4 elements.
+     * 
+     * @param angle The angle (radians) of the rotation about the z-axis.
+     */
+    public final void rotateZ(double angle) {
+        
+    }// rotateZ(double)
+    
+    
 }// Matrix4D

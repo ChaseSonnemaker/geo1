@@ -67,20 +67,20 @@ public class Matrix4DTest {
     public void testMultiply_Matrix4D() {
         System.out.println("multiply");
         Matrix4D m = new Matrix4D();
-        m.set(1, 1, 1);
-        m.set(2, 2, 2);
-        m.set(3, 3, 3);
-        m.set(4, 4, 4);
+        m.set(0, 0, 1);
+        m.set(1, 1, 2);
+        m.set(2, 2, 3);
+        m.set(3, 3, 4);
         Matrix4D instance = new Matrix4D();
-        instance.set(1, 1, 1);
-        instance.set(2, 2, 2);
-        instance.set(3, 3, 3);
-        instance.set(4, 4, 4);
+        instance.set(0, 0, 1);
+        instance.set(1, 1, 2);
+        instance.set(2, 2, 3);
+        instance.set(3, 3, 4);
         Matrix4D expResult = new Matrix4D();
-        expResult.set(1, 1, 1);
-        expResult.set(2, 2, 4);
-        expResult.set(3, 3, 9);
-        expResult.set(4, 4, 16);
+        expResult.set(0, 0, 1);
+        expResult.set(1, 1, 4);
+        expResult.set(2, 2, 9);
+        expResult.set(3, 3, 16);
         Matrix4D result = instance.multiply(m);
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -97,10 +97,10 @@ public class Matrix4DTest {
         System.out.println("multiply");
         Vector4D v = new Vector4D(4, 3, 2, 1);
         Matrix4D instance = new Matrix4D();
-        instance.set(1, 1, 1);
-        instance.set(2, 2, 2);
-        instance.set(3, 3, 3);
-        instance.set(4, 4, 4);
+        instance.set(0, 0, 1);
+        instance.set(1, 1, 2);
+        instance.set(2, 2, 3);
+        instance.set(3, 3, 4);
         Vector4D expResult = new Vector4D(4, 6, 6, 4);
         Vector4D result = instance.multiply(v);
         assertEquals(expResult.getP0(), result.getP0(), 1E-8);

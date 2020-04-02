@@ -69,7 +69,7 @@ public class Vector4DTest {
     public void testToString() {
         System.out.println("toString");
         Vector4D instance = new Vector4D(4, 3, 2, 1);
-        String expResult = "(4, 3, 2, 1)";
+        String expResult = "(4.0, 3.0, 2.0, 1.0)";
         String result = instance.toString();
         assertEquals(expResult, result);
     }

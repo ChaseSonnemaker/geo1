@@ -48,10 +48,9 @@ public class Vector4DTest {
         Vector4D instance = new Vector4D(4, 3, 2, 1);
         Vector4D expResult = new Vector4D(8, 6, 4, 2);
         Vector4D result = instance.add(v);
-        assertEquals(expResult.getP0(), result.getP0(), 1E-8);
-        assertEquals(expResult.getP1(), result.getP1(), 1E-8);
-        assertEquals(expResult.getP2(), result.getP2(), 1E-8);
-        assertEquals(expResult.getP3(), result.getP3(), 1E-8);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// if
     }
 
     /**
@@ -91,10 +90,9 @@ public class Vector4DTest {
         Vector4D instance = new Vector4D(4, 3, 2, 1);
         Vector4D expResult = new Vector4D(6, 5, 4, 1);
         Vector4D result = instance.translate(x, y, z);
-        assertEquals(expResult.getP0(), result.getP0(), 1E-8);
-        assertEquals(expResult.getP1(), result.getP1(), 1E-8);
-        assertEquals(expResult.getP2(), result.getP2(), 1E-8);
-        assertEquals(expResult.getP3(), result.getP3(), 1E-8);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// if
     }
 
 //    /**
@@ -154,10 +152,9 @@ public class Vector4DTest {
         Vector4D instance = new Vector4D(4, 3, 2, 1);
         Vector4D expResult = new Vector4D(8, 6, 4, 1);
         Vector4D result = instance.scale(x, y, z);
-        assertEquals(expResult.getP0(), result.getP0(), 1E-8);
-        assertEquals(expResult.getP1(), result.getP1(), 1E-8);
-        assertEquals(expResult.getP2(), result.getP2(), 1E-8);
-        assertEquals(expResult.getP3(), result.getP3(), 1E-8);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// if
     }
     
 }

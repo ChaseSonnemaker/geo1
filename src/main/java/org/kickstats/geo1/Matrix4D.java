@@ -129,4 +129,19 @@ public class Matrix4D {
     }// rotateZ(double)
     
     
+    /**
+     * Transforms this matrix into a matrix that models a scaling of
+     * a position in 3D space. 
+     * 
+     * This position can be represented by a vector of 4 elements.
+     * 
+     * @param x The factor by which to scale in the x-direction.
+     * @param y The factor by which to scale in the x-direction.
+     * @param z The factor by which to scale in the x-direction.
+     */
+    public final void scale(double x, double y, double z) {
+        
+    }// scale(double, double, double)
+    
+    
 }// Matrix4D

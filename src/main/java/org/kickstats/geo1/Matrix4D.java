@@ -61,7 +61,16 @@ public class Matrix4D {
      * Turns this matrix into the identity matrix.
      */
     public final void identity() {
-        
+        for(int i = 0; i < 4; i++) {
+            for(int j = 0; j < 4; j++) {
+                if(i == j) {
+                   this.set(i, j, 1);
+                }// if
+                else {
+                    this.set(i, j, 0);
+                }// else
+            }// for
+        }// for
     }// identity() 
     
     

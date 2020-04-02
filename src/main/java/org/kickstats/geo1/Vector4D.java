@@ -172,7 +172,13 @@ public class Vector4D {
      * magnitude equal to 1.
      */
     public Vector4D normalize() {
-        return new Vector4D();
+        double magnitude = this.magnitude();
+        Vector4D newV = new Vector4D();
+        for(int i = 0; i < 4; i++) {
+            double newValue = this.get(i) / magnitude;
+            newV.set(i, newValue);
+        }// for
+        return newV;
     }// normalize()
     
     

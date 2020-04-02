@@ -115,13 +115,20 @@ public class Matrix4DTest {
     @Test
     public void testTranslate() {
         System.out.println("translate");
-        double x = 0.0;
-        double y = 0.0;
-        double z = 0.0;
+        double x = 2.0;
+        double y = 4.0;
+        double z = 6.0;
         Matrix4D instance = new Matrix4D();
         instance.translate(x, y, z);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Matrix4D expResult = new Matrix4D();
+        expResult.set(0, 3, 2);
+        expResult.set(1, 3, 4);
+        expResult.set(2, 3, 6);
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
+            }// for
+        }// for
     }
 
     /**

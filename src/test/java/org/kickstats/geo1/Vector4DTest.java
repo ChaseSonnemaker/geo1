@@ -80,13 +80,14 @@ public class Vector4DTest {
     @Test
     public void testAdd() {
         System.out.println("add");
-        Vector4D v = null;
-        Vector4D instance = null;
-        Vector4D expResult = null;
+        Vector4D v = new Vector4D(4, 3, 2, 1);
+        Vector4D instance = new Vector4D(4, 3, 2, 1);
+        Vector4D expResult = new Vector4D(8, 6, 4, 2);
         Vector4D result = instance.add(v);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult.getP0(), result.getP0(), 1E-8);
+        assertEquals(expResult.getP1(), result.getP1(), 1E-8);
+        assertEquals(expResult.getP2(), result.getP2(), 1E-8);
+        assertEquals(expResult.getP3(), result.getP3(), 1E-8);
     }
 
     /**

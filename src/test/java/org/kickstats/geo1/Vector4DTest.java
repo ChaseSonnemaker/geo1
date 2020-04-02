@@ -22,7 +22,7 @@ public class Vector4DTest {
         System.out.println("get");
         Vector4D instance = new Vector4D(4, 3, 2, 1);
         double expResult = 3;
-        double result = instance.get(2);
+        double result = instance.get(1);
         assertEquals(expResult, result, 1E-8);
     }
 

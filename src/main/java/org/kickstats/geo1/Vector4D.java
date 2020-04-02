@@ -22,43 +22,29 @@ public class Vector4D {
 
     
     /**
-     * Returns the value at position 0 in this vector.
+     * Returns the value at a specified position in this vector.
      * 
+     * @param position An integer from 0 to 3 representing the position of the 
+     * value in this vector.
      * @return The value of the first element in this vector.
+     * @throws java.lang.Exception indicates that a position was passed that 
+     * does not exist in this vector.
      */
-    public double getP0() {
-        return p0;
-    }// getP0()
+    public double get(int position) throws Exception {
+        if(position < 0 || position > 3) {
+            throw new Exception("Position " + position + " does not exist");                                            
+        }// if
+        switch(position) {
+            case 0:
+                return this.p0;
+            case 1:
+                return this.p1;
+            case 2:
+                return this.p2;
+        }// switch
+        return this.p3;
+    } // get(int)
 
-    
-    /**
-     * Returns the value at position 1 in this vector.
-     * 
-     * @return The value of the first element in this vector.
-     */
-    public double getP1() {
-        return p1;
-    }// getP1()
-
-    
-    /**
-     * Returns the value at position 2 in this vector.
-     * 
-     * @return The value of the first element in this vector.
-     */
-    public double getP2() {
-        return p2;
-    }// getP2()
-
-    
-    /**
-     * Returns the value at position 3 in this vector.
-     * 
-     * @return The value of the first element in this vector.
-     */
-    public double getP3() {
-        return p3;
-    }// getP3()
     
     
     /**

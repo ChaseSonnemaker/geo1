@@ -125,7 +125,7 @@ public class Vector4DTest {
         double y = 2.0;
         double z = 2.0;
         Vector4D instance = new Vector4D(4, 3, 2, 1);
-        Vector4D expResult = new Vector4D(8, 6, 4, 1);
+        Vector4D expResult = new Vector4D(6, 5, 4, 1);
         Vector4D result = instance.translate(x, y, z);
         assertEquals(expResult.getP0(), result.getP0(), 1E-8);
         assertEquals(expResult.getP1(), result.getP1(), 1E-8);

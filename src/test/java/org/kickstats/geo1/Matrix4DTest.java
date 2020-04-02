@@ -48,8 +48,16 @@ public class Matrix4DTest {
         System.out.println("identity");
         Matrix4D instance = new Matrix4D();
         instance.identity();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (i == j) {
+                    assertEquals(instance.get(i, j), 1);
+                }// if
+                else {
+                    assertEquals(instance.get(i, j), 0);
+                }// else
+            }// for
+        }// for
     }
 
     /**

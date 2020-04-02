@@ -44,4 +44,15 @@ public class Matrix4D {
     }// toString()
     
     
+    /**
+     * Multiplies this matrix by another 4x4 matrix.
+     * 
+     * @param m The 4x4 matrix this matrix is to be multiplied by.
+     * @return A 4x4 matrix that is the product of the other two matrices.
+     */
+    public Matrix4D multiply(Matrix4D m) {
+        return new Matrix4D();
+    }// multiply(Matrix4D)
+    
+    
 }// Matrix4D

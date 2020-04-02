@@ -161,8 +161,16 @@ public class Matrix4DTest {
         double angle = 0.0;
         Matrix4D instance = new Matrix4D();
         instance.rotateY(angle);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Matrix4D expResult = new Matrix4D();
+        expResult.set(0, 0, Math.cos(Math.PI));
+        expResult.set(0, 2, Math.sin(Math.PI));
+        expResult.set(2, 0, -Math.sin(Math.PI));
+        expResult.set(2, 2, Math.cos(Math.PI));
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
+            }// for
+        }// for
     }
 
     /**

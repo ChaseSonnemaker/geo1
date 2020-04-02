@@ -30,4 +30,18 @@ public class Matrix4D {
     }// get(int, int)
     
     
+    /**
+     * Returns a string representation of this matrix.
+     * 
+     * Each number in the matrix is formatted to be 8 digits so 
+     * longer numbers will not look correct.
+     * 
+     * @return A four-line string representation of this matrix.
+     */
+    @Override
+    public String toString() {
+        return "";
+    }// toString()
+    
+    
 }// Matrix4D

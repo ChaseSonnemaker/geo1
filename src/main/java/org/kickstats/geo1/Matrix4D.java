@@ -1,6 +1,9 @@
 
 package org.kickstats.geo1;
 
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+
 /**
  * Models a 4x4 matrix.
  * 
@@ -142,7 +145,13 @@ public class Matrix4D {
      * @param angle The angle (radians) of the rotation about the x-axis.
      */
     public final void rotateX(double angle) {
-        
+        double cos = cos(angle);
+        double sin = sin(angle);
+        this.identity();
+        this.set(1, 1, cos);
+        this.set(1, 2, -sin);
+        this.set(2, 1, sin);
+        this.set(2, 2, cos);
     }// rotateX(double)
     
     

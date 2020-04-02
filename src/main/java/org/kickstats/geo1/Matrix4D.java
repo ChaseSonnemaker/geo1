@@ -164,7 +164,13 @@ public class Matrix4D {
      * @param angle The angle (radians) of the rotation about the y-axis.
      */
     public final void rotateY(double angle) {
-        
+        double cos = cos(angle);
+        double sin = sin(angle);
+        this.identity();
+        this.set(0, 0, cos);
+        this.set(2, 0, -sin);
+        this.set(0, 2, sin);
+        this.set(2, 2, cos);
     }// rotateY(double)
     
     

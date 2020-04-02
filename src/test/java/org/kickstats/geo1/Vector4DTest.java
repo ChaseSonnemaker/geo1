@@ -96,13 +96,11 @@ public class Vector4DTest {
     @Test
     public void testDot() {
         System.out.println("dot");
-        Vector4D v = null;
-        Vector4D instance = null;
-        double expResult = 0.0;
+        Vector4D v = new Vector4D(4, 3, 2, 1);
+        Vector4D instance = new Vector4D(4, 3, 2, 1);
+        double expResult = 30.0;
         double result = instance.dot(v);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 1E-8);
     }
 
     /**

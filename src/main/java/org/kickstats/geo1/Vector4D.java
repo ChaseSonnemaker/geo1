@@ -108,7 +108,7 @@ public class Vector4D {
      * @return The magnitude of this vector.
      */
     public double magnitude() {
-        return 0.0;
+        return Math.sqrt(this.dot(this));
     }// magnitude()
     
     

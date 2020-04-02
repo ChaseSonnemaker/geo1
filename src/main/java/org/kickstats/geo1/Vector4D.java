@@ -8,35 +8,35 @@ package org.kickstats.geo1;
  */
 public class Vector4D {
     
-    private double p0;
-    private double p1;
-    private double p2;
-    private double p3;
+    private double x;
+    private double y;
+    private double z;
+    private double h;
     
     /**
      * Creates a 4 element vector where each element is equal to 0.
      */
     public Vector4D() {
-        this.p0 = 0;
-        this.p1 = 0;
-        this.p2 = 0;
-        this.p3 = 0;
+        this.x = 0;
+        this.y = 0;
+        this.z = 0;
+        this.h = 0;
     }// Vector4D()
     
     
     public Vector4D(double x, double y, double z) {
-        this.p0 = x;
-        this.p1 = y;
-        this.p2 = z;
-        this.p3 = 1;
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.h = 1;
     }// Vector4D(double, double, double)
     
     
-    public Vector4D(double p0, double p1, double p2, double p3) {
-        this.p0 = p0;
-        this.p1 = p1;
-        this.p2 = p2;
-        this.p3 = p3;
+    public Vector4D(double x, double y, double z, double h) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.h = h;
     }// Vector4D(double, double, double, double)
 
     
@@ -54,13 +54,13 @@ public class Vector4D {
         }// if
         switch(position) {
             case 0:
-                return this.p0;
+                return this.x;
             case 1:
-                return this.p1;
+                return this.y;
             case 2:
-                return this.p2;
+                return this.z;
         }// switch
-        return this.p3;
+        return this.h;
     } // get(int)
 
     
@@ -78,13 +78,13 @@ public class Vector4D {
         }// if
         switch(position) {
             case 0:
-                this.p0 = value;
+                this.x = value;
             case 1:
-                this.p1 = value;
+                this.y = value;
             case 2:
-                this.p2 = value;
+                this.z = value;
             case 3:
-                this.p3 = value;
+                this.h = value;
         }// switch
     }// set(int, double)
     
@@ -96,8 +96,8 @@ public class Vector4D {
      */
     @Override
     public String toString() {
-        return "(" + this.p0 + ", " + this.p1 + ", " 
-                + this.p2 + ", " + this.p3 + ")";
+        return "(" + this.x + ", " + this.y + ", " 
+                + this.z + ", " + this.h + ")";
     }// toString()
     
     
@@ -108,10 +108,10 @@ public class Vector4D {
      * @return A vector of 4 elements that is the sum of the other two vectors.
      */
     public Vector4D add(Vector4D v) {
-        double sum0 = this.p0 + v.p0;
-        double sum1 = this.p1 + v.p1;
-        double sum2 = this.p2 + v.p2;
-        double sum3 = this.p3 + v.p3;
+        double sum0 = this.x + v.x;
+        double sum1 = this.y + v.y;
+        double sum2 = this.z + v.z;
+        double sum3 = this.h + v.h;
         
         return new Vector4D(sum0, sum1, sum2, sum3);
     }// add(Vector4D)
@@ -125,8 +125,8 @@ public class Vector4D {
      * other two vectors.
      */
     public double dot(Vector4D v) {
-        return this.p0 * v.p0 + this.p1 * v.p1 + 
-                this.p2 * v.p2 + this.p3 * v.p3;
+        return this.x * v.x + this.y * v.y + 
+                this.z * v.z + this.h * v.h;
     }// dot(Vector4D v)
     
     

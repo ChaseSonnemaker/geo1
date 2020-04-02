@@ -45,6 +45,14 @@ public class Matrix4D {
     
     
     /**
+     * Turns this matrix into the identity matrix.
+     */
+    public final void identity() {
+        
+    }// identity() 
+    
+    
+    /**
      * Multiplies this matrix by another 4x4 matrix.
      * 
      * @param m The 4x4 matrix this matrix is to be multiplied by.

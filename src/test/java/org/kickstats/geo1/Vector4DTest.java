@@ -78,5 +78,21 @@ public class Vector4DTest {
         assertEquals(expResult, result, 1E-8);
     }
 
+    /**
+     * Test of normalize method, of class Vector4D.
+     */
+    @Test
+    public void testNormalize() {
+        System.out.println("normalize");
+        Vector4D instance = new Vector4D(4, 3, 2);
+        Vector4D expResult = new Vector4D(0.73029674334,
+                                          0.54772255750,
+                                          0.36514837167,
+                                          0.18257418583);
+        Vector4D result = instance.normalize();
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// if
+    }
     
 }

@@ -199,7 +199,10 @@ public class Vector4D {
      * vectors.
      */
     public Vector4D cross(Vector4D v) {
-        return new Vector4D();
+        double newX = this.y * v.z - this.z * v.y;
+        double newY = this.z * v.x - this.x * v.z;
+        double newZ = this.x * v.y - this.y * v.x;
+        return new Vector4D(newX, newY, newZ);
     }// cross()
     
 }// Vector4D

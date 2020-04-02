@@ -105,4 +105,18 @@ public class Vector4D {
     }// magnitude()
     
     
+    /**
+     * Translates a vector of 4 elements representing a line in 3D space.
+     * 
+     * @param x Distance to move in the x direction.
+     * @param y Distance to move in the y direction.
+     * @param z Distance to move in the z direction.
+     * @return A vector of 4 elements representing the new position of the 
+     * translated original vector. 
+     */
+    public Vector4D translate(double x, double y, double z) {
+        return new Vector4D(0, 0, 0, 0);
+    }// translate(double, double, double)
+    
+    
 }// Vector4D

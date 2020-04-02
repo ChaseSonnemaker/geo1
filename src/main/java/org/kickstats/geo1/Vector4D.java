@@ -8,10 +8,10 @@ package org.kickstats.geo1;
  */
 public class Vector4D {
     
-    private final double p0;
-    private final double p1;
-    private final double p2;
-    private final double p3;
+    private double p0;
+    private double p1;
+    private double p2;
+    private double p3;
     
     public Vector4D(double p0, double p1, double p2, double p3) {
         this.p0 = p0;

@@ -13,6 +13,15 @@ public class Vector4D {
     private double p2;
     private double p3;
     
+    
+    public Vector4D() {
+        this.p0 = 0;
+        this.p1 = 0;
+        this.p2 = 0;
+        this.p3 = 0;
+    }// Vector4D()
+    
+    
     public Vector4D(double p0, double p1, double p2, double p3) {
         this.p0 = p0;
         this.p1 = p1;

@@ -93,7 +93,15 @@ public class Matrix4D {
      * a vector.
      */
     public Vector4D multiply(Vector4D v) {
-        return new Vector4D(0, 0, 0, 0);
+        Vector4D newV = new Vector4D(0, 0, 0, 0);
+        for(int i = 0; i < 4; i++) {
+            double sum = 0;
+            for(int j = 0; j < 4; j++) {
+                sum = sum + this.elements[i][j] * v.get(j);
+            }// for
+            newV.set(i, sum);
+        }// for
+        return newV;
     }// multiply(Vector4D)
     
     

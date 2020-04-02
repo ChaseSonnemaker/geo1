@@ -46,6 +46,31 @@ public class Vector4D {
     } // get(int)
 
     
+     /**
+     * Changes the value at a specified position in this vector.
+     * 
+     * @param position An integer from 0 to 3 representing the position of the 
+     * change in this vector.
+     * @param value The new number that the position will be changed to.
+     * @throws java.lang.Exception indicates that a position was passed that 
+     * does not exist in this vector.
+     */
+    public void set(int position, double value) throws Exception {
+        if(position < 0 || position > 3) {
+            throw new Exception("Position " + position + " does not exist");                                            
+        }// if
+        switch(position) {
+            case 0:
+                this.p0 = value;
+            case 1:
+                this.p1 = value;
+            case 2:
+                this.p2 = value;
+            case 3:
+                this.p3 = value;
+        }// switch
+    }// set(int, double)
+    
     
     /**
      * Returns a string representation of this vector.

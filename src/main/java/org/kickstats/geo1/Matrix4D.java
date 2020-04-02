@@ -79,7 +79,7 @@ public class Matrix4D {
      * Transforms this matrix into a matrix that models a translation of a
      * position in 3D space.
      * 
-     * This position is can be represented by a vector of 4 elements. 
+     * This position can be represented by a vector of 4 elements. 
      * 
      * @param x The distance the vector will move in the x-direction.
      * @param y The distance the vector will move in the y-direction.

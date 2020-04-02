@@ -20,7 +20,7 @@ public class Vector4DTest {
     @Test
     public void testGet() {
         System.out.println("get");
-        Vector4D instance = new Vector4D(4, 3, 2, 1);
+        Vector4D instance = new Vector4D(4, 3, 2);
         double expResult = 3;
         double result = instance.get(1);
         assertEquals(expResult, result, 1E-8);
@@ -32,7 +32,7 @@ public class Vector4DTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Vector4D instance = new Vector4D(4, 3, 2, 1);
+        Vector4D instance = new Vector4D(4, 3, 2);
         String expResult = "(4.0, 3.0, 2.0, 1.0)";
         String result = instance.toString();
         assertEquals(expResult, result);
@@ -59,8 +59,8 @@ public class Vector4DTest {
     @Test
     public void testDot() {
         System.out.println("dot");
-        Vector4D v = new Vector4D(4, 3, 2, 1);
-        Vector4D instance = new Vector4D(4, 3, 2, 1);
+        Vector4D v = new Vector4D(4, 3, 2);
+        Vector4D instance = new Vector4D(4, 3, 2);
         double expResult = 30.0;
         double result = instance.dot(v);
         assertEquals(expResult, result, 1E-8);
@@ -72,7 +72,7 @@ public class Vector4DTest {
     @Test
     public void testMagnitude() {
         System.out.println("magnitude");
-        Vector4D instance = new Vector4D(4, 3, 2, 1);
+        Vector4D instance = new Vector4D(4, 3, 2);
         double expResult = 5.47722557505;
         double result = instance.magnitude();
         assertEquals(expResult, result, 1E-8);

@@ -103,7 +103,7 @@ public class Matrix4D {
      * a vector.
      */
     public Vector4D multiply(Vector4D v) {
-        Vector4D newV = new Vector4D(0, 0, 0, 0);
+        Vector4D newV = new Vector4D();
         for(int i = 0; i < 4; i++) {
             double sum = 0;
             for(int j = 0; j < 4; j++) {

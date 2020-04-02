@@ -27,12 +27,11 @@ public class Vector4D {
      * @param position An integer from 0 to 3 representing the position of the 
      * value in this vector.
      * @return The value of the first element in this vector.
-     * @throws java.lang.Exception indicates that a position was passed that 
-     * does not exist in this vector.
      */
-    public double get(int position) throws Exception {
+    public double get(int position) {
         if(position < 0 || position > 3) {
-            throw new Exception("Position " + position + " does not exist");                                            
+            throw new ArithmeticException("Position " + position 
+                                            + " does not exist");                                            
         }// if
         switch(position) {
             case 0:
@@ -52,12 +51,11 @@ public class Vector4D {
      * @param position An integer from 0 to 3 representing the position of the 
      * change in this vector.
      * @param value The new number that the position will be changed to.
-     * @throws java.lang.Exception indicates that a position was passed that 
-     * does not exist in this vector.
      */
-    public void set(int position, double value) throws Exception {
+    public void set(int position, double value) {
         if(position < 0 || position > 3) {
-            throw new Exception("Position " + position + " does not exist");                                            
+            throw new ArithmeticException("Position " + position 
+                                                + " does not exist");                                            
         }// if
         switch(position) {
             case 0:

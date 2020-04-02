@@ -31,9 +31,9 @@ public class Vector4D {
      * Designed to model a position in 3D space so the final fourth element 
      * representing the homogeneous coordinate is set to 1. 
      * 
-     * @param x A position on the x-axis in 3D space.
-     * @param y A position on the y-axis in 3D space.
-     * @param z A position on the z-axis in 3D space.
+     * @param x An x-axis coordinate in 3D space.
+     * @param y A y-axis coordinate in 3D space.
+     * @param z A z-axis coordinate in 3D space.
      */
     public Vector4D(double x, double y, double z) {
         this.x = x;

@@ -103,10 +103,9 @@ public class Matrix4DTest {
         instance.set(3, 3, 4);
         Vector4D expResult = new Vector4D(4, 6, 6, 4);
         Vector4D result = instance.multiply(v);
-        assertEquals(expResult.getP0(), result.getP0(), 1E-8);
-        assertEquals(expResult.getP1(), result.getP1(), 1E-8);
-        assertEquals(expResult.getP2(), result.getP2(), 1E-8);
-        assertEquals(expResult.getP3(), result.getP3(), 1E-8);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// if
     }
 
     /**

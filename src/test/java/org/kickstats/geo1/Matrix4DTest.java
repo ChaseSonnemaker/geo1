@@ -158,7 +158,7 @@ public class Matrix4DTest {
     @Test
     public void testRotateY() {
         System.out.println("rotateY");
-        double angle = 0.0;
+        double angle = Math.PI;
         Matrix4D instance = new Matrix4D();
         instance.rotateY(angle);
         Matrix4D expResult = new Matrix4D();

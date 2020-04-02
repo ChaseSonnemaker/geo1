@@ -108,7 +108,10 @@ public class Matrix4D {
      * @param z The distance the vector will move in the z-direction.
      */
     public final void translate(double x, double y, double z) {
-        
+        this.identity();
+        this.set(0, 3, x);
+        this.set(1, 3, y);
+        this.set(2, 3, z);
     }// translate(double, double, double)
     
     

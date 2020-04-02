@@ -81,7 +81,17 @@ public class Matrix4D {
      * @return A 4x4 matrix that is the product of the other two matrices.
      */
     public Matrix4D multiply(Matrix4D m) {
-        return new Matrix4D();
+        Matrix4D newM = new Matrix4D();
+        for(int i = 0; i < 4; i++) {
+            for(int j = 0; j < 4; j++) {
+                double sum = 0;
+                for(int k = 0; k < 4; k++) {
+                sum = sum + this.elements[i][k] * m.elements[k][j];
+                }//for
+            newM.set(i, j, sum);
+            }// for
+        }// for
+        return newM;
     }// multiply(Matrix4D)
     
     

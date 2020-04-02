@@ -165,7 +165,10 @@ public class Matrix4D {
      * @param z The factor by which to scale in the x-direction.
      */
     public final void scale(double x, double y, double z) {
-        
+        this.identity();
+        this.set(0, 0, x);
+        this.set(1, 1, y);
+        this.set(2, 2, z);
     }// scale(double, double, double)
     
     

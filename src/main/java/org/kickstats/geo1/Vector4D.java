@@ -106,7 +106,7 @@ public class Vector4D {
     
     
     /**
-     * Translates this vector representing a line in 3D space.
+     * Translates this vector representing a position in 3D space.
      * 
      * @param x Distance to move in the x direction.
      * @param y Distance to move in the y direction.
@@ -120,7 +120,7 @@ public class Vector4D {
     
     
     /**
-     * Rotates this vector representing a line in 3D space about the x-axis.
+     * Rotates this vector representing a postion in 3D space about the x-axis.
      * 
      * @param angle The angle (radians) of rotation about the x-axis.
      * @return A vector of 4 elements representing the new position of the 
@@ -132,7 +132,7 @@ public class Vector4D {
     
     
     /**
-     * Rotates this vector representing a line in 3D space about the y-axis.
+     * Rotates this vector representing a position in 3D space about the y-axis.
      * 
      * @param angle The angle (radians) of rotation about the y-axis.
      * @return A vector of 4 elements representing the new position of the 
@@ -144,7 +144,7 @@ public class Vector4D {
     
     
     /**
-     * Rotates this vector representing a line in 3D space about the z-axis.
+     * Rotates this vector representing a position in 3D space about the z-axis.
      * 
      * @param angle The angle (radians) of rotation about the z-axis.
      * @return A vector of 4 elements representing the new position of the 
@@ -156,7 +156,7 @@ public class Vector4D {
     
     
     /**
-     * Scales this vector representing a line in 3D space.
+     * Scales this vector representing a position in 3D space.
      * 
      * @param x The factor by which to scale the x direction.
      * @param y The factor by which to scale the y direction.

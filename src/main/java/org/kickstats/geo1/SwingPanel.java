@@ -8,19 +8,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.CubicCurve2D;
+import java.awt.geom.QuadCurve2D;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class SwingPanel extends JPanel implements ActionListener {
 
-    private double ctr1x1 = 0.0;
-    private double ctr1x2 = 0.0;
+    private double ctr1x1 = -0.5;
     private double ctr1y1 = 0.5;
+    private double ctr1x2 = 0.5;
     private double ctr1y2 = -0.5;
-    private double x1 = 0.5;
-    private double x2 = -0.5;
+    private double x1 = 1;
+    private double x2 = -1;
     private double y1 = 0.0;
     private double y2 = 0.0;
+    private double factorChange = 0.3;
     
     private Color color = Color.red;
 
@@ -59,12 +61,14 @@ public class SwingPanel extends JPanel implements ActionListener {
         // something else
         // Make sure that all geometry fits in a square
         // whose corners are (-1, -1) and (+1, +1)
-        CubicCurve2D.Double circle = new CubicCurve2D.Double(ctr1x1, ctr1x2,
-        ctr1y1, ctr1y2, x1, x2, y1, y2);
+        ctr1y1 = ctr1y1 + factorChange;
+        ctr1y2 = ctr1y2 - factorChange;
+        CubicCurve2D.Double curve = new CubicCurve2D.Double(x1, y1, ctr1x1,
+        ctr1y1, ctr1x2, ctr1y2, x2, y2);
 
-        Shape shape = transform.createTransformedShape(circle);
+        Shape shape = transform.createTransformedShape(curve);
         g2D.setColor(this.getColor());
-        g2D.fill(shape);
+        g2D.draw(shape);
     } // paintComponent( Graphics )
 
     @Override
@@ -76,13 +80,12 @@ public class SwingPanel extends JPanel implements ActionListener {
         // Rotate? (There's an AffineTransform for that, too.)
         // Change color?
 
-        if (this.centerY > 0.5) {
-            this.deltaY = -this.deltaY;
+        if (this.ctr1y1 > 2) {
+            this.factorChange = -this.factorChange;
         } // if
-        else if (this.centerY < -0.5) {
-            this.deltaY = -this.deltaY;
+        else if (this.ctr1y1 < -2) {
+            this.factorChange = -this.factorChange;
         } // else if
-        this.centerY += this.deltaY;
 
         this.repaint();
     } // actionPerformed( ActionEvent )

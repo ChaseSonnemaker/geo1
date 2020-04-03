@@ -62,7 +62,7 @@ public class VectorTest {
         Vector v = new Vector(4, 3, 2);
         Vector instance = new Vector(8, 6, 4);
         Vector expResult = new Vector(4, 3, 2);
-        Vector result = instance.add(v);
+        Vector result = instance.subtract(v);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
         }// if

@@ -158,7 +158,10 @@ public class Vector {
      * position is set to 1.
      */
     public Vector subtract(Vector v) {
-        return new Vector();
+        double diffX = this.x - v.x;
+        double diffY = this.y = v.y;
+        double diffZ = this.z - v.z;
+        return new Vector(diffX, diffY, diffZ);
     }// subtract(Vector)
     
     

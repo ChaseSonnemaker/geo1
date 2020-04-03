@@ -59,10 +59,8 @@ public class SwingPanel extends JPanel implements ActionListener {
         // something else
         // Make sure that all geometry fits in a square
         // whose corners are (-1, -1) and (+1, +1)
-        double d = 2 * this.radius;
-        double ulx = this.centerX - this.radius;
-        double uly = this.centerY - this.radius;
-        Ellipse2D.Double circle = new Ellipse2D.Double(ulx, uly, d, d);
+        CubicCurve2D.Double circle = new CubicCurve2D.Double(ctr1x1, ctr1x2,
+        ctr1y1, ctr1y2, x1, x2, y1, y2);
 
         Shape shape = transform.createTransformedShape(circle);
         g2D.setColor(this.getColor());

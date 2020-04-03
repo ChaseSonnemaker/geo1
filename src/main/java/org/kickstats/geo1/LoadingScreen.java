@@ -3,17 +3,21 @@ package org.kickstats.geo1;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
  * Creates a loading screen with the SCP symbol on it.
  * 
  * @author Chase Sonnemaker using code from Leon Tabak.
  */
-public class LoadingScreen extends JFrame implements ActionListener {
+public class LoadingScreen extends JFrame implements ActionListener{
     
     private final int FRAME_WIDTH = 800;
     private final int FRAME_HEIGHT = 800;
@@ -24,6 +28,7 @@ public class LoadingScreen extends JFrame implements ActionListener {
     private final String SCP = "SCP";
             
     private final List<String> themes = new ArrayList<>();
+    private final Symbol panel;
     
     
     public LoadingScreen() {
@@ -32,7 +37,47 @@ public class LoadingScreen extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         Container pane = this.getContentPane();
-        this.panel = new Contained();
+        this.panel = new Symbol();
+        pane.add(panel);
+        this.panel.setBackground(Color.BLACK);
+        
+        JMenuBar menuBar = new JMenuBar();
+        this.setJMenuBar(menuBar);
+
+        JMenu themeMenu = new JMenu("Themes");
+        menuBar.add(themeMenu);
+        
+        JMenuItem item1 = new JMenuItem(CONTAINED);
+        item1.addActionListener(this);
+        item1.setActionCommand(CONTAINED);
+        themeMenu.add(item1);
+        
+        JMenuItem item2 = new JMenuItem(BREAKOUT);
+        item2.addActionListener(this);
+        item2.setActionCommand(BREAKOUT);
+        themeMenu.add(item2);
+        
+        JMenuItem item3 = new JMenuItem(DRAGONS);
+        item3.addActionListener(this);
+        item3.setActionCommand(DRAGONS);
+        themeMenu.add(item3);
+        
+        JMenuItem item4 = new JMenuItem(SCP);
+        item4.addActionListener(this);
+        item4.setActionCommand(SCP);
+        themeMenu.add(item4);
+        
+        this.setVisible(true);
     }// LoadingScreen()
+    
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        String actionCommand = event.getActionCommand();
+            
+    } // actionPerformed( ActionEvent ) 
+    
+    public static void main(String[] args) {
+        LoadingScreen ls = new LoadingScreen();
+    } // main( String [] )
     
 }// LoadingScreen()

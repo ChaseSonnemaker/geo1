@@ -26,18 +26,18 @@ public class Symbol extends JPanel implements ActionListener {
     private final double ARROW_ANGLE = (2 * Math.PI) / 3;
     
     double centerX = 0;
-    double centerY = 0.4;
+    double centerY = -0.4;
     double radius = 0.4;
     double origX = 0;
-    double origY = 0.9;
+    double origY = -0.9;
     double origX2 = 0;
-    double origY2 = 0.5;
+    double origY2 = -0.6;
     double arpX = 0;
-    double arpY = 0.35;
-    double arX = 0.25;
-    double arY = 0.5;
-    double arX2 = -0.25;
-    double arY2 = 0.5;
+    double arpY = -0.45;
+    double arX = -0.075;
+    double arY = -0.6;
+    double arX2 = 0.075;
+    double arY2 = -0.6;
     
     private Color color = Color.white;
      
@@ -66,7 +66,7 @@ public class Symbol extends JPanel implements ActionListener {
         transform.concatenate(translation);
         
         g2D.setColor(this.getColor());
-        BasicStroke stroke = new BasicStroke(10f);
+        BasicStroke stroke = new BasicStroke(20f);
         g2D.setStroke(stroke);
         
         //First Circle
@@ -90,14 +90,16 @@ public class Symbol extends JPanel implements ActionListener {
         
         //Arrow2
         AffineTransform transform2 = new AffineTransform();
-        AffineTransform rotate = new AffineTransform();
-        rotate.setToRotation(ARROW_ANGLE, centerX, centerY);
-        transform2.concatenate(rotate);
+        AffineTransform rotate2 = new AffineTransform();
+        rotate2.setToRotation(ARROW_ANGLE, centerX, centerY);
+        
         transform2.concatenate(scaling);
         transform2.concatenate(translation);
+        transform2.concatenate(rotate2);
+
         
         Line2D.Double line2 = new Line2D.Double(origX, origY, origX2, origY2);
-        Shape arrow2 = transform.createTransformedShape(line2);
+        Shape arrow2 = transform2.createTransformedShape(line2);
         Path2D.Double arrowhead2 = new Path2D.Double();
         arrowhead2.moveTo(arpX, arpY);
         arrowhead2.lineTo(arX, arY);
@@ -109,14 +111,15 @@ public class Symbol extends JPanel implements ActionListener {
         
         //Arrow3
         AffineTransform transform3 = new AffineTransform();
-        AffineTransform rotate2 = new AffineTransform();
-        rotate2.setToRotation(-ARROW_ANGLE, centerX, centerY);
-        transform3.concatenate(rotate);
+        AffineTransform rotate3 = new AffineTransform();
+        rotate3.setToRotation(-ARROW_ANGLE, centerX, centerY);
+        
         transform3.concatenate(scaling);
         transform3.concatenate(translation);
+        transform3.concatenate(rotate3);
         
         Line2D.Double line3 = new Line2D.Double(origX, origY, origX2, origY2);
-        Shape arrow3 = transform.createTransformedShape(line3);
+        Shape arrow3 = transform3.createTransformedShape(line3);
         Path2D.Double arrowhead3 = new Path2D.Double();
         arrowhead3.moveTo(arpX, arpY);
         arrowhead3.lineTo(arX, arY);

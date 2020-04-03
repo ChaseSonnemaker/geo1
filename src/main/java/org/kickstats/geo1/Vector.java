@@ -155,9 +155,9 @@ public class Vector {
     
     
     /**
-     * Returns the magnitude of this vector.
+     * Returns the magnitude of this vector using the x, y, and z positions.
      * 
-     * @return The magnitude of this vector.
+     * @return The magnitude of this vector using the x, y, and z positions.
      */
     public double magnitude() {
         return Math.sqrt(this.dot(this));

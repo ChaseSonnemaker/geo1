@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.Shape;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
@@ -123,7 +124,14 @@ public class Symbol extends JPanel implements ActionListener {
         Shape arrowFin3 = transform3.createTransformedShape(arrowhead3);
         g2D.draw(arrow3);
         g2D.fill(arrowFin3);
-
-    } // paintComponent( Graphics )
     
+    } // paintComponent( Graphics )
+
+    
+    @Override
+    public void actionPerformed(ActionEvent event) {
+
+        this.repaint();
+    } // actionPerformed( ActionEvent )
+
 }// Symbol

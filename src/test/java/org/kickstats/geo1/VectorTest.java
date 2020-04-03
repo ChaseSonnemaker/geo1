@@ -44,7 +44,7 @@ public class VectorTest {
     @Test
     public void testAdd() {
         System.out.println("add");
-        Vector v = new Vector(4, 3, 2, 1);
+        Vector v = new Vector(4, 3, 2);
         Vector instance = new Vector(4, 3, 2);
         Vector expResult = new Vector(8, 6, 4);
         Vector result = instance.add(v);

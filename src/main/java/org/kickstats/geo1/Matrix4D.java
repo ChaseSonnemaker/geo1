@@ -49,17 +49,23 @@ public class Matrix4D {
     /**
      * Returns a single row of this matrix in string representation.
      * 
+     * Strings are formatted to show 2 decimals and be a maximum of 6 digits.
+     * Using matrices with numbers larger than six digits with this 
+     * method is not recommended.
+     * 
      * @param row The index of the row to be converted into a string.
-     * @return A string representation of the row.
+     * @return A formatted string representation of the row.
      */
     public String toStringRow(int row) {
         StringBuilder stringbuild = new StringBuilder();
-        stringbuild.append("[");
+        stringbuild.append("[ ");
         for(int i = 0; i < 3; i++) {
-            String string = String.format("|%-6e|, ", elements[row][i]);
+            String number = String.format("%2.2f", elements[row][i]);
+            String string = String.format("%6.6s, ", number);
             stringbuild.append(string);
         }// for
-        String string = String.format("|%-6e|]", elements[row][3]);
+        String number = String.format("%2.2f", elements[row][3]);
+        String string = String.format("%6.6s]", number);
         stringbuild.append(string);
         return stringbuild.toString();
     }// toStringRow(int)

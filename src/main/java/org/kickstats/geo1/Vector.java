@@ -74,7 +74,8 @@ public class Vector {
      * 
      * @param position An integer from 0 to 3 representing the position of the 
      * value in this vector.
-     * @return The value of the first element in this vector.
+     * @return The value of the element at the specified 
+     * position in this vector.
      */
     public double get(int position) {
         if(position < 0 || position > 3) {

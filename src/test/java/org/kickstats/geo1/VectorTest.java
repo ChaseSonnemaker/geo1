@@ -59,8 +59,8 @@ public class VectorTest {
     @Test
     public void testSubtract() {
         System.out.println("subtract");
-        Vector v = new Vector(8, 6, 4);
-        Vector instance = new Vector(4, 3, 2);
+        Vector v = new Vector(4, 3, 2);
+        Vector instance = new Vector(8, 6, 4);
         Vector expResult = new Vector(4, 3, 2);
         Vector result = instance.add(v);
         for(int i = 0; i < 4; i++) {

@@ -54,6 +54,21 @@ public class VectorTest {
     }
 
     /**
+     * Test of subtract method, of class Vector.
+     */
+    @Test
+    public void testSubtract() {
+        System.out.println("subtract");
+        Vector v = new Vector(8, 6, 4);
+        Vector instance = new Vector(4, 3, 2);
+        Vector expResult = new Vector(4, 3, 2);
+        Vector result = instance.add(v);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// if
+    }
+    
+    /**
      * Test of dot method, of class Vector.
      */
     @Test

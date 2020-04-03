@@ -7,8 +7,7 @@ import java.awt.Shape;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Rectangle2D;
+import java.awt.geom.CubicCurve2D;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 

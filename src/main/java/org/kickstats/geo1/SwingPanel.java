@@ -29,30 +29,6 @@ public class SwingPanel extends JPanel implements ActionListener {
         timer.start();
     } // SwingPanel()
 
-    public double getCenterX() {
-        return this.centerX;
-    } // getCenterX()
-
-    public void setCenterX(double x) {
-        this.centerX = x;
-    } // setCenterX( double )
-
-    public double getCenterY() {
-        return this.centerY;
-    } // getCenterY()
-
-    public void setCenterY(double y) {
-        this.centerY = y;
-    } // setCenterY( double )
-
-    public double getRadius() {
-        return this.radius;
-    } // getRadius()
-
-    public void setRadius(double r) {
-        this.radius = r;
-    } // setRadius( double )
-
     public Color getColor() {
         return this.color;
     } // getColor()

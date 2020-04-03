@@ -24,13 +24,13 @@ public class SwingPanel extends JPanel implements ActionListener {
     private double ctr1y2 = 0;
     private double ctr1y3 = 0;
     private double ctr1y4 = 0;
-    private double x1 = 0.8;
-    private double x2 = -0.8;
-    private double y1 = 0.8;
-    private double y2 = -0.8;
-    private double factorChange = 0.1;
+    private double x1 = 0.4;
+    private double x2 = -0.4;
+    private double y1 = 0.4;
+    private double y2 = -0.4;
+    private double factorChange = 0.05;
     private double angle = 0;
-    private double max = 1.6;
+    private double max = 0.8;
     
     private Color color = Color.red;
 

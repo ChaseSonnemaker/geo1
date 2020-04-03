@@ -142,15 +142,15 @@ public class Vector {
     
     
     /**
-     * Dot multiplies this vector with another vector of 4 elements.
+     * Dot multiplies the x, y, and z positions in this vector 
+     * with the x, y, and z positions of another vector of 4 elements.
      * 
      * @param v A vector of 4 elements to be multiplied with this vector.
      * @return A number that is the product of the dot multiplication of the 
-     * other two vectors.
+     * x, y, and z positions other two vectors.
      */
     public double dot(Vector v) {
-        return this.x * v.x + this.y * v.y + 
-                this.z * v.z + this.h * v.h;
+        return this.x * v.x + this.y * v.y + this.z * v.z;
     }// dot(Vector v)
     
     

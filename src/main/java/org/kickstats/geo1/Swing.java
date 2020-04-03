@@ -15,15 +15,17 @@ import javax.swing.JPanel;
 
 public class Swing extends JFrame implements ActionListener {
 
-    private final int FRAME_WIDTH = 512;
-    private final int FRAME_HEIGHT = 512;
+    private final int FRAME_WIDTH = 800;
+    private final int FRAME_HEIGHT = 800;
     private final String FRAME_TITLE = "Swing";
     private final int NUMBER_OF_COLORS = 8;
     private final String BG_COLOR = "Background Color";
     private final String FG_COLOR = "Foreground Color";
+    private final String SIZESTRING = "Size";
 
     private final List<Color> bgPalette = new ArrayList<>();
     private final List<Color> fgPalette = new ArrayList<>();
+    private final List<Double> sizes = new ArrayList<>();
     private final SwingPanel panel;
 
     public Swing() {
@@ -54,6 +56,11 @@ public class Swing extends JFrame implements ActionListener {
         } // for
         this.panel.setColor(fgPalette.get(0));
         
+        for(int i = 0; i < NUMBER_OF_COLORS; i++) {
+            sizes.add(i * 0.4);
+        }
+        this.panel.setMaximum(sizes.get(5));
+        
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
 
@@ -78,6 +85,17 @@ public class Swing extends JFrame implements ActionListener {
             item.setActionCommand(label);
             fgColorMenu.add(item);
         } // for
+        
+        JMenu size = new JMenu("Size");
+        menuBar.add(size);
+        
+        for(int i = 0; i < NUMBER_OF_COLORS; i++) {
+            String label = SIZESTRING + " " + (i);
+            JMenuItem item = new JMenuItem(label);
+            item.addActionListener(this);
+            item.setActionCommand(label);
+            size.add(item);
+        }
 
         this.setVisible(true);
     } // Swing()
@@ -98,6 +116,13 @@ public class Swing extends JFrame implements ActionListener {
             int index = Integer.parseInt(suffix);
             this.panel.setColor(fgPalette.get(index));
         } // if
+        else if(actionCommand.indexOf(SIZESTRING) >= 0) {
+            int i = SIZESTRING.length();
+            String suffix = actionCommand.substring(i).trim();
+            int index = Integer.parseInt(suffix);
+            this.panel.setMaximum(sizes.get(index));
+        }// else if
+            
     } // actionPerformed( ActionEvent )
 
     public static void main(String[] args) {

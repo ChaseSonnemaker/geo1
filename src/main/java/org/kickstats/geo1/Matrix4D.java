@@ -60,11 +60,11 @@ public class Matrix4D {
         StringBuilder stringbuild = new StringBuilder();
         stringbuild.append("[ ");
         for(int i = 0; i < 3; i++) {
-            String number = String.format("%2.2f", elements[row][i]);
+            String number = String.format("%2.2f", this.elements[row][i]);
             String string = String.format("%6.6s, ", number);
             stringbuild.append(string);
         }// for
-        String number = String.format("%2.2f", elements[row][3]);
+        String number = String.format("%2.2f", this.elements[row][3]);
         String string = String.format("%6.6s]", number);
         stringbuild.append(string);
         return stringbuild.toString();

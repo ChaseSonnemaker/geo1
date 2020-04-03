@@ -131,7 +131,8 @@ public class Vector {
      * 
      * @param v A vector of 4 elements to be added to this vector.
      * @return A vector of 4 elements that is the sum of the other two vectors 
-     * at the x, y and z positions.
+     * at the x, y and z positions. The homogeneous coordinate position is 
+     * set equal to 1.
      */
     public Vector add(Vector v) {
         double sumX = this.x + v.x;

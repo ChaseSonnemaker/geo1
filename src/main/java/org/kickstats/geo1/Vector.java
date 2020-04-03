@@ -169,7 +169,8 @@ public class Vector {
      * a magnitude (length) equal to 1 according to the x, y, and z positions.
      * 
      * @return A new vector with the same direction as this vector but a
-     * magnitude equal to 1 according to the x, y, and z positions.
+     * magnitude equal to 1 according to the x, y, and z positions. The 
+     * homogeneous coordinate position is set to 1.
      */
     public Vector normalize() {
         double magnitude = this.magnitude();
@@ -178,6 +179,7 @@ public class Vector {
             double newValue = this.get(i) / magnitude;
             newV.set(i, newValue);
         }// for
+        newV.set(3, 1);
         return newV;
     }// normalize()
     

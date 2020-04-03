@@ -86,13 +86,12 @@ public class MatrixTest {
     @Test
     public void testMultiply_Vector4D() {
         System.out.println("multiply");
-        Vector v = new Vector(4, 3, 2, 1);
+        Vector v = new Vector(4, 3, 2);
         Matrix instance = new Matrix();
-        instance.set(0, 0, 1);
-        instance.set(1, 1, 2);
-        instance.set(2, 2, 3);
-        instance.set(3, 3, 4);
-        Vector expResult = new Vector(4, 6, 6, 4);
+        instance.set(0, 0, 4);
+        instance.set(1, 1, 3);
+        instance.set(2, 2, 2);
+        Vector expResult = new Vector(16, 9, 4);
         Vector result = instance.multiply(v);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);

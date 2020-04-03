@@ -82,7 +82,12 @@ public class Matrix4D {
      */
     @Override
     public String toString() {
-        return "";
+        StringBuilder stringRep = new StringBuilder();
+        for(int i = 0; i < 4; i++) {
+            stringRep.append("/n");
+            stringRep.append(this.toStringRow(i));
+        }// for
+        return stringRep.toString();
     }// toString()
     
     

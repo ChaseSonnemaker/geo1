@@ -57,7 +57,7 @@ public class Swing extends JFrame implements ActionListener {
         this.panel.setColor(fgPalette.get(0));
         
         for(int i = 0; i < NUMBER_OF_COLORS; i++) {
-            sizes.add(i * 0.4);
+            sizes.add(i * 0.2);
         }
         this.panel.setMaximum(sizes.get(5));
         

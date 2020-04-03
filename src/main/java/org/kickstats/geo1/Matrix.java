@@ -9,16 +9,16 @@ import static java.lang.Math.sin;
  * 
  * @author Chase Sonnemaker
  */
-public class Matrix4D {
+public class Matrix {
     
     double[][] elements = new double[4][4];
     
     /**
      * Creates a 4x4 identity matrix.
      */
-    public Matrix4D() {
+    public Matrix() {
         this.identity();
-    }// Matrix4D
+    }// Matrix
     
     
     /**
@@ -114,8 +114,8 @@ public class Matrix4D {
      * @param m The 4x4 matrix this matrix is to be multiplied by.
      * @return A 4x4 matrix that is the product of the other two matrices.
      */
-    public Matrix4D multiply(Matrix4D m) {
-        Matrix4D newM = new Matrix4D();
+    public Matrix multiply(Matrix m) {
+        Matrix newM = new Matrix();
         for(int i = 0; i < 4; i++) {
             for(int j = 0; j < 4; j++) {
                 double sum = 0;
@@ -126,7 +126,7 @@ public class Matrix4D {
             }// for
         }// for
         return newM;
-    }// multiply(Matrix4D)
+    }// multiply(Matrix)
     
     
     /**
@@ -243,9 +243,9 @@ public class Matrix4D {
     
     
     public static void main(String[] args) {
-        Matrix4D newM = new Matrix4D();
+        Matrix newM = new Matrix();
         System.out.println(newM);
     }// main(String[])
  
     
-}// Matrix4D
+}// Matrix

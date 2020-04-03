@@ -230,4 +230,10 @@ public class Matrix4D {
     }// scale(double, double, double)
     
     
+    public static void main(String[] args) {
+        Matrix4D newM = new Matrix4D();
+        System.out.println(newM.toStringRow(0));
+    }// main(String[])
+ 
+    
 }// Matrix4D

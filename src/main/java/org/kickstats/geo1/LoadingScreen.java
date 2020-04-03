@@ -2,6 +2,7 @@
 package org.kickstats.geo1;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,4 +24,15 @@ public class LoadingScreen extends JFrame implements ActionListener {
     private final String SCP = "SCP";
             
     private final List<String> themes = new ArrayList<>();
+    
+    
+    public LoadingScreen() {
+        this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        this.setTitle(FRAME_TITLE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        Container pane = this.getContentPane();
+        this.panel = new LSPanel();
+    }// LoadingScreen()
+    
 }// LoadingScreen()

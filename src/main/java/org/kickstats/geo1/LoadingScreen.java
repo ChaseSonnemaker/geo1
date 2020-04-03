@@ -32,7 +32,7 @@ public class LoadingScreen extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         Container pane = this.getContentPane();
-        this.panel = new LSPanel();
+        this.panel = new Contained();
     }// LoadingScreen()
     
 }// LoadingScreen()

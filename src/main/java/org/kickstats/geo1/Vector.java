@@ -166,15 +166,15 @@ public class Vector {
     
     /**
      * Normalizes this vector such that it has the same direction but has
-     * a magnitude (length) equal to 1.
+     * a magnitude (length) equal to 1 according to the x, y, and z positions.
      * 
      * @return A new vector with the same direction as this vector but a
-     * magnitude equal to 1.
+     * magnitude equal to 1 according to the x, y, and z positions.
      */
     public Vector normalize() {
         double magnitude = this.magnitude();
         Vector newV = new Vector();
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 3; i++) {
             double newValue = this.get(i) / magnitude;
             newV.set(i, newValue);
         }// for

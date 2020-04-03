@@ -84,7 +84,7 @@ public class Matrix4D {
     public String toString() {
         StringBuilder stringRep = new StringBuilder();
         for(int i = 0; i < 4; i++) {
-            stringRep.append("/n");
+            stringRep.append("\n");
             stringRep.append(this.toStringRow(i));
         }// for
         return stringRep.toString();
@@ -244,7 +244,7 @@ public class Matrix4D {
     
     public static void main(String[] args) {
         Matrix4D newM = new Matrix4D();
-        System.out.println(newM.toStringRow(0));
+        System.out.println(newM);
     }// main(String[])
  
     

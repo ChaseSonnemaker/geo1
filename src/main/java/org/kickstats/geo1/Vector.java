@@ -4,6 +4,11 @@ package org.kickstats.geo1;
 /**
  * Models a 4 element vector.
  * 
+ * Designed to model a position in 3D space. As a result nearly all of these
+ * methods ignore the fourth element in the vector and assume the resulting 
+ * value to be 1. Not recommended to use this class if math needs to be done 
+ * with all 4 elements in the vector.
+ * 
  * @author Chase Sonnemaker
  */
 public class Vector {

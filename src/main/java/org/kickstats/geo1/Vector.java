@@ -126,18 +126,18 @@ public class Vector {
     
     
     /**
-     * Adds this vector and another vector of 4 elements together.
+     * Adds the x, y, and z positions of this vector and 
+     * another vector of 4 elements together.
      * 
      * @param v A vector of 4 elements to be added to this vector.
-     * @return A vector of 4 elements that is the sum of the other two vectors.
+     * @return A vector of 4 elements that is the sum of the other two vectors 
+     * at the x, y and z positions.
      */
     public Vector add(Vector v) {
-        double sum0 = this.x + v.x;
-        double sum1 = this.y + v.y;
-        double sum2 = this.z + v.z;
-        double sum3 = this.h + v.h;
-        
-        return new Vector(sum0, sum1, sum2, sum3);
+        double sumX = this.x + v.x;
+        double sumY = this.y + v.y;
+        double sumZ = this.z + v.z;
+        return new Vector(sumX, sumY, sumZ);
     }// add(Vector)
     
     

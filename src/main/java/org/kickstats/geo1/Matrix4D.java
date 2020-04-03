@@ -74,8 +74,9 @@ public class Matrix4D {
     /**
      * Returns a string representation of this matrix.
      * 
-     * Each number in the matrix is formatted to be 8 digits so 
-     * longer numbers will not look correct.
+     * Each number in the matrix is formatted to have 2 decimals and a 
+     * maximum of 6 digits so longer numbers will not look correct. 
+     * This string will also be printed to 4 new lines. 
      * 
      * @return A four-line string representation of this matrix.
      */

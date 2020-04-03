@@ -136,8 +136,8 @@ public class Matrix {
      * @return A vector of length 4 that is the product of this matrix and 
      * a vector.
      */
-    public Vector4D multiply(Vector4D v) {
-        Vector4D newV = new Vector4D();
+    public Vector multiply(Vector v) {
+        Vector newV = new Vector();
         for(int i = 0; i < 4; i++) {
             double sum = 0;
             for(int j = 0; j < 4; j++) {
@@ -146,7 +146,7 @@ public class Matrix {
             newV.set(i, sum);
         }// for
         return newV;
-    }// multiply(Vector4D)
+    }// multiply(Vector)
     
     
     /**

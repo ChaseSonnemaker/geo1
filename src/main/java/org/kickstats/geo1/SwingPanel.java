@@ -30,6 +30,7 @@ public class SwingPanel extends JPanel implements ActionListener {
     private double y2 = -0.8;
     private double factorChange = 0.1;
     private double angle = 0;
+    private double max = 1.6;
     
     private Color color = Color.red;
 
@@ -45,6 +46,10 @@ public class SwingPanel extends JPanel implements ActionListener {
     public void setColor(Color c) {
         this.color = c;
     } // setColor( Color )
+    
+    public void setMaximum(double max) {
+        this.max = max;
+    }// setMaximum(double)
 
     @Override
     public void paintComponent(Graphics g) {
@@ -112,11 +117,11 @@ public class SwingPanel extends JPanel implements ActionListener {
         // Rotate? (There's an AffineTransform for that, too.)
         // Change color?
 
-        this.fake = this.fake + this.factorChange;
-        if (this.fake < -1.6 ) {
+        this.fake = this.fake - this.factorChange;
+        if (this.fake > max ) {
             this.factorChange = -this.factorChange;
         } // if
-        else if (this.fake > 0) {
+        else if (this.fake < 0) {
             this.factorChange = -this.factorChange;
         } // else if
 

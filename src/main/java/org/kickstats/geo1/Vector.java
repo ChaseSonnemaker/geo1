@@ -149,6 +149,20 @@ public class Vector {
     
     
     /**
+     * Subtracts the x, y, and z positions of this vector and
+     * another vector 4 elements. 
+     * 
+     * @param v A vector of 4 elements to be subtracted from this vector.
+     * @return A vector of 4 elements that is the difference of the other
+     * two vectors at the x, y, and z positions. The homogeneous coordinate
+     * position is set to 1.
+     */
+    public Vector subtract(Vector v) {
+        return new Vector();
+    }// subtract(Vector)
+    
+    
+    /**
      * Dot multiplies the x, y, and z positions in this vector 
      * with the x, y, and z positions of another vector of 4 elements.
      * 

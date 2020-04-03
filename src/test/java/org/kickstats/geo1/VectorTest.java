@@ -45,8 +45,8 @@ public class VectorTest {
     public void testAdd() {
         System.out.println("add");
         Vector v = new Vector(4, 3, 2, 1);
-        Vector instance = new Vector(4, 3, 2, 1);
-        Vector expResult = new Vector(8, 6, 4, 2);
+        Vector instance = new Vector(4, 3, 2);
+        Vector expResult = new Vector(8, 6, 4);
         Vector result = instance.add(v);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
@@ -61,7 +61,7 @@ public class VectorTest {
         System.out.println("dot");
         Vector v = new Vector(4, 3, 2);
         Vector instance = new Vector(4, 3, 2);
-        double expResult = 30.0;
+        double expResult = 29.0;
         double result = instance.dot(v);
         assertEquals(expResult, result, 1E-8);
     }
@@ -73,7 +73,7 @@ public class VectorTest {
     public void testMagnitude() {
         System.out.println("magnitude");
         Vector instance = new Vector(4, 3, 2);
-        double expResult = 5.47722557505;
+        double expResult = 5.38516480713;
         double result = instance.magnitude();
         assertEquals(expResult, result, 1E-8);
     }
@@ -85,10 +85,9 @@ public class VectorTest {
     public void testNormalize() {
         System.out.println("normalize");
         Vector instance = new Vector(4, 3, 2);
-        Vector expResult = new Vector(0.73029674334,
-                                          0.54772255750,
-                                          0.36514837167,
-                                          0.18257418583);
+        Vector expResult = new Vector(0.74278135270,
+                                      0.55708601453,
+                                      0.37139067635);
         Vector result = instance.normalize();
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);

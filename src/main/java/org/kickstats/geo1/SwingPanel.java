@@ -14,10 +14,15 @@ import javax.swing.Timer;
 
 public class SwingPanel extends JPanel implements ActionListener {
 
-    private double centerX = 0.0;
-    private double centerY = 0.0;
-    private double radius = 0.5;
-    private double deltaY = 0.02;
+    private double ctr1x1 = 0.0;
+    private double ctr1x2 = 0.0;
+    private double ctr1y1 = 0.5;
+    private double ctr1y2 = -0.5;
+    private double x1 = 0.5;
+    private double x2 = -0.5;
+    private double y1 = 0.0;
+    private double y2 = 0.0;
+    
     private Color color = Color.red;
 
     public SwingPanel() {

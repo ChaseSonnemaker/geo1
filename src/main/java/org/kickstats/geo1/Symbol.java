@@ -28,16 +28,28 @@ public class Symbol extends JPanel implements ActionListener {
     double centerX = 0;
     double centerY = -0.4;
     double radius = 0.4;
+    
     double origX = 0;
-    double origY = -0.9;
+    double origY = -0.875;
     double origX2 = 0;
     double origY2 = -0.6;
+    
     double arpX = 0;
     double arpY = -0.45;
     double arX = -0.075;
     double arY = -0.6;
     double arX2 = 0.075;
     double arY2 = -0.6;
+    
+    double outerX1 = 0.12;
+    double outerY1 = -0.9;
+    double outerX2 = 0.1;
+    double outerY2 = -0.95;
+    double outerX3 = -0.1;
+    double outerY3 = -0.95;
+    double outerX4 = -0.12;
+    double outerY4 = -0.9;
+    
     
     private Color color = Color.white;
      
@@ -66,7 +78,7 @@ public class Symbol extends JPanel implements ActionListener {
         transform.concatenate(translation);
         
         g2D.setColor(this.getColor());
-        BasicStroke stroke = new BasicStroke(20f);
+        BasicStroke stroke = new BasicStroke(15f);
         g2D.setStroke(stroke);
         
         //First Circle
@@ -127,6 +139,34 @@ public class Symbol extends JPanel implements ActionListener {
         Shape arrowFin3 = transform3.createTransformedShape(arrowhead3);
         g2D.draw(arrow3);
         g2D.fill(arrowFin3);
+        
+        //OuterHat1
+        Path2D.Double outerHat1 = new Path2D.Double();
+        outerHat1.moveTo(outerX1, outerY1);
+        outerHat1.lineTo(outerX2, outerY2);
+        outerHat1.lineTo(outerX3, outerY3);
+        outerHat1.lineTo(outerX4, outerY4);
+        Shape outer1 = transform.createTransformedShape(outerHat1);
+        g2D.draw(outer1);
+        
+        //OuterHat2
+        Path2D.Double outerHat2 = new Path2D.Double();
+        outerHat2.moveTo(outerX1, outerY1);
+        outerHat2.lineTo(outerX2, outerY2);
+        outerHat2.lineTo(outerX3, outerY3);
+        outerHat2.lineTo(outerX4, outerY4);
+        Shape outer2 = transform2.createTransformedShape(outerHat2);
+        g2D.draw(outer2);
+        
+        //OuterHat3
+        Path2D.Double outerHat3 = new Path2D.Double();
+        outerHat3.moveTo(outerX1, outerY1);
+        outerHat3.lineTo(outerX2, outerY2);
+        outerHat3.lineTo(outerX3, outerY3);
+        outerHat3.lineTo(outerX4, outerY4);
+        Shape outer3 = transform3.createTransformedShape(outerHat3);
+        g2D.draw(outer3);
+        
     
     } // paintComponent( Graphics )
 

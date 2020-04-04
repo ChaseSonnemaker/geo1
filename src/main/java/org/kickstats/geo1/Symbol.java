@@ -10,6 +10,7 @@ import java.awt.Shape;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Arc2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Path2D;
@@ -51,6 +52,12 @@ public class Symbol extends JPanel implements ActionListener {
     double outerY4 = -0.9;
     
     
+    double centerX2 = 0;
+    double centerY2 = -0.4;
+    double radius2 = 0.514;
+    double startAngle = 197;
+    double endAngle = -93.5;
+       
     private Color color = Color.white;
      
     public Color getColor() {
@@ -88,6 +95,9 @@ public class Symbol extends JPanel implements ActionListener {
         Ellipse2D.Double circle = new Ellipse2D.Double(ulx, uly, d, d);
         Shape circle1 = transform.createTransformedShape(circle);
         g2D.draw(circle1);
+        
+        BasicStroke stroke2 = new BasicStroke(8f);
+        g2D.setStroke(stroke2);
         
         //Arrow 1
         Line2D.Double line1 = new Line2D.Double(origX, origY, origX2, origY2);
@@ -167,6 +177,30 @@ public class Symbol extends JPanel implements ActionListener {
         Shape outer3 = transform3.createTransformedShape(outerHat3);
         g2D.draw(outer3);
         
+        BasicStroke stroke3 = new BasicStroke(8f, BasicStroke.CAP_ROUND, 
+                                                        BasicStroke.JOIN_ROUND);
+        g2D.setStroke(stroke3);
+        
+        //Arc1
+        double d1 = 2 * this.radius2;
+        double ulx1 = this.centerX2 - this.radius2;
+        double uly1 = this.centerY2 - this.radius2;
+        Arc2D.Double arc1 = new Arc2D.Double(ulx1, uly1, d1, d1, startAngle, 
+                                            endAngle, Arc2D.OPEN);
+        Shape arcFin1 = transform.createTransformedShape(arc1);
+        g2D.draw(arcFin1);
+        
+        //Arc2
+        Arc2D.Double arc2 = new Arc2D.Double(ulx1, uly1, d1, d1, startAngle, 
+                                            endAngle, Arc2D.OPEN);
+        Shape arcFin2 = transform2.createTransformedShape(arc2);
+        g2D.draw(arcFin2);
+        
+        //Arc3
+        Arc2D.Double arc3 = new Arc2D.Double(ulx1, uly1, d1, d1, startAngle, 
+                                            endAngle, Arc2D.OPEN);
+        Shape arcFin3 = transform3.createTransformedShape(arc3);
+        g2D.draw(arcFin3);
     
     } // paintComponent( Graphics )
 

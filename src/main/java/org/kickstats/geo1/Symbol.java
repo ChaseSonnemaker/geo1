@@ -45,12 +45,11 @@ public class Symbol extends JPanel implements ActionListener {
     double outerX1 = 0.12;
     double outerY1 = -0.9;
     double outerX2 = 0.1;
-    double outerY2 = -0.95;
+    double outerY2 = -0.98;
     double outerX3 = -0.1;
-    double outerY3 = -0.95;
+    double outerY3 = -0.98;
     double outerX4 = -0.12;
     double outerY4 = -0.9;
-    
     
     double centerX2 = 0;
     double centerY2 = -0.4;
@@ -150,6 +149,9 @@ public class Symbol extends JPanel implements ActionListener {
         g2D.draw(arrow3);
         g2D.fill(arrowFin3);
         
+        BasicStroke stroke3 = new BasicStroke(5f);
+        g2D.setStroke(stroke3);
+        
         //OuterHat1
         Path2D.Double outerHat1 = new Path2D.Double();
         outerHat1.moveTo(outerX1, outerY1);
@@ -177,9 +179,9 @@ public class Symbol extends JPanel implements ActionListener {
         Shape outer3 = transform3.createTransformedShape(outerHat3);
         g2D.draw(outer3);
         
-        BasicStroke stroke3 = new BasicStroke(8f, BasicStroke.CAP_ROUND, 
+        BasicStroke stroke4 = new BasicStroke(5f, BasicStroke.CAP_ROUND, 
                                                         BasicStroke.JOIN_ROUND);
-        g2D.setStroke(stroke3);
+        g2D.setStroke(stroke4);
         
         //Arc1
         double d1 = 2 * this.radius2;

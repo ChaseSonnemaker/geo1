@@ -56,7 +56,15 @@ public class Symbol extends JPanel implements ActionListener {
     double radius2 = 0.514;
     double startAngle = 197;
     double endAngle = -93.5;
-       
+    
+    double loadStartX = 0;
+    double loadStartY = 0.425;
+    double loadEndX = 0;
+    double loadEndY = 0.475;
+    double loadCenterX = 0;
+    double loadCenterY = 0.525;
+    int loadLines = 8;
+        
     private Color color = Color.white;
      
     public Color getColor() {
@@ -203,6 +211,27 @@ public class Symbol extends JPanel implements ActionListener {
                                             endAngle, Arc2D.OPEN);
         Shape arcFin3 = transform3.createTransformedShape(arc3);
         g2D.draw(arcFin3);
+        
+        //Load Sign
+        AffineTransform transform4 = new AffineTransform();
+        AffineTransform rotate4 = new AffineTransform();
+        Line2D.Double newLine = new Line2D.Double();
+        Shape newLineFin = transform4.createTransformedShape(newLine);
+        for(int i = 0; i < loadLines; i++) {
+            double newAngle = i * ((2 * Math.PI) / loadLines);
+            transform4 = new AffineTransform();
+            transform4.concatenate(scaling);
+            transform4.concatenate(translation);
+            rotate4 = new AffineTransform();
+            rotate4.setToRotation(newAngle, loadCenterX, loadCenterY);
+            transform4.concatenate(rotate4);
+            
+            newLine = new Line2D.Double(loadStartX, loadStartY, 
+                                        loadEndX, loadEndY);
+            newLineFin = transform4.createTransformedShape(newLine);
+            
+            g2D.draw(newLineFin);
+        }// for
     
     } // paintComponent( Graphics )
 

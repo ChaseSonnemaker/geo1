@@ -1,5 +1,5 @@
 
-package org.kickstats.geo1;
+package org.kickstats.swing;
 
 import java.awt.Color;
 import java.awt.Container;

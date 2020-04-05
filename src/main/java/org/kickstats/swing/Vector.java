@@ -1,5 +1,5 @@
 
-package org.kickstats.geo1;
+package org.kickstats.swing;
 
 /**
  * Models a 4 element vector.

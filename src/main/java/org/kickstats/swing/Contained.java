@@ -1,3 +1,5 @@
+package org.kickstats.swing;
+
 //
 //package org.kickstats.geo1;
 //

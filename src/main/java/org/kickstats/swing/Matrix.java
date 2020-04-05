@@ -1,5 +1,5 @@
 
-package org.kickstats.geo1;
+package org.kickstats.swing;
 
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;

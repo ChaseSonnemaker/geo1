@@ -1,6 +1,7 @@
 
-package org.kickstats.geo1;
+package org.kickstats.swing;
 
+import org.kickstats.swing.Vector;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -10,6 +10,7 @@ package org.kickstats.geo1;
  * with all 4 elements in the vector.
  * 
  * @author Chase Sonnemaker
+ * @version 5 April 2020
  */
 public class Vector {
     

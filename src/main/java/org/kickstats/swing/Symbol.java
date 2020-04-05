@@ -25,15 +25,18 @@ public class Symbol extends JPanel implements ActionListener {
     
     private final double ARROW_ANGLE = (2 * Math.PI) / 3;
     
+    //Main Circle
     double centerX = 0;
     double centerY = -0.4;
     double radius = 0.4;
     
+    //Arrow Lines
     double origX = 0;
     double origY = -0.875;
     double origX2 = 0;
     double origY2 = -0.6;
     
+    //Arrow Points
     double arpX = 0;
     double arpY = -0.45;
     double arX = -0.075;
@@ -41,6 +44,7 @@ public class Symbol extends JPanel implements ActionListener {
     double arX2 = 0.075;
     double arY2 = -0.6;
     
+    //Outer Circle Hats
     double outerX1 = 0.12;
     double outerY1 = -0.9;
     double outerX2 = 0.1;
@@ -50,12 +54,14 @@ public class Symbol extends JPanel implements ActionListener {
     double outerX4 = -0.12;
     double outerY4 = -0.9;
     
+    //Outer Circle Arcs
     double centerX2 = 0;
     double centerY2 = -0.4;
     double radius2 = 0.514;
     double startAngle = 197;
     double endAngle = -93.5;
     
+    //Loading Lines
     double loadStartX = 0;
     double loadStartY = 0.425;
     double loadEndX = 0;
@@ -64,13 +70,15 @@ public class Symbol extends JPanel implements ActionListener {
     double loadCenterY = 0.525;
     int loadLines = 8;
     
+    //Rotation
     double rotateSymbol = 360;
     double rotateLoad = 60;
     double moveSymbol = (2 * Math.PI) / this.rotateSymbol;
     double moveLoad = (2 * Math.PI) / this.rotateLoad;
     double angleSymbol = 0;
     double angleLoad = 0;
-        
+    
+    //Color
     private Color color = Color.white;
     
     public Symbol() {

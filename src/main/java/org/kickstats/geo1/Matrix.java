@@ -5,9 +5,11 @@ import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
 /**
- * Models a 4x4 matrix.
+ * Models a 4x4 matrix used to perform transitions, scalings, and rotations 
+ * for 4 element vectors in 3D space.
  * 
  * @author Chase Sonnemaker
+ * @version 5 April 2020
  */
 public class Matrix {
     
@@ -49,7 +51,7 @@ public class Matrix {
     /**
      * Returns a single row of this matrix in string representation.
      * 
-     * Strings are formatted to show 2 decimals and be a maximum of 6 digits.
+     * Strings are formatted to show 2 decimals and to be a maximum of 6 digits.
      * Using matrices with numbers larger than six digits with this 
      * method is not recommended.
      * 
@@ -151,9 +153,7 @@ public class Matrix {
     
     /**
      * Transforms this matrix into a matrix that models a translation of a
-     * position in 3D space.
-     * 
-     * This position can be represented by a vector of 4 elements. 
+     * vector in 3D space.
      * 
      * @param x The distance the vector will move in the x-direction.
      * @param y The distance the vector will move in the y-direction.
@@ -169,9 +169,7 @@ public class Matrix {
     
     /**
      * Transforms this matrix into a matrix that models a rotation about the
-     * x-axis of a position in 3D space.
-     * 
-     * This position can be represented by a vector of 4 elements.
+     * x-axis of a vector in 3D space.
      * 
      * @param angle The angle (radians) of the rotation about the x-axis.
      */
@@ -188,9 +186,7 @@ public class Matrix {
     
     /**
      * Transforms this matrix into a matrix that models a rotation about the
-     * y-axis of a position in 3D space.
-     * 
-     * This position can be represented by a vector of 4 elements.
+     * y-axis of a vector in 3D space.
      * 
      * @param angle The angle (radians) of the rotation about the y-axis.
      */
@@ -207,9 +203,7 @@ public class Matrix {
     
     /**
      * Transforms this matrix into a matrix that models a rotation about the
-     * z-axis of a position in 3D space.
-     * 
-     * This position can be represented by a vector of 4 elements.
+     * z-axis of a vector in 3D space.
      * 
      * @param angle The angle (radians) of the rotation about the z-axis.
      */
@@ -226,9 +220,7 @@ public class Matrix {
     
     /**
      * Transforms this matrix into a matrix that models a scaling of
-     * a position in 3D space. 
-     * 
-     * This position can be represented by a vector of 4 elements.
+     * a vector in 3D space. 
      * 
      * @param x The factor by which to scale in the x-direction.
      * @param y The factor by which to scale in the x-direction.
@@ -240,6 +232,7 @@ public class Matrix {
         this.set(1, 1, y);
         this.set(2, 2, z);
     }// scale(double, double, double)
+    
     
     /**
      * Additional tests for the methods contained in the Matrix

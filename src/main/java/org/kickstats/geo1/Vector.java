@@ -4,7 +4,7 @@ package org.kickstats.geo1;
 /**
  * Models a 4 element vector.
  * 
- * Designed to model a position in 3D space. As a result nearly all of these
+ * Designed to model a vector in 3D space. As a result nearly all of these
  * methods ignore the fourth element in the vector and assume the resulting 
  * value to be 1. Not recommended to use this class if math needs to be done 
  * with all 4 elements in the vector.
@@ -31,7 +31,7 @@ public class Vector {
     
     /**
      * Creates a 4 element vector with specified x, y, and z elements 
-     * representing positions in 3D space.
+     * representing a vector in 3D space.
      * 
      * Designed to model a position in 3D space so the final fourth element 
      * representing the homogeneous coordinate is set to 1. 
@@ -72,6 +72,9 @@ public class Vector {
     /**
      * Returns the value at a specified position in this vector.
      * 
+     * Will return an exception if given an index that does not 
+     * exist in this vector.
+     * 
      * @param position An integer from 0 to 3 representing the position of the 
      * value in this vector.
      * @return The value of the element at the specified 
@@ -79,8 +82,8 @@ public class Vector {
      */
     public double get(int position) {
         if(position < 0 || position > 3) {
-            throw new ArithmeticException("Position " + position 
-                                            + " does not exist");                                            
+            throw new ArrayIndexOutOfBoundsException("Position " + position 
+                                                    + " does not exist");                                            
         }// if
         switch(position) {
             case 0:
@@ -97,14 +100,17 @@ public class Vector {
      /**
      * Changes the value at a specified position in this vector.
      * 
+     * Will return an exception if given an index that does not 
+     * exist in this vector.
+     * 
      * @param position An integer from 0 to 3 representing the position of the 
      * change in this vector.
      * @param value The new number that the position will be changed to.
      */
     public void set(int position, double value) {
         if(position < 0 || position > 3) {
-            throw new ArithmeticException("Position " + position 
-                                                + " does not exist");                                            
+            throw new ArrayIndexOutOfBoundsException("Position " + position 
+                                                    + " does not exist");                                            
         }// if
         switch(position) {
             case 0:
@@ -212,19 +218,18 @@ public class Vector {
      * Creates a 4 element vector that is the result of a cross multiplication
      * between this vector and another 4 element vector.
      * 
-     * This cross multiplication and the resulting vector finds position in 3D
-     * space that is perpendicular to the positions represented by both this 
-     * vector and another 4 element vector using the right-hand rule. As such, 
-     * the final element in the vector representing the homogeneous coordinate 
-     * will be ignored and assumed to be equal to 1.
+     * This cross multiplication and the resulting vector finds vectors in 3D
+     * space that is perpendicular to both this vector and another 4 element 
+     * vector under the right-hand rule. As such, the final element in the 
+     * vector representing the homogeneous coordinate will be ignored and 
+     * assumed to be equal to 1.
      * 
      * @param v Another 4 element vector which is to be cross multiplied with 
      * this 4 element vector.
-     * @return A 4 element vector that represents a position in 3D space that 
-     * is perpendicular to the other two spaces represented by the other two
-     * vectors. Due to the right-hand rule, the returned vector with 
-     * the positional x, y, and z elements multiplied by -1 would also be 
-     * perpendicular.
+     * @return A 4 element vector that represents a vector in 3D space that 
+     * is perpendicular to the other two vectors. Due to the right-hand rule, 
+     * the returned vector with the positional x, y, and z elements 
+     * multiplied by -1 would also be perpendicular.
      */
     public Vector cross(Vector v) {
         double newX = this.y * v.z - this.z * v.y;

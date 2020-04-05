@@ -101,7 +101,8 @@ public class Symbol extends JPanel implements ActionListener {
 
         int w = this.getWidth();
         int h = this.getHeight();
-
+        
+        //Transformations
         AffineTransform transform = new AffineTransform();
         AffineTransform scaling = new AffineTransform();
         scaling.setToScale(w / 2, h / 2);
@@ -109,10 +110,6 @@ public class Symbol extends JPanel implements ActionListener {
         translation.setToTranslation(1.0, 1.0);
         transform.concatenate(scaling);
         transform.concatenate(translation);
-        
-        g2D.setColor(this.getColor());
-        BasicStroke stroke = new BasicStroke(15f);
-        g2D.setStroke(stroke);
         
         AffineTransform transform2 = new AffineTransform();
         AffineTransform rotate2 = new AffineTransform();
@@ -127,7 +124,17 @@ public class Symbol extends JPanel implements ActionListener {
         transform3.concatenate(scaling);
         transform3.concatenate(translation);
         transform3.concatenate(rotate3);
-
+        
+        //Initial Color and Sizes
+        g2D.setColor(this.getColor());
+        BasicStroke stroke = new BasicStroke(15f);
+        g2D.setStroke(stroke);
+        
+        BasicStroke stroke2 = new BasicStroke(8f);
+        g2D.setStroke(stroke2);
+        
+        BasicStroke stroke3 = new BasicStroke(5f);
+        g2D.setStroke(stroke3);
         
         //First Circle
         double d = 2 * this.radius;
@@ -136,12 +143,6 @@ public class Symbol extends JPanel implements ActionListener {
         Ellipse2D.Double circle = new Ellipse2D.Double(ulx, uly, d, d);
         Shape circle1 = transform.createTransformedShape(circle);
         g2D.draw(circle1);
-        
-        BasicStroke stroke2 = new BasicStroke(8f);
-        g2D.setStroke(stroke2);
-        
-        BasicStroke stroke3 = new BasicStroke(5f);
-        g2D.setStroke(stroke3);
         
         //OuterHat1
         Path2D.Double outerHat1 = new Path2D.Double();

@@ -241,10 +241,38 @@ public class Matrix {
         this.set(2, 2, z);
     }// scale(double, double, double)
     
-    
+    /**
+     * Additional tests for the methods contained in the Matrix
+     * and Vector classes.
+     */
     public static void main(String[] args) {
+        
+        //Matrix.toString()
         Matrix newM = new Matrix();
         System.out.println(newM);
+        System.out.println();
+        
+        //Dot product of (1, 0, 0) and (0, 1, 0)
+        //Expected = 0
+        Vector u = new Vector(1, 0, 0);
+        Vector v = new Vector(0, 1, 0);
+        double result = u.dot(v);
+        System.out.println(result);
+        System.out.println();
+        
+        //Cross product of (1, 0, 0) and (0, 1, 0)
+        //Expected = (0, 0, 1)
+        Vector resultV = u.cross(v);
+        System.out.println(resultV);
+        System.out.println();
+        
+        //Cross product of (0, 1, 0) and (1, 0, 0)
+        //Expected = (0, 0, -1)
+        resultV = v.cross(u);
+        System.out.println(resultV);
+        System.out.println();
+        
+        
     }// main(String[])
  
     

@@ -22,12 +22,9 @@ public class LoadingScreen extends JFrame implements ActionListener{
     private final int FRAME_WIDTH = 800;
     private final int FRAME_HEIGHT = 800;
     private final String FRAME_TITLE = "Loading...";
-    private final String CONTAINED = "Contained";
-    private final String BREAKOUT = "Breakout";
-    private final String DRAGONS = "Here there be dragons";
-    private final String SCP = "SCP";
-            
-    private final List<String> themes = new ArrayList<>();
+    private final int SPEEDS = 6;
+    private final String SPEED = "Speed";
+
     private final Symbol panel;
     
     
@@ -44,28 +41,18 @@ public class LoadingScreen extends JFrame implements ActionListener{
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
 
-        JMenu themeMenu = new JMenu("Themes");
-        menuBar.add(themeMenu);
+        JMenu speedMenu = new JMenu(SPEED);
+        menuBar.add(speedMenu);
         
-        JMenuItem item1 = new JMenuItem(CONTAINED);
-        item1.addActionListener(this);
-        item1.setActionCommand(CONTAINED);
-        themeMenu.add(item1);
+        for(int i = 0; i < SPEEDS; i++) {
+            String label = SPEED + " " + i;
+            JMenuItem item = new JMenuItem(label);
+            item.addActionListener(this);
+            item.setActionCommand(label);
+            speedMenu.add(item);
+        }// for
         
-        JMenuItem item2 = new JMenuItem(BREAKOUT);
-        item2.addActionListener(this);
-        item2.setActionCommand(BREAKOUT);
-        themeMenu.add(item2);
         
-        JMenuItem item3 = new JMenuItem(DRAGONS);
-        item3.addActionListener(this);
-        item3.setActionCommand(DRAGONS);
-        themeMenu.add(item3);
-        
-        JMenuItem item4 = new JMenuItem(SCP);
-        item4.addActionListener(this);
-        item4.setActionCommand(SCP);
-        themeMenu.add(item4);
         
         this.setVisible(true);
     }// LoadingScreen()
@@ -73,6 +60,13 @@ public class LoadingScreen extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         String actionCommand = event.getActionCommand();
+        
+        if (actionCommand.indexOf(SPEED) >= 0) {
+            int i = SPEED.length();
+            String suffix = actionCommand.substring(i).trim();
+            int index = Integer.parseInt(suffix);
+            this.panel.setSpeed(index);
+        } // if
             
     } // actionPerformed( ActionEvent ) 
     

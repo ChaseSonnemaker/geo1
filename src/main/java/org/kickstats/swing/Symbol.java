@@ -13,6 +13,7 @@ import java.awt.geom.Arc2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Path2D;
+import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -24,6 +25,9 @@ import javax.swing.Timer;
 public class Symbol extends JPanel implements ActionListener {
     
     private final double ARROW_ANGLE = (2 * Math.PI) / 3;
+    
+    //Speed
+    private int speed = 1;
     
     //Main Circle
     double centerX = 0;
@@ -81,6 +85,12 @@ public class Symbol extends JPanel implements ActionListener {
     //Color
     private Color color = Color.white;
     
+    //Move
+    double xMove1 = 0;
+    double yMove1 = 0;
+    Random rdm1 = new Random();
+    Random rdm2 = new Random();
+ 
     public Symbol() {
        Timer timer = new Timer(50, this);
        timer.start();
@@ -93,6 +103,10 @@ public class Symbol extends JPanel implements ActionListener {
     public void setColor(Color c) {
         this.color = c;
     }// setColor
+    
+    public void setSpeed(int i) {
+        this.speed = i;
+    }// setSpeed
     
     @Override
     public void paintComponent(Graphics g) {
@@ -124,7 +138,7 @@ public class Symbol extends JPanel implements ActionListener {
         transform3.concatenate(scaling);
         transform3.concatenate(translation);
         transform3.concatenate(rotate3);
-        
+                
         //Initial Color and Sizes
         g2D.setColor(this.getColor());
         BasicStroke stroke = new BasicStroke(15f);
@@ -238,23 +252,22 @@ public class Symbol extends JPanel implements ActionListener {
         g2D.fill(arrowFin3);
         
         //Load Sign
-        AffineTransform transform4 = new AffineTransform();
-        AffineTransform rotate4 = new AffineTransform();
-        Line2D.Double newLine = new Line2D.Double();
-        Shape newLineFin = transform4.createTransformedShape(newLine);
         for(int i = 0; i < loadLines; i++) {
             double newAngle = i * ((2 * Math.PI) / loadLines);
-            transform4 = new AffineTransform();
+           AffineTransform transform4 = new AffineTransform();
             transform4.concatenate(scaling);
             transform4.concatenate(translation);
-            rotate4 = new AffineTransform();
+            AffineTransform move = new AffineTransform();
+            move.translate(xMove1, yMove1);
+            transform4.concatenate(move);
+            AffineTransform rotate4 = new AffineTransform();
             rotate4.setToRotation(newAngle + angleLoad, 
                                     loadCenterX, loadCenterY);
             transform4.concatenate(rotate4);
             
-            newLine = new Line2D.Double(loadStartX, loadStartY, 
+            Line2D.Double newLine = new Line2D.Double(loadStartX, loadStartY, 
                                         loadEndX, loadEndY);
-            newLineFin = transform4.createTransformedShape(newLine);
+            Shape newLineFin = transform4.createTransformedShape(newLine);
             
             g2D.draw(newLineFin);
         }// for
@@ -264,15 +277,47 @@ public class Symbol extends JPanel implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent event) {
-        this.angleSymbol = this.angleSymbol + this.moveSymbol;
+        //Symbol Rotate
+        this.angleSymbol = this.angleSymbol + this.speed * this.moveSymbol;
         if(this.angleSymbol > (2 * Math.PI)) {
             this.angleSymbol = this.angleSymbol / this.rotateSymbol;
         }// if
         
-        this.angleLoad = this.angleLoad + this.moveLoad;
+        //Loading Rotate
+        this.angleLoad = this.angleLoad + this.speed * this.moveLoad;
         if(this.angleLoad > (2 * Math.PI)) {
             this.angleLoad = this.angleLoad / this.rotateLoad;
         }// if
+        
+        //Symbol Movement
+        if(this.xMove1 > 1) {
+            this.xMove1 = this.xMove1 + this.speed * 
+                (( - 0.05));
+        }// if
+        else if((this.xMove1 < -1)) {
+            this.xMove1 = this.xMove1 + this.speed *
+                    ((0.05));
+        }// else if
+        else {
+            this.xMove1 = this.xMove1 + this.speed * 
+                (rdm1.nextDouble() * 0.1 - 0.05);
+        }// else
+        
+                
+        if(this.yMove1 > 1) {
+            this.yMove1 = this.yMove1 + this.speed * 
+                (( - 0.05));
+        }// if
+        else if((this.yMove1 < -1)) {
+            this.yMove1 = this.yMove1 + this.speed *
+                    ((0.05));
+        }// else if
+        else {
+            this.yMove1 = this.yMove1 + this.speed * 
+                (rdm2.nextDouble() * 0.1 - 0.05);
+        }// else
+            
+                
 
         this.repaint();
     } // actionPerformed( ActionEvent )

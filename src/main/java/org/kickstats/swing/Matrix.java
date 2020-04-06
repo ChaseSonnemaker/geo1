@@ -235,43 +235,19 @@ public class Matrix {
     
     
     /**
-     * Additional tests for the methods contained in the Matrix
-     * and Vector classes.
+     * Additional tests for the string methods contained in the Matrix
+     * classes since these are difficult to formally test.
      */
     public static void main(String[] args) {
         
-        //Matrix.toString()
+        //Matrix.toStringRow() Test
         Matrix newM = new Matrix();
+        System.out.println(newM.toStringRow(0));
+        System.out.println();
+        
+        //Matrix.toString() Test
         System.out.println(newM);
         System.out.println();
-        
-        //Dot product of (1, 0, 0) and (0, 1, 0)
-        //Expected = 0
-        Vector u = new Vector(1, 0, 0);
-        Vector v = new Vector(0, 1, 0);
-        double result = u.dot(v);
-        System.out.println(result);
-        System.out.println();
-        
-        //Cross product of (1, 0, 0) and (0, 1, 0)
-        //Expected = (0, 0, 1)
-        Vector resultV = u.cross(v);
-        System.out.println(resultV);
-        System.out.println();
-        
-        //Cross product of (0, 1, 0) and (1, 0, 0)
-        //Expected = (0, 0, -1)
-        resultV = v.cross(u);
-        System.out.println(resultV);
-        System.out.println();
-        
-        //Cross product of (1, 2, 3) and (1, 5, 7)
-        Vector a = new Vector(1, 2, 3);
-        Vector b = new Vector(1, 5, 7);
-        Vector c = a.cross(b);
-        System.out.println(c);
-        System.out.println();
-        
         
     }// main(String[])
  

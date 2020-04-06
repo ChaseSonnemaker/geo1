@@ -49,6 +49,66 @@ public class MatrixTest {
     }// testGet2()
     
     /**
+     * First test of set method, of class Matrix.
+     * 
+     * Tests the setting of the value 10 on the first row, first column
+     * position of a 4x4 identity matrix.
+     */
+    @Test
+    public void testSet1() {
+        System.out.println("set");
+        int row = 0;
+        int column = 0;
+        double value = 10;
+        Matrix instance = new Matrix();
+        double expresult = 10; //At row 0, column 0
+        instance.set(row, column, value);
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (i == 0 && j == 0) {
+                    assertEquals(instance.get(i, j), expresult);
+                }// if
+                else if (i == j) {
+                    assertEquals(instance.get(i, j), 1);
+                }// else if
+                else {
+                    assertEquals(instance.get(i, j), 0);
+                }// else
+            }// for
+        }// for
+    }// testSet1()
+    
+    /**
+     * First test of set method, of class Matrix.
+     * 
+     * Tests the setting of the value 5 on the last row, last column
+     * position of a 4x4 identity matrix.
+     */
+    @Test
+    public void testSet2() {
+        System.out.println("set");
+        int row = 3;
+        int column = 3;
+        double value = 5;
+        Matrix instance = new Matrix();
+        double expresult = 5; //At row 3, column 3
+        instance.set(row, column, value);
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (i == 3 && j == 3) {
+                    assertEquals(instance.get(i, j), expresult);
+                }// if
+                else if (i == j) {
+                    assertEquals(instance.get(i, j), 1);
+                }// else if
+                else {
+                    assertEquals(instance.get(i, j), 0);
+                }// else
+            }// for
+        }// for
+    }// testSet2()
+    
+    /**
      * Test of identity method, of class Matrix.
      */
     @Test

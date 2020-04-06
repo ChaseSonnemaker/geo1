@@ -141,19 +141,38 @@ public class VectorTest {
     } //testAdd2()
     
     /**
-     * Test of subtract method, of class Vector.
+     * First test of subtract method, of class Vector.
+     * 
+     * Tests the subtraction of vector (0, 1, 0) from vector (1, 0, 0)
      */
     @Test
-    public void testSubtract() {
+    public void testSubtract1() {
         System.out.println("subtract");
-        Vector v = new Vector(4, 3, 2);
-        Vector instance = new Vector(8, 6, 4);
-        Vector expResult = new Vector(4, 3, 2);
+        Vector v = new Vector(0, 1, 0);
+        Vector instance = new Vector(1, 0, 0);
+        Vector expResult = new Vector(1, -1, 0);
         Vector result = instance.subtract(v);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
         }// for
-    }
+    }// testSubtract1()
+    
+    /**
+     * Second test of subtract method, of class Vector.
+     * 
+     * Tests the subtraction of vector (1, 0, 0) from vector (0, 1, 0)
+     */
+    @Test
+    public void testSubtract2() {
+        System.out.println("subtract");
+        Vector v = new Vector(1, 0, 0);
+        Vector instance = new Vector(0, 1, 0);
+        Vector expResult = new Vector(-1, 1, 0);
+        Vector result = instance.subtract(v);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// for
+    }// testSubtract2()
     
     /**
      * Test of dot method, of class Vector.

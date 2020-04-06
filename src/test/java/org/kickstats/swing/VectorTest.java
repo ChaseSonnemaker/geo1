@@ -16,16 +16,32 @@ public class VectorTest {
     }
 
     /**
-     * Test of get method, of class Vector.
+     * First test of get method, of class Vector.
+     * 
+     * Tests getting the first element of a 4 element vector.
      */
     @Test
-    public void testGet() {
+    public void testGet1() {
         System.out.println("get");
-        Vector instance = new Vector(4, 3, 2);
-        double expResult = 3;
-        double result = instance.get(1);
+        Vector instance = new Vector(1, 0, 0);
+        double expResult = 1;
+        double result = instance.get(0);
         assertEquals(expResult, result, 1E-8);
-    }
+    }// testGet1()
+    
+    /**
+     * Second test of get method, of class Vector.
+     * 
+     * Tests getting the second element of a 4 element vector.
+     */
+    @Test
+    public void testGet2() {
+        System.out.println("get");
+        Vector instance = new Vector(1, 0, 0);
+        double expResult = 1;
+        double result = instance.get(3);
+        assertEquals(expResult, result, 1E-8);
+    }// testGet2
 
     /**
      * Test of toString method, of class Vector.

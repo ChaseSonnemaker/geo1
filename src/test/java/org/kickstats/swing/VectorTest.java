@@ -233,20 +233,36 @@ public class VectorTest {
     }// magnitude2()
     
     /**
-     * Test of normalize method, of class Vector.
+     * First test of normalize method, of class Vector.
+     * 
+     * Tests the normalization of vector (1, 0, 0).
      */
     @Test
-    public void testNormalize() {
+    public void testNormalize1() {
         System.out.println("normalize");
-        Vector instance = new Vector(4, 3, 2);
-        Vector expResult = new Vector(0.74278135270,
-                                      0.55708601453,
-                                      0.37139067635);
+        Vector instance = new Vector(1, 0, 0);
+        Vector expResult = new Vector(1, 0, 0);
         Vector result = instance.normalize();
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
         }// for
-    }
+    }// testNormalize1()
+    
+    /**
+     * Second test of normalize method, of class Vector.
+     * 
+     * Tests the normalization of vector (0, 1, 0).
+     */
+    @Test
+    public void testNormalize2() {
+        System.out.println("normalize");
+        Vector instance = new Vector(0, 1, 0);
+        Vector expResult = new Vector(0, 1, 0);
+        Vector result = instance.normalize();
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// for
+    }// testNormalize2()
     
     /**
      * Test of cross method, of class Vector.

@@ -165,33 +165,60 @@ public class MatrixTest {
     }// testIdentity2()
     
     /**
-     * Test of multiply method, of class Matrix.
+     * First test of multiply method, of class Matrix.
+     * 
+     * Tests the product of two 4x4 identity matrices.
      */
     @Test
-    public void testMultiply_Matrix4D() {
+    public void testMultiply_Matrix1() {
         System.out.println("multiply");
         Matrix m = new Matrix();
-        m.set(0, 0, 1);
-        m.set(1, 1, 2);
-        m.set(2, 2, 3);
-        m.set(3, 3, 4);
         Matrix instance = new Matrix();
-        instance.set(0, 0, 1);
-        instance.set(1, 1, 2);
-        instance.set(2, 2, 3);
-        instance.set(3, 3, 4);
         Matrix expResult = new Matrix();
-        expResult.set(0, 0, 1);
-        expResult.set(1, 1, 4);
-        expResult.set(2, 2, 9);
-        expResult.set(3, 3, 16);
         Matrix result = instance.multiply(m);
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(result.get(i, j), expResult.get(i, j), 1E-8);
             }// for
         }// for
-    }
+    }// testMultiply_Matrix1()
+    
+    /**
+     * Second test of multiply method, of class Matrix.
+     * 
+     * Tests the product of two 4x4 matrices. One is an identity matrix with 
+     * a first row that has the values (25, 50, 75, 100) and the other is an
+     * identity matrix where the diagonal now holds the values 
+     * (25, 50, 75, 100).
+     */
+    @Test
+    public void testMultiply_Matrix2() {
+        System.out.println("multiply");
+        Matrix m = new Matrix();
+        m.set(0, 0, 25);
+        m.set(1, 1, 50);
+        m.set(2, 2, 75);
+        m.set(3, 3, 100);
+        Matrix instance = new Matrix();
+        instance.set(0, 0, 25);
+        instance.set(0, 1, 50);
+        instance.set(0, 2, 75);
+        instance.set(0, 3, 100);
+        Matrix expResult = new Matrix();
+        expResult.set(0, 0, 625);
+        expResult.set(1, 1, 50);
+        expResult.set(2, 2, 75);
+        expResult.set(3, 3, 100);
+        expResult.set(0, 1, 2500);
+        expResult.set(0, 2, 5625);
+        expResult.set(0, 3, 10000);
+        Matrix result = instance.multiply(m);
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(result.get(i, j), expResult.get(i, j), 1E-8);
+            }// for
+        }// for
+    }// testMultiply_Matrix2()
 
     /**
      * Test of multiply method, of class Matrix.

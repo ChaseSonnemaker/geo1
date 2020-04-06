@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class VectorTest {
     
     public VectorTest() {
-    }
+    }// VectorTest()
 
     /**
      * First test of get method, of class Vector.

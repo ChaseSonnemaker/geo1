@@ -79,17 +79,33 @@ public class VectorTest {
     }// testSet2()
 
     /**
-     * Test of toString method, of class Vector.
+     * First test of toString method, of class Vector.
+     * 
+     * Tests vector (1, 0, 0, 1) conversion to a string.
      */
     @Test
-    public void testToString() {
+    public void testToString1() {
         System.out.println("toString");
-        Vector instance = new Vector(4, 3, 2);
-        String expResult = "(4.0, 3.0, 2.0, 1.0)";
+        Vector instance = new Vector(1, 0, 0);
+        String expResult = "(1.0, 0.0, 0.0, 1.0)";
         String result = instance.toString();
         assertEquals(expResult, result);
-    }
+    }// testToString1()
 
+    /**
+     * Second test of toString method, of class Vector.
+     * 
+     * Tests vector (0, 1, 0, 1) conversion to a string.
+     */
+    @Test
+    public void testToString2() {
+        System.out.println("toString");
+        Vector instance = new Vector(0, 1, 0);
+        String expResult = "(0.0, 1.0, 0.0, 1.0)";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+    }// testToString2()
+    
     /**
      * Test of add method, of class Vector.
      */

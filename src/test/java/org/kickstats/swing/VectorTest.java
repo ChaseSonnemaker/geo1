@@ -175,17 +175,34 @@ public class VectorTest {
     }// testSubtract2()
     
     /**
-     * Test of dot method, of class Vector.
+     * First test of dot method, of class Vector.
+     * 
+     * Tests the dot product of (1, 0, 0) and (0, 1, 0).
      */
     @Test
-    public void testDot() {
+    public void testDot1() {
         System.out.println("dot");
-        Vector v = new Vector(4, 3, 2);
-        Vector instance = new Vector(4, 3, 2);
-        double expResult = 29.0;
+        Vector v = new Vector(0, 1, 0);
+        Vector instance = new Vector(1, 0, 0);
+        double expResult = 0;
         double result = instance.dot(v);
         assertEquals(expResult, result, 1E-8);
-    }
+    }// testDot1()
+    
+    /**
+     * Second test of dot method, of class Vector.
+     * 
+     * Tests the dot product of (0, 1, 0) and (1, 0, 0).
+     */
+    @Test
+    public void testDot2() {
+        System.out.println("dot");
+        Vector v = new Vector(1, 0, 0);
+        Vector instance = new Vector(0, 1, 0);
+        double expResult = 0;
+        double result = instance.dot(v);
+        assertEquals(expResult, result, 1E-8);
+    }// testDot2()
 
     /**
      * Test of magnitude method, of class Vector.

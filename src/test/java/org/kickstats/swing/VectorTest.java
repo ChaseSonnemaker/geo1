@@ -109,7 +109,7 @@ public class VectorTest {
     /**
      * First test of add method, of class Vector.
      * 
-     * Tests the addition of vector (1, 0, 0) and vector (0, 1, 0)
+     * Tests the addition of vector (1, 0, 0) and vector (0, 1, 0).
      */
     @Test
     public void testAdd1() {
@@ -126,7 +126,7 @@ public class VectorTest {
     /**
      * Second test of add method, of class Vector.
      * 
-     * Tests the addition of vector (0, 1, 0) and vector (1, 0, 0)
+     * Tests the addition of vector (0, 1, 0) and vector (1, 0, 0).
      */
     @Test
     public void testAdd2() {
@@ -143,7 +143,7 @@ public class VectorTest {
     /**
      * First test of subtract method, of class Vector.
      * 
-     * Tests the subtraction of vector (0, 1, 0) from vector (1, 0, 0)
+     * Tests the subtraction of vector (0, 1, 0) from vector (1, 0, 0).
      */
     @Test
     public void testSubtract1() {
@@ -160,7 +160,7 @@ public class VectorTest {
     /**
      * Second test of subtract method, of class Vector.
      * 
-     * Tests the subtraction of vector (1, 0, 0) from vector (0, 1, 0)
+     * Tests the subtraction of vector (1, 0, 0) from vector (0, 1, 0).
      */
     @Test
     public void testSubtract2() {

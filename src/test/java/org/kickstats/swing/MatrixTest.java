@@ -221,22 +221,43 @@ public class MatrixTest {
     }// testMultiply_Matrix2()
 
     /**
-     * Test of multiply method, of class Matrix.
+     * First test of multiply (vector) method, of class Matrix.
+     * 
+     * Tests the product of a 4x4 identity matrix and a vector of 
+     * (1, 0, 0).
      */
     @Test
-    public void testMultiply_Vector4D() {
+    public void testMultiply_Vector1() {
         System.out.println("multiply");
-        Vector v = new Vector(4, 3, 2);
+        Vector v = new Vector(1, 0, 0);
         Matrix instance = new Matrix();
-        instance.set(0, 0, 4);
-        instance.set(1, 1, 3);
-        instance.set(2, 2, 2);
-        Vector expResult = new Vector(16, 9, 4);
+        Vector expResult = new Vector(1, 0, 0);
         Vector result = instance.multiply(v);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
-        }// if
-    }
+        }// for
+    }// testMultiply_Vector1()
+    
+    /**
+     * Second test of multiply (vector) method, of class Matrix.
+     * 
+     * Tests the product of a 4x4 matrix with (25, 50, 75, 1) on 
+     * the diagonal and a vector of (100, 75, 50, 1).
+     */
+    @Test
+    public void testMultiply_Vector2() {
+        System.out.println("multiply");
+        Vector v = new Vector(100, 75, 50);
+        Matrix instance = new Matrix();
+        instance.set(0, 0, 25);
+        instance.set(1, 1, 50);
+        instance.set(2, 2, 75);
+        Vector expResult = new Vector(2500, 3750, 3750);
+        Vector result = instance.multiply(v);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// for
+    }// testMultiply_Vector2()
 
     /**
      * Test of translate method, of class Matrix.

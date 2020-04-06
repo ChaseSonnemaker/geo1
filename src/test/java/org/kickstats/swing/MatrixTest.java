@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Tests for the methods of the Matrix class.
  * 
  * @author Chase Sonnemaker
+ * @version 6 April 2020
  */
 public class MatrixTest {
     
@@ -332,7 +333,7 @@ public class MatrixTest {
     }// testRotatex1()
 
     /**
-     * First test of rotateX method, of class Matrix.
+     * Second test of rotateX method, of class Matrix.
      * 
      * Tests the creation of a matrix designed to rotate a vector Pi radians
      * about the x axis.
@@ -493,4 +494,4 @@ public class MatrixTest {
         }// for
     }// testScale2()
     
-}
+}// MatrixTest

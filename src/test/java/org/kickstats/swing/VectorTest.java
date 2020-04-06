@@ -107,20 +107,39 @@ public class VectorTest {
     }// testToString2()
     
     /**
-     * Test of add method, of class Vector.
+     * First test of add method, of class Vector.
+     * 
+     * Tests the addition of vector (1, 0, 0) and vector (0, 1, 0)
      */
     @Test
-    public void testAdd() {
+    public void testAdd1() {
         System.out.println("add");
-        Vector v = new Vector(4, 3, 2);
-        Vector instance = new Vector(4, 3, 2);
-        Vector expResult = new Vector(8, 6, 4);
+        Vector v = new Vector(0, 1, 0);
+        Vector instance = new Vector(1, 0, 0);
+        Vector expResult = new Vector(1, 1, 0);
         Vector result = instance.add(v);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
         }// for
-    }
+    } //testAdd1()
 
+    /**
+     * Second test of add method, of class Vector.
+     * 
+     * Tests the addition of vector (0, 1, 0) and vector (1, 0, 0)
+     */
+    @Test
+    public void testAdd2() {
+        System.out.println("add");
+        Vector v = new Vector(1, 0, 0);
+        Vector instance = new Vector(0, 1, 0);
+        Vector expResult = new Vector(1, 1, 0);
+        Vector result = instance.add(v);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// for
+    } //testAdd2()
+    
     /**
      * Test of subtract method, of class Vector.
      */

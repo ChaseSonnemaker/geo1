@@ -170,7 +170,7 @@ public class Vector {
      */
     public Vector subtract(Vector v) {
         double diffX = this.x - v.x;
-        double diffY = this.y = v.y;
+        double diffY = this.y - v.y;
         double diffZ = this.z - v.z;
         return new Vector(diffX, diffY, diffZ);
     }// subtract(Vector)

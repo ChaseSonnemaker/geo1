@@ -312,10 +312,33 @@ public class MatrixTest {
     }// testTranslate2()
     
     /**
-     * Test of rotateX method, of class Matrix.
+     * First test of rotateX method, of class Matrix.
+     * 
+     * Tests the creation of a matrix designed to rotate a vector 2 Pi radians
+     * about the x axis.
      */
     @Test
-    public void testRotateX() {
+    public void testRotateX1() {
+        System.out.println("rotateX");
+        double angle = 2 * Math.PI;
+        Matrix instance = new Matrix();
+        instance.rotateX(angle);
+        Matrix expResult = new Matrix();
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
+            }// for
+        }// for
+    }// testRotatex1()
+
+    /**
+     * First test of rotateX method, of class Matrix.
+     * 
+     * Tests the creation of a matrix designed to rotate a vector Pi radians
+     * about the x axis.
+     */
+    @Test
+    public void testRotateX2() {
         System.out.println("rotateX");
         double angle = Math.PI;
         Matrix instance = new Matrix();
@@ -330,8 +353,8 @@ public class MatrixTest {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
             }// for
         }// for
-    }
-
+    }// testRotatex2()
+    
     /**
      * Test of rotateY method, of class Matrix.
      */

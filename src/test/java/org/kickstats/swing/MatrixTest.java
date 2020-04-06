@@ -108,16 +108,22 @@ public class MatrixTest {
         }// for
     }// testSet2()
     
+    //String method tests are located in Matrix main.
+    
     /**
-     * Test of identity method, of class Matrix.
+     * First test of identity method, of class Matrix.
+     * 
+     * Tests the conversion of a 4x4 matrix with a first row of elements 
+     * (25, 50, 75, 100) to an identity matrix.
      */
     @Test
-    public void testIdentity() {
+    public void testIdentity1() {
         System.out.println("identity");
         Matrix instance = new Matrix();
-        instance.set(3, 3, 15);
-        instance.set(1, 0, 56);
-        instance.set(0, 2, 1004);
+        instance.set(0, 0, 25);
+        instance.set(0, 1, 50);
+        instance.set(0, 2, 75);
+        instance.set(0, 3, 100);
         instance.identity();
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -129,8 +135,35 @@ public class MatrixTest {
                 }// else
             }// for
         }// for
-    }
+    }// testIdentity1()
 
+    /**
+     * Second test of identity method, of class Matrix.
+     * 
+     * Tests the conversion of a 4x4 matrix with a diagonal of elements 
+     * (25, 50, 75, 100) to an identity matrix.
+     */
+    @Test
+    public void testIdentity2() {
+        System.out.println("identity");
+        Matrix instance = new Matrix();
+        instance.set(0, 0, 25);
+        instance.set(1, 1, 50);
+        instance.set(2, 2, 75);
+        instance.set(3, 3, 100);
+        instance.identity();
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (i == j) {
+                    assertEquals(instance.get(i, j), 1);
+                }// if
+                else {
+                    assertEquals(instance.get(i, j), 0);
+                }// else
+            }// for
+        }// for
+    }// testIdentity2()
+    
     /**
      * Test of multiply method, of class Matrix.
      */

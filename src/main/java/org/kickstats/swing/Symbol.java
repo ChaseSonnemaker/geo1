@@ -18,9 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- * Contains methods used to build the loading symbols.
+ * Contains methods used to build the symbols.
  * 
  * @author Chase Sonnemaker using code from Leon Tabak
+ * @version 5 April 2020
  */
 public class Symbol extends JPanel implements ActionListener {
     

@@ -13,6 +13,12 @@ import java.awt.geom.QuadCurve2D;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+/**
+ * A support class for the Swing class.
+ * 
+ * @author Leon Tabak, edited by Chase Sonnemaker
+ * @version 5 April 2020
+ */
 public class SwingPanel extends JPanel implements ActionListener {
 
     private double ctr1x1 = 0;

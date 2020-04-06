@@ -122,7 +122,7 @@ public class Matrix {
             for(int j = 0; j < 4; j++) {
                 double sum = 0;
                 for(int k = 0; k < 4; k++) {
-                sum = sum + this.elements[i][k] * m.elements[k][j];
+                    sum = sum + this.elements[i][k] * m.elements[k][j];
                 }//for
             newM.set(i, j, sum);
             }// for

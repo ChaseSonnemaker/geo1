@@ -265,17 +265,37 @@ public class VectorTest {
     }// testNormalize2()
     
     /**
-     * Test of cross method, of class Vector.
+     * First test of cross method, of class Vector.
+     * 
+     * Tests the cross product of vector (1, 0, 0) and vector (0, 1, 0)
      */
     @Test
-    public void testCross() {
+    public void testCross1() {
         System.out.println("cross");
-        Vector v = new Vector(2, 3, 4);
-        Vector instance = new Vector(4, 3, 2);
-        Vector expResult = new Vector(6, -12, 6);
+        Vector v = new Vector(0, 1, 0);
+        Vector instance = new Vector(1, 0, 0);
+        Vector expResult = new Vector(0, 0, 1);
         Vector result = instance.cross(v);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
         }// for
-    }
+    }// testCross1()
+    
+    /**
+     * Second test of cross method, of class Vector.
+     * 
+     * Tests the cross product of vector (0, 1, 0) and vector (1, 0, 0)
+     */
+    @Test
+    public void testCross2() {
+        System.out.println("cross");
+        Vector v = new Vector(1, 0, 0);
+        Vector instance = new Vector(0, 1, 0);
+        Vector expResult = new Vector(0, 0, -1);
+        Vector result = instance.cross(v);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), result.get(i), 1E-8);
+        }// for
+    }// testCross1()
+    
 }

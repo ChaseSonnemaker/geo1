@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Tests for the methods of the Vector class.
  * 
  * @author Chase Sonnemaker
+ * @version 6 April 2020
  */
 public class VectorTest {
     

@@ -32,7 +32,7 @@ public class VectorTest {
     /**
      * Second test of get method, of class Vector.
      * 
-     * Tests getting the second element of a 4 element vector.
+     * Tests getting the last element of a 4 element vector.
      */
     @Test
     public void testGet2() {
@@ -44,7 +44,7 @@ public class VectorTest {
     }// testGet2
     
     /**
-     * First test of set method, of class Vector
+     * First test of set method, of class Vector.
      * 
      * Tests setting the first element of a 4 element vector to 10.
      */
@@ -62,9 +62,9 @@ public class VectorTest {
     }// testSet1()
     
     /**
-     * Second test of set method, of class Vector
+     * Second test of set method, of class Vector.
      * 
-     * Tests setting the second element of a 4 element vector to 5.
+     * Tests setting the last element of a 4 element vector to 5.
      */
     @Test
     public void testSet2() {
@@ -103,7 +103,7 @@ public class VectorTest {
         Vector result = instance.add(v);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
-        }// if
+        }// for
     }
 
     /**
@@ -118,7 +118,7 @@ public class VectorTest {
         Vector result = instance.subtract(v);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
-        }// if
+        }// for
     }
     
     /**
@@ -159,7 +159,7 @@ public class VectorTest {
         Vector result = instance.normalize();
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
-        }// if
+        }// for
     }
     
     /**
@@ -174,6 +174,6 @@ public class VectorTest {
         Vector result = instance.cross(v);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), result.get(i), 1E-8);
-        }// if
+        }// for
     }
 }

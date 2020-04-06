@@ -42,6 +42,42 @@ public class VectorTest {
         double result = instance.get(3);
         assertEquals(expResult, result, 1E-8);
     }// testGet2
+    
+    /**
+     * First test of set method, of class Vector
+     * 
+     * Tests setting the first element of a 4 element vector to 10.
+     */
+    @Test
+    public void testSet1() {
+        System.out.println("set");
+        int position = 0;
+        double value = 10;
+        Vector instance = new Vector(1, 0, 0);
+        Vector expResult = new Vector(10, 0, 0);
+        instance.set(position, value);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), instance.get(i), 1E-8);
+        }// for
+    }// testSet1()
+    
+    /**
+     * Second test of set method, of class Vector
+     * 
+     * Tests setting the second element of a 4 element vector to 5.
+     */
+    @Test
+    public void testSet2() {
+        System.out.println("set");
+        int position = 3;
+        double value = 5;
+        Vector instance = new Vector(0, 1, 0);
+        Vector expResult = new Vector(0, 1, 0, 10);
+        instance.set(position, value);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), instance.get(i), 1E-8);
+        }// for
+    }// testSet2()
 
     /**
      * Test of toString method, of class Vector.

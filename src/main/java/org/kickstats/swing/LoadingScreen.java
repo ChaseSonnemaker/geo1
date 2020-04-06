@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -14,6 +12,9 @@ import javax.swing.JMenuItem;
 
 /**
  * Creates a loading screen with the SCP symbol on it.
+ * 
+ * An experiment designed to work on creating more precise and defined shapes
+ * as well as work on random movement and boundaries. 
  * 
  * @author Chase Sonnemaker using code from Leon Tabak.
  */

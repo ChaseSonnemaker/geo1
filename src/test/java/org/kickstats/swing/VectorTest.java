@@ -205,17 +205,33 @@ public class VectorTest {
     }// testDot2()
 
     /**
-     * Test of magnitude method, of class Vector.
+     * First test of magnitude method, of class Vector.
+     * 
+     * Tests the magnitude of vector (1, 0, 0)
      */
     @Test
-    public void testMagnitude() {
+    public void testMagnitude1() {
         System.out.println("magnitude");
-        Vector instance = new Vector(4, 3, 2);
-        double expResult = 5.38516480713;
+        Vector instance = new Vector(1, 0, 0);
+        double expResult = 1;
         double result = instance.magnitude();
         assertEquals(expResult, result, 1E-8);
-    }
+    }// magnitude1()
 
+    /**
+     * Second test of magnitude method, of class Vector.
+     * 
+     * Tests the magnitude of vector (0, 1, 0)
+     */
+    @Test
+    public void testMagnitude2() {
+        System.out.println("magnitude");
+        Vector instance = new Vector(0, 1, 0);
+        double expResult = 1;
+        double result = instance.magnitude();
+        assertEquals(expResult, result, 1E-8);
+    }// magnitude2()
+    
     /**
      * Test of normalize method, of class Vector.
      */

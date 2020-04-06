@@ -117,7 +117,7 @@ public class Symbol extends JPanel implements ActionListener {
         int w = this.getWidth();
         int h = this.getHeight();
         
-        //Transformations
+        //Transformations for the three angles
         AffineTransform transform = new AffineTransform();
         AffineTransform scaling = new AffineTransform();
         scaling.setToScale(w / 2, h / 2);
@@ -140,7 +140,7 @@ public class Symbol extends JPanel implements ActionListener {
         transform3.concatenate(translation);
         transform3.concatenate(rotate3);
                 
-        //Initial Color and Sizes
+        //Color and stroke sizes used
         g2D.setColor(this.getColor());
         BasicStroke stroke = new BasicStroke(15f);
         g2D.setStroke(stroke);
@@ -159,6 +159,7 @@ public class Symbol extends JPanel implements ActionListener {
         Shape circle1 = transform.createTransformedShape(circle);
         g2D.draw(circle1);
         
+        //Outer Circle Parts
         //OuterHat1
         Path2D.Double outerHat1 = new Path2D.Double();
         outerHat1.moveTo(outerX1, outerY1);
@@ -240,7 +241,6 @@ public class Symbol extends JPanel implements ActionListener {
         g2D.draw(arrow2);
         g2D.fill(arrowFin2);
         
-        
         //Arrow3        
         Line2D.Double line3 = new Line2D.Double(origX, origY, origX2, origY2);
         Shape arrow3 = transform3.createTransformedShape(line3);
@@ -252,7 +252,7 @@ public class Symbol extends JPanel implements ActionListener {
         g2D.draw(arrow3);
         g2D.fill(arrowFin3);
         
-        //Load Sign
+        //Loading sign and movement 
         for(int i = 0; i < loadLines; i++) {
             double newAngle = i * ((2 * Math.PI) / loadLines);
            AffineTransform transform4 = new AffineTransform();
@@ -290,7 +290,7 @@ public class Symbol extends JPanel implements ActionListener {
             this.angleLoad = this.angleLoad / this.rotateLoad;
         }// if
         
-        //Symbol Movement
+        //Loading random movement
         if(this.xMove1 > 1) {
             this.xMove1 = this.xMove1 + this.speed * 
                 (( - 0.05));
@@ -317,8 +317,6 @@ public class Symbol extends JPanel implements ActionListener {
             this.yMove1 = this.yMove1 + this.speed * 
                 (rdm2.nextDouble() * 0.1 - 0.05);
         }// else
-            
-                
 
         this.repaint();
     } // actionPerformed( ActionEvent )

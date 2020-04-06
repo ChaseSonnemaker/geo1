@@ -116,12 +116,16 @@ public class Vector {
         switch(position) {
             case 0:
                 this.x = value;
+                break;
             case 1:
                 this.y = value;
+                break;
             case 2:
                 this.z = value;
+                break;
             case 3:
                 this.h = value;
+                break;
         }// switch
     }// set(int, double)
     

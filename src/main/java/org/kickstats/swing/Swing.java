@@ -11,8 +11,16 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 
+/**
+ * Creates a twisting spinning cube.
+ * 
+ * An experiment working with different types of shapes, menus, and 
+ * movement as well as a general introduction to 2D graphic design.
+ * 
+ * @author Leon Tabak, edited by Chase Sonnemaker
+ * @version 5 April 2020
+ */
 public class Swing extends JFrame implements ActionListener {
 
     private final int FRAME_WIDTH = 800;

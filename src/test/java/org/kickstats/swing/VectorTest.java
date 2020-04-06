@@ -37,7 +37,7 @@ public class VectorTest {
     @Test
     public void testGet2() {
         System.out.println("get");
-        Vector instance = new Vector(1, 0, 0);
+        Vector instance = new Vector(0, 1, 0);
         double expResult = 1;
         double result = instance.get(3);
         assertEquals(expResult, result, 1E-8);

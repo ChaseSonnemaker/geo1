@@ -265,6 +265,13 @@ public class Matrix {
         System.out.println(resultV);
         System.out.println();
         
+        //Cross product of (1, 2, 3) and (1, 5, 7)
+        Vector a = new Vector(1, 2, 3);
+        Vector b = new Vector(1, 5, 7);
+        Vector c = a.cross(b);
+        System.out.println(c);
+        System.out.println();
+        
         
     }// main(String[])
  

@@ -71,7 +71,7 @@ public class VectorTest {
         int position = 3;
         double value = 5;
         Vector instance = new Vector(0, 1, 0);
-        Vector expResult = new Vector(0, 1, 0, 10);
+        Vector expResult = new Vector(0, 1, 0, 5);
         instance.set(position, value);
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), instance.get(i), 1E-8);

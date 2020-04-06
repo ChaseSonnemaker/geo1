@@ -444,25 +444,53 @@ public class MatrixTest {
     }// testRotateZ2()
     
     /**
-     * Test of scale method, of class Matrix.
+     * First test of scale method, of class Matrix.
+     * 
+     * Tests the creation of a matrix designed to scale a vector by a factor 
+     * of 1 in the x direction, a factor of 25 in the y direction, and a factor
+     * of 50 in the z direction.
      */
     @Test
-    public void testScale() {
+    public void testScale1() {
         System.out.println("scale");
-        double x = 2.0;
-        double y = 4.0;
-        double z = 6.0;
+        double x = 1.0;
+        double y = 25.0;
+        double z = 50.0;
         Matrix instance = new Matrix();
         instance.scale(x, y, z);
         Matrix expResult = new Matrix();
-        expResult.set(0, 0, 2);
-        expResult.set(1, 1, 4);
-        expResult.set(2, 2, 6);
+        expResult.set(1, 1, 25);
+        expResult.set(2, 2, 50);
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
             }// for
         }// for
-    }
+    }// testScale1()
+    
+    /**
+     * Second test of scale method, of class Matrix.
+     * 
+     * Tests the creation of a matrix designed to scale a vector by a factor 
+     * of 0.01 in the x direction, a factor of 0.25 in the y direction, and a 
+     * factor of 1 in the z direction.
+     */
+    @Test
+    public void testScale2() {
+        System.out.println("scale");
+        double x = 0.01;
+        double y = 0.25;
+        double z = 1.0;
+        Matrix instance = new Matrix();
+        instance.scale(x, y, z);
+        Matrix expResult = new Matrix();
+        expResult.set(0, 0, 0.01);
+        expResult.set(1, 1, 0.25);
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
+            }// for
+        }// for
+    }// testScale2()
     
 }

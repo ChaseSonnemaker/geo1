@@ -12,13 +12,16 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MatrixTest {
     
     public MatrixTest() {
-    }
+    }// MatrixTest()
 
     /**
-     * Test of get method, of class Matrix.
+     * First test of get method, of class Matrix.
+     * 
+     * Tests retrieval of the value in the first row, first column of the 
+     * 4x4 identity matrix.
      */
     @Test
-    public void testGet() {
+    public void testGet1() {
         System.out.println("get");
         int row = 0;
         int column = 0;
@@ -26,8 +29,25 @@ public class MatrixTest {
         double expResult = 1.0;
         double result = instance.get(row, column);
         assertEquals(expResult, result, 1E-8);
-    }
+    }// testGet1()
 
+    /**
+     * Second test of get method, of class Matrix.
+     * 
+     * Tests retrieval of the value in the last row, last column of the 
+     * 4x4 identity matrix.
+     */
+    @Test
+    public void testGet2() {
+        System.out.println("get");
+        int row = 3;
+        int column = 3;
+        Matrix instance = new Matrix();
+        double expResult = 1.0;
+        double result = instance.get(row, column);
+        assertEquals(expResult, result, 1E-8);
+    }// testGet2()
+    
     /**
      * Test of identity method, of class Matrix.
      */

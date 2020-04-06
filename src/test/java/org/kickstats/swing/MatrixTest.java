@@ -400,10 +400,33 @@ public class MatrixTest {
     }// testRotateY2()
     
     /**
-     * Test of rotateZ method, of class Matrix.
+     * First test of rotateZ method, of class Matrix.
+     * 
+     * Tests the creation of a matrix designed to rotate a vector 2 Pi radians
+     * about the z axis.
      */
     @Test
-    public void testRotateZ() {
+    public void testRotateZ1() {
+        System.out.println("rotateZ");
+        double angle = 2 * Math.PI;
+        Matrix instance = new Matrix();
+        instance.rotateZ(angle);
+        Matrix expResult = new Matrix();
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
+            }// for
+        }// for
+    }// testRotateZ1()
+
+    /**
+     * Second test of rotateZ method, of class Matrix.
+     * 
+     * Tests the creation of a matrix designed to rotate a vector Pi radians
+     * about the z axis.
+     */
+    @Test
+    public void testRotateZ2() {
         System.out.println("rotateZ");
         double angle = Math.PI;
         Matrix instance = new Matrix();
@@ -418,8 +441,8 @@ public class MatrixTest {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
             }// for
         }// for
-    }
-
+    }// testRotateZ2()
+    
     /**
      * Test of scale method, of class Matrix.
      */

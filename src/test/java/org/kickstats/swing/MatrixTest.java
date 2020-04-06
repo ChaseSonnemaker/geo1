@@ -260,27 +260,57 @@ public class MatrixTest {
     }// testMultiply_Vector2()
 
     /**
-     * Test of translate method, of class Matrix.
+     * First test of translate method, of class Matrix.
+     * 
+     * Tests the creation of a matrix designed to translate a vector
+     * 0 units in the x direction, 25 units in the y directions, and 50 units 
+     * in the z direction.
      */
     @Test
-    public void testTranslate() {
+    public void testTranslate1() {
         System.out.println("translate");
-        double x = 2.0;
-        double y = 4.0;
-        double z = 6.0;
+        double x = 0;
+        double y = 25;
+        double z = 50;
         Matrix instance = new Matrix();
         instance.translate(x, y, z);
         Matrix expResult = new Matrix();
-        expResult.set(0, 3, 2);
-        expResult.set(1, 3, 4);
-        expResult.set(2, 3, 6);
+        expResult.set(0, 3, 0);
+        expResult.set(1, 3, 25);
+        expResult.set(2, 3, 50);
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
             }// for
         }// for
-    }
+    }// testTranslate1()
 
+    /**
+     * Second test of translate method, of class Matrix.
+     * 
+     * Tests the creation of a matrix designed to translate a vector
+     * -100 units in the x direction, -50 units in the y directions, and 
+     * 0 units in the z direction.
+     */
+    @Test
+    public void testTranslate2() {
+        System.out.println("translate");
+        double x = -100;
+        double y = -50;
+        double z = 0;
+        Matrix instance = new Matrix();
+        instance.translate(x, y, z);
+        Matrix expResult = new Matrix();
+        expResult.set(0, 3, -100);
+        expResult.set(1, 3, -50);
+        expResult.set(2, 3, 0);
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
+            }// for
+        }// for
+    }// testTranslate2()
+    
     /**
      * Test of rotateX method, of class Matrix.
      */

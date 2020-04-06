@@ -177,7 +177,7 @@ public class VectorTest {
     /**
      * First test of dot method, of class Vector.
      * 
-     * Tests the dot product of (1, 0, 0) and (0, 1, 0).
+     * Tests the dot product of vector (1, 0, 0) and vector (0, 1, 0).
      */
     @Test
     public void testDot1() {
@@ -192,7 +192,7 @@ public class VectorTest {
     /**
      * Second test of dot method, of class Vector.
      * 
-     * Tests the dot product of (0, 1, 0) and (1, 0, 0).
+     * Tests the dot product of vector (0, 1, 0) and vector (1, 0, 0).
      */
     @Test
     public void testDot2() {
@@ -207,7 +207,7 @@ public class VectorTest {
     /**
      * First test of magnitude method, of class Vector.
      * 
-     * Tests the magnitude of vector (1, 0, 0)
+     * Tests the magnitude of vector (1, 0, 0).
      */
     @Test
     public void testMagnitude1() {
@@ -221,7 +221,7 @@ public class VectorTest {
     /**
      * Second test of magnitude method, of class Vector.
      * 
-     * Tests the magnitude of vector (0, 1, 0)
+     * Tests the magnitude of vector (0, 1, 0).
      */
     @Test
     public void testMagnitude2() {
@@ -267,7 +267,7 @@ public class VectorTest {
     /**
      * First test of cross method, of class Vector.
      * 
-     * Tests the cross product of vector (1, 0, 0) and vector (0, 1, 0)
+     * Tests the cross product of vector (1, 0, 0) and vector (0, 1, 0).
      */
     @Test
     public void testCross1() {
@@ -284,7 +284,7 @@ public class VectorTest {
     /**
      * Second test of cross method, of class Vector.
      * 
-     * Tests the cross product of vector (0, 1, 0) and vector (1, 0, 0)
+     * Tests the cross product of vector (0, 1, 0) and vector (1, 0, 0).
      */
     @Test
     public void testCross2() {
@@ -298,4 +298,4 @@ public class VectorTest {
         }// for
     }// testCross1()
     
-}
+}// VectorTest

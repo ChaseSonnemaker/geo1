@@ -81,6 +81,9 @@ public class LoadingScreen extends JFrame implements ActionListener{
             
     } // actionPerformed( ActionEvent ) 
     
+    /**
+     * Runs the loading screen animation.
+     */
     public static void main(String[] args) {
         LoadingScreen ls = new LoadingScreen();
     } // main( String [] )

@@ -92,6 +92,7 @@ public class Symbol extends JPanel implements ActionListener {
     Random rdm1 = new Random();
     Random rdm2 = new Random();
  
+    
     /**
      * Creates and instance of the Symbol class which sets a timer moving to 
      * induce animation.
@@ -100,6 +101,7 @@ public class Symbol extends JPanel implements ActionListener {
        Timer timer = new Timer(50, this);
        timer.start();
     } // SwingPanel()
+    
     
     /**
      * Sets the speed instance variable to a new integer value.
@@ -110,6 +112,7 @@ public class Symbol extends JPanel implements ActionListener {
     public void setSpeed(int i) {
         this.speed = i;
     }// setSpeed
+    
     
     /**
      * Creates an AffineTransform object designed to scale a new shape to fit 
@@ -137,6 +140,7 @@ public class Symbol extends JPanel implements ActionListener {
         return transform;
     }// rotateToPlace(double)
     
+    
     /**
      * Creates the AffineTransform object designed to move an arrow to, scale
      * an arrow to the window, rotate the arrow to a starting position, and
@@ -158,6 +162,7 @@ public class Symbol extends JPanel implements ActionListener {
         return transform;
     }// spinArrows(double, double)
     
+    
     /**
      * Creates a straight line shape object using parameters defined in this
      * class.
@@ -175,6 +180,7 @@ public class Symbol extends JPanel implements ActionListener {
         
         return arrow;
     }// createArrow(double, double)
+    
     
     /**
      * Creates a triangular arrowhead shape using parameters defined in this
@@ -199,6 +205,7 @@ public class Symbol extends JPanel implements ActionListener {
         return arrowFin;
     }// createArrowHead(double, double)
     
+    
     /**
      * Creates an arc using parameters defined in this class. 
      * 
@@ -222,6 +229,7 @@ public class Symbol extends JPanel implements ActionListener {
         return arcFin;
     }// createArc(double)
     
+    
     /**
      * Creates a hat shape object using parameters defined in this class.
      * 
@@ -244,6 +252,7 @@ public class Symbol extends JPanel implements ActionListener {
         
         return outer;
     }// createHat(angle)
+    
     
     /**
      * Paints the symbol and loading shapes onto the window.
@@ -331,6 +340,7 @@ public class Symbol extends JPanel implements ActionListener {
     
     } // paintComponent( Graphics )
 
+    
     /**
      * Creates changes in the position and angle of the shapes to create 
      * animation based on a timer. 

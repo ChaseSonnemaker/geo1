@@ -275,7 +275,9 @@ public class MatrixTest {
         double z = 50;
         Matrix instance = new Matrix();
         instance.translate(x, y, z);
-        instance.translate(-x, -y, -z);
+        Matrix instance2 = new Matrix();
+        instance2.translate(-x, -y, -z);
+        instance = instance.multiply(instance2);
         Matrix expResult = new Matrix();
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -299,7 +301,9 @@ public class MatrixTest {
         double z = 0;
         Matrix instance = new Matrix();
         instance.translate(x, y, z);
-        instance.translate(-x, -y, -z);
+        Matrix instance2 = new Matrix();
+        instance2.translate(-x, -y, -z);
+        instance = instance.multiply(instance2);
         Matrix expResult = new Matrix();
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -340,7 +344,9 @@ public class MatrixTest {
         double angle = Math.PI;
         Matrix instance = new Matrix();
         instance.rotateX(angle);
-        instance.rotateX(-angle);
+        Matrix instance2 = new Matrix();
+        instance2.rotateX(-angle);
+        instance = instance.multiply(instance2);
         Matrix expResult = new Matrix();
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -381,7 +387,9 @@ public class MatrixTest {
         double angle = Math.PI;
         Matrix instance = new Matrix();
         instance.rotateY(angle);
-        instance.rotateY(-angle);
+        Matrix instance2 = new Matrix();
+        instance2.rotateY(-angle);
+        instance = instance.multiply(instance2);
         Matrix expResult = new Matrix();
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -422,7 +430,9 @@ public class MatrixTest {
         double angle = Math.PI;
         Matrix instance = new Matrix();
         instance.rotateZ(angle);
-        instance.rotateZ(-angle);
+        Matrix instance2 = new Matrix();
+        instance2.rotateZ(-angle);
+        instance = instance.multiply(instance2);
         Matrix expResult = new Matrix();
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -446,7 +456,9 @@ public class MatrixTest {
         double z = 50.0;
         Matrix instance = new Matrix();
         instance.scale(x, y, z);
-        instance.scale(1/x, 1/y, 1/z);
+        Matrix instance2 = new Matrix();
+        instance2.scale(1/x, 1/y, 1/z);
+        instance = instance.multiply(instance2);
         Matrix expResult = new Matrix();
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -470,7 +482,9 @@ public class MatrixTest {
         double z = 1.0;
         Matrix instance = new Matrix();
         instance.scale(x, y, z);        
-        instance.scale(1/x, 1/y, 1/z);
+        Matrix instance2 = new Matrix();
+        instance2.scale(1/x, 1/y, 1/z);
+        instance = instance.multiply(instance2);
         Matrix expResult = new Matrix();
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {

@@ -265,7 +265,9 @@ public class MatrixTest {
      * 
      * Tests the creation of a matrix designed to translate a vector
      * 0 units in the x direction, 25 units in the y directions, and 50 units 
-     * in the z direction.
+     * in the z direction. Then creates a matrix designed to move back to the 
+     * original spot and multiplies them together. Ensures the resulting matrix
+     * is the identity matrix.
      */
     @Test
     public void testTranslate1() {
@@ -291,7 +293,9 @@ public class MatrixTest {
      * 
      * Tests the creation of a matrix designed to translate a vector
      * -100 units in the x direction, -50 units in the y directions, and 
-     * 0 units in the z direction.
+     * 0 units in the z direction. Then creates a matrix designed to move back 
+     * to the original spot and multiplies them together. Ensures the 
+     * resulting matrix is the identity matrix.
      */
     @Test
     public void testTranslate2() {
@@ -336,7 +340,9 @@ public class MatrixTest {
      * Second test of rotateX method, of class Matrix.
      * 
      * Tests the creation of a matrix designed to rotate a vector Pi radians
-     * about the x axis.
+     * about the x axis. Then creates a matrix designed to rotate back 
+     * to the original spot and multiplies them together. Ensures the 
+     * resulting matrix is the identity matrix.
      */
     @Test
     public void testRotateX2() {
@@ -379,7 +385,9 @@ public class MatrixTest {
      * Second test of rotateY method, of class Matrix.
      * 
      * Tests the creation of a matrix designed to rotate a vector Pi radians
-     * about the y axis.
+     * about the y axis. Then creates a matrix designed to rotate back 
+     * to the original spot and multiplies them together. Ensures the 
+     * resulting matrix is the identity matrix.
      */
     @Test
     public void testRotateY2() {
@@ -422,7 +430,9 @@ public class MatrixTest {
      * Second test of rotateZ method, of class Matrix.
      * 
      * Tests the creation of a matrix designed to rotate a vector Pi radians
-     * about the z axis.
+     * about the z axis. Then creates a matrix designed to rotate back 
+     * to the original spot and multiplies them together. Ensures the 
+     * resulting matrix is the identity matrix.
      */
     @Test
     public void testRotateZ2() {
@@ -446,7 +456,9 @@ public class MatrixTest {
      * 
      * Tests the creation of a matrix designed to scale a vector by a factor 
      * of 1 in the x direction, a factor of 25 in the y direction, and a factor
-     * of 50 in the z direction.
+     * of 50 in the z direction. Then creates a matrix designed to scale back 
+     * to the original size and multiplies them together. Ensures the 
+     * resulting matrix is the identity matrix.
      */
     @Test
     public void testScale1() {
@@ -472,7 +484,9 @@ public class MatrixTest {
      * 
      * Tests the creation of a matrix designed to scale a vector by a factor 
      * of 0.01 in the x direction, a factor of 0.25 in the y direction, and a 
-     * factor of 1 in the z direction.
+     * factor of 1 in the z direction. Then creates a matrix designed to scale
+     * back to the original size and multiplies them together. Ensures the 
+     * resulting matrix is the identity matrix.
      */
     @Test
     public void testScale2() {

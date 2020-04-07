@@ -18,7 +18,7 @@ import javax.swing.JMenuItem;
  * as well as work on random movement, boundaries, and refactoring. 
  * 
  * @author Chase Sonnemaker using code from Leon Tabak.
- * @version 5 April 2020
+ * @version 7 April 2020
  */
 public class LoadingScreen extends JFrame implements ActionListener{
     

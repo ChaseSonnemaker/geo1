@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Tests for the methods of the Matrix class.
  * 
  * @author Chase Sonnemaker
- * @version 6 April 2020
+ * @version 7 April 2020
  */
 public class MatrixTest {
     
@@ -275,10 +275,8 @@ public class MatrixTest {
         double z = 50;
         Matrix instance = new Matrix();
         instance.translate(x, y, z);
+        instance.translate(-x, -y, -z);
         Matrix expResult = new Matrix();
-        expResult.set(0, 3, 0);
-        expResult.set(1, 3, 25);
-        expResult.set(2, 3, 50);
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
@@ -301,10 +299,8 @@ public class MatrixTest {
         double z = 0;
         Matrix instance = new Matrix();
         instance.translate(x, y, z);
+        instance.translate(-x, -y, -z);
         Matrix expResult = new Matrix();
-        expResult.set(0, 3, -100);
-        expResult.set(1, 3, -50);
-        expResult.set(2, 3, 0);
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);

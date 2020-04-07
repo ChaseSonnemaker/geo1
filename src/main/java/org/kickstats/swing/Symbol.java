@@ -169,49 +169,47 @@ public class Symbol extends JPanel implements ActionListener {
         return arrowFin;
     }// createArrowHead(double, double)
     
+    public Shape createArc(double angle) {
+        AffineTransform transform = rotateToPlace(angle);
+        
+        double d1 = 2 * this.radius2;
+        double ulx1 = this.centerX2 - this.radius2;
+        double uly1 = this.centerY2 - this.radius2;
+        
+        Arc2D.Double arc = new Arc2D.Double(ulx1, uly1, d1, d1, startAngle, 
+                                            endAngle, Arc2D.OPEN);
+        Shape arcFin = transform.createTransformedShape(arc);
+        
+        return arcFin;
+    }// createArc(double)
+    
+    public Shape createHat(double angle) {
+        AffineTransform transform = rotateToPlace(angle);
+        
+        Path2D.Double outerHat = new Path2D.Double();
+        outerHat.moveTo(outerX1, outerY1);
+        outerHat.lineTo(outerX2, outerY2);
+        outerHat.lineTo(outerX3, outerY3);
+        outerHat.lineTo(outerX4, outerY4);
+        Shape outer = transform.createTransformedShape(outerHat);
+        
+        return outer;
+    }// createHat(angle)
+    
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D) g;
-
-        int w = this.getWidth();
-        int h = this.getHeight();
         
-        //Transformations for the three angles
-        AffineTransform transform = new AffineTransform();
-        AffineTransform scaling = new AffineTransform();
-        scaling.setToScale(w / 2, h / 2);
-        AffineTransform translation = new AffineTransform();
-        translation.setToTranslation(1.0, 1.0);
-        transform.concatenate(scaling);
-        transform.concatenate(translation);
-        
-        AffineTransform transform2 = new AffineTransform();
-        AffineTransform rotate2 = new AffineTransform();
-        rotate2.setToRotation(ARROW_ANGLE, centerX, centerY);
-        transform2.concatenate(scaling);
-        transform2.concatenate(translation);
-        transform2.concatenate(rotate2);
-        
-        AffineTransform transform3 = new AffineTransform();
-        AffineTransform rotate3 = new AffineTransform();
-        rotate3.setToRotation(-ARROW_ANGLE, centerX, centerY);
-        transform3.concatenate(scaling);
-        transform3.concatenate(translation);
-        transform3.concatenate(rotate3);
-                
+  
         //Color and stroke sizes used
         g2D.setColor(this.getColor());
         BasicStroke stroke = new BasicStroke(15f);
         g2D.setStroke(stroke);
         
-        BasicStroke stroke2 = new BasicStroke(8f);
-        g2D.setStroke(stroke2);
         
-        BasicStroke stroke3 = new BasicStroke(5f);
-        g2D.setStroke(stroke3);
-        
-        //First Circle
+        //Drawing the first circle
+        AffineTransform transform = rotateToPlace(0);
         double d = 2 * this.radius;
         double ulx = this.centerX - this.radius;
         double uly = this.centerY - this.radius;
@@ -219,116 +217,62 @@ public class Symbol extends JPanel implements ActionListener {
         Shape circle1 = transform.createTransformedShape(circle);
         g2D.draw(circle1);
         
-        //Outer Circle Parts
-        //OuterHat1
-        Path2D.Double outerHat1 = new Path2D.Double();
-        outerHat1.moveTo(outerX1, outerY1);
-        outerHat1.lineTo(outerX2, outerY2);
-        outerHat1.lineTo(outerX3, outerY3);
-        outerHat1.lineTo(outerX4, outerY4);
-        Shape outer1 = transform.createTransformedShape(outerHat1);
-        g2D.draw(outer1);
         
-        //OuterHat2
-        Path2D.Double outerHat2 = new Path2D.Double();
-        outerHat2.moveTo(outerX1, outerY1);
-        outerHat2.lineTo(outerX2, outerY2);
-        outerHat2.lineTo(outerX3, outerY3);
-        outerHat2.lineTo(outerX4, outerY4);
-        Shape outer2 = transform2.createTransformedShape(outerHat2);
-        g2D.draw(outer2);
+        //Adjusting stroke size
+        BasicStroke stroke2 = new BasicStroke(8f);
+        g2D.setStroke(stroke2);
         
-        //OuterHat3
-        Path2D.Double outerHat3 = new Path2D.Double();
-        outerHat3.moveTo(outerX1, outerY1);
-        outerHat3.lineTo(outerX2, outerY2);
-        outerHat3.lineTo(outerX3, outerY3);
-        outerHat3.lineTo(outerX4, outerY4);
-        Shape outer3 = transform3.createTransformedShape(outerHat3);
-        g2D.draw(outer3);
         
-        BasicStroke stroke4 = new BasicStroke(5f, BasicStroke.CAP_ROUND, 
-                                                        BasicStroke.JOIN_ROUND);
-        g2D.setStroke(stroke4);
+        //Drawing the arrows
+        g2D.draw(createArrow(0, angleSymbol));
+        g2D.draw(createArrow(ARROW_ANGLE, angleSymbol));
+        g2D.draw(createArrow(-ARROW_ANGLE, angleSymbol));
         
-        //Arc1
-        double d1 = 2 * this.radius2;
-        double ulx1 = this.centerX2 - this.radius2;
-        double uly1 = this.centerY2 - this.radius2;
-        Arc2D.Double arc1 = new Arc2D.Double(ulx1, uly1, d1, d1, startAngle, 
-                                            endAngle, Arc2D.OPEN);
-        Shape arcFin1 = transform.createTransformedShape(arc1);
-        g2D.draw(arcFin1);
+        g2D.fill(createArrowHead(0, angleSymbol));
+        g2D.fill(createArrowHead(ARROW_ANGLE, angleSymbol));
+        g2D.fill(createArrowHead(-ARROW_ANGLE, angleSymbol));
         
-        //Arc2
-        Arc2D.Double arc2 = new Arc2D.Double(ulx1, uly1, d1, d1, startAngle, 
-                                            endAngle, Arc2D.OPEN);
-        Shape arcFin2 = transform2.createTransformedShape(arc2);
-        g2D.draw(arcFin2);
         
-        //Arc3
-        Arc2D.Double arc3 = new Arc2D.Double(ulx1, uly1, d1, d1, startAngle, 
-                                            endAngle, Arc2D.OPEN);
-        Shape arcFin3 = transform3.createTransformedShape(arc3);
-        g2D.draw(arcFin3);
+        //Adjusting stroke size
+        BasicStroke stroke3 = new BasicStroke(5f);
+        g2D.setStroke(stroke3);
         
-        //Symbol Rotate
-        AffineTransform symbol = new AffineTransform();
-        symbol.setToRotation(angleSymbol, centerX, centerY);
-        transform.concatenate(symbol);
-        transform2.concatenate(symbol);
-        transform3.concatenate(symbol);
         
-        //Arrow 1
-        Line2D.Double line1 = new Line2D.Double(origX, origY, origX2, origY2);
-        Shape arrow1 = transform.createTransformedShape(line1);
-        Path2D.Double arrowhead1 = new Path2D.Double();
-        arrowhead1.moveTo(arpX, arpY);
-        arrowhead1.lineTo(arX, arY);
-        arrowhead1.lineTo(arX2, arY2);
-        Shape arrowFin1 = transform.createTransformedShape(arrowhead1);
-        g2D.draw(arrow1);
-        g2D.fill(arrowFin1);
+        //Drawing the outer circle
+        g2D.draw(createArc(0));
+        g2D.draw(createArc(ARROW_ANGLE));
+        g2D.draw(createArc(-ARROW_ANGLE));
         
-        //Arrow2
-        Line2D.Double line2 = new Line2D.Double(origX, origY, origX2, origY2);
-        Shape arrow2 = transform2.createTransformedShape(line2);
-        Path2D.Double arrowhead2 = new Path2D.Double();
-        arrowhead2.moveTo(arpX, arpY);
-        arrowhead2.lineTo(arX, arY);
-        arrowhead2.lineTo(arX2, arY2);
-        Shape arrowFin2 = transform2.createTransformedShape(arrowhead2);
-        g2D.draw(arrow2);
-        g2D.fill(arrowFin2);
+        g2D.draw(createHat(0));
+        g2D.draw(createHat(ARROW_ANGLE));
+        g2D.draw(createHat(-ARROW_ANGLE));
         
-        //Arrow3        
-        Line2D.Double line3 = new Line2D.Double(origX, origY, origX2, origY2);
-        Shape arrow3 = transform3.createTransformedShape(line3);
-        Path2D.Double arrowhead3 = new Path2D.Double();
-        arrowhead3.moveTo(arpX, arpY);
-        arrowhead3.lineTo(arX, arY);
-        arrowhead3.lineTo(arX2, arY2);
-        Shape arrowFin3 = transform3.createTransformedShape(arrowhead3);
-        g2D.draw(arrow3);
-        g2D.fill(arrowFin3);
         
         //Loading sign and movement 
         for(int i = 0; i < loadLines; i++) {
             double newAngle = i * ((2 * Math.PI) / loadLines);
-           AffineTransform transform4 = new AffineTransform();
-            transform4.concatenate(scaling);
-            transform4.concatenate(translation);
+            
+            int w = this.getWidth();
+            int h = this.getHeight();
+            
+            AffineTransform transform2 = new AffineTransform();
+            AffineTransform scaling2 = new AffineTransform();
+            scaling2.setToScale(w / 2, h / 2);
+            AffineTransform translation2 = new AffineTransform();
+            translation2.setToTranslation(1.0, 1.0);
             AffineTransform move = new AffineTransform();
             move.translate(xMove1, yMove1);
-            transform4.concatenate(move);
-            AffineTransform rotate4 = new AffineTransform();
-            rotate4.setToRotation(newAngle + angleLoad, 
+            AffineTransform rotate = new AffineTransform();
+            rotate.setToRotation(newAngle + angleLoad, 
                                     loadCenterX, loadCenterY);
-            transform4.concatenate(rotate4);
             
+            transform2.concatenate(scaling2);
+            transform2.concatenate(move);
+            transform2.concatenate(rotate);
+ 
             Line2D.Double newLine = new Line2D.Double(loadStartX, loadStartY, 
                                         loadEndX, loadEndY);
-            Shape newLineFin = transform4.createTransformedShape(newLine);
+            Shape newLineFin = transform2.createTransformedShape(newLine);
             
             g2D.draw(newLineFin);
         }// for

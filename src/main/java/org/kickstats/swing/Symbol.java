@@ -321,7 +321,14 @@ public class Symbol extends JPanel implements ActionListener {
     
     } // paintComponent( Graphics )
 
-    
+    /**
+     * Creates changes in the position and angle of the shapes to create 
+     * animation based on a timer. 
+     * 
+     * Redraws the picture with new parameters based on a timer.
+     * 
+     * @param event Some event (such as a timer) by which change will occur.
+     */
     @Override
     public void actionPerformed(ActionEvent event) {
         //Symbol Rotate

@@ -156,6 +156,15 @@ public class Symbol extends JPanel implements ActionListener {
         return transform;
     }// spinArrows(double, double)
     
+    /**
+     * Creates a straight line shape object using parameters defined in this
+     * class.
+     * 
+     * @param initialAngle The starting angle (radians) of the line.
+     * @param newAngle The angle change (radians) of the line due to a rotation.
+     * @return A straight line shape with parameters defined in this class, 
+     * scaled to the window, and rotated based on an initial and changed angle.
+     */
     public Shape createArrow(double initialAngle, double newAngle) {
         AffineTransform transform = spinArrows(initialAngle, newAngle);
         

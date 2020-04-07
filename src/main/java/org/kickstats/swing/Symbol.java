@@ -97,6 +97,12 @@ public class Symbol extends JPanel implements ActionListener {
        timer.start();
     } // SwingPanel()
     
+    /**
+     * Sets the speed instance variable to a new integer value.
+     * 
+     * @param i A factor by which to increase the change in movement and 
+     * angle of shapes.
+     */
     public void setSpeed(int i) {
         this.speed = i;
     }// setSpeed

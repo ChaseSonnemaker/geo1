@@ -18,7 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- * Contains methods used to build the symbols.
+ * Contains methods used to draw the symbol and a loading screen sign.
+ * 
+ * Also allows for rotation and movement of these drawings.
  * 
  * @author Chase Sonnemaker using code from Leon Tabak
  * @version 5 April 2020

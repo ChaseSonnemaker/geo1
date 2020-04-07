@@ -131,6 +131,17 @@ public class Vector {
     
     
     /**
+     * Takes a 4 element vector and sets all elements of this vector 
+     * to match.
+     * 
+     * @param v A 4 element vector that this vector should mirror.
+     */
+    public void set(Vector v) {
+        
+    }// set(Vector)
+    
+    
+    /**
      * Returns a string representation of this vector.
      * 
      * @return A string representation of this vector.

@@ -92,6 +92,10 @@ public class Symbol extends JPanel implements ActionListener {
     Random rdm1 = new Random();
     Random rdm2 = new Random();
  
+    /**
+     * Creates and instance of the Symbol class which sets a timer moving to 
+     * induce animation.
+     */
     public Symbol() {
        Timer timer = new Timer(50, this);
        timer.start();

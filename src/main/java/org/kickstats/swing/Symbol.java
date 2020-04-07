@@ -197,6 +197,15 @@ public class Symbol extends JPanel implements ActionListener {
         return arrowFin;
     }// createArrowHead(double, double)
     
+    /**
+     * Creates an arc using parameters defined in this class. 
+     * 
+     * The arc is part of the outer circle of the symbol.
+     * 
+     * @param angle The angle (radians) of the arc.
+     * @return An arc shape with class defined parameters, scaled to the 
+     * window, and at a defined angle. 
+     */
     public Shape createArc(double angle) {
         AffineTransform transform = rotateToPlace(angle);
         

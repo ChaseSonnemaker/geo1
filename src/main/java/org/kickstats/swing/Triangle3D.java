@@ -1,6 +1,8 @@
 
 package org.kickstats.swing;
 
+import java.awt.Shape;
+import java.awt.geom.Path2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +37,23 @@ public class Triangle3D {
             point.set(newPoint);
         }// for
     }// change(Matrix)
+    
+    
+    public Shape getShape() {
+        Path2D.Double newPath = new Path2D.Double();
+        
+        Vector start = this.points.get(2);
+        newPath.moveTo(start.get(0), start.get(1));
+        
+        for(Vector point : this.points) {
+            double x = point.get(0);
+            double y = point.get(1);
+                    
+            newPath.lineTo(x, y);  
+        }// for
+        newPath.closePath();
+        return newPath;
+    }// getShape()
     
     
 }// Triangle3D

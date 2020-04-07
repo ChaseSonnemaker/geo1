@@ -109,6 +109,13 @@ public class Symbol extends JPanel implements ActionListener {
         this.speed = i;
     }// setSpeed
     
+    /**
+     * Creates an AffineTransform object designed to scale a new shape to fit 
+     * the window, and rotate the shape to a starting position.
+     * 
+     * @param initialAngle The starting angle (radians) of the shape.
+     * @return An AffineTransform object that will scale and rotate a shape.
+     */
     public AffineTransform rotateToPlace(double initialAngle) {
         int w = this.getWidth();
         int h = this.getHeight();
@@ -129,11 +136,12 @@ public class Symbol extends JPanel implements ActionListener {
     }// rotateToPlace(double)
     
     /**
-     * Creates the AffineTransform object designed to move an arrow to the
-     * correct angle of rotation.
+     * Creates the AffineTransform object designed to move an arrow to, scale
+     * an arrow to the window, rotate the arrow to a starting position, and
+     * rotate the arrow to a new position based on spin movement.
      * 
-     * @param initialAngle The starting angle (radians) of the object.
-     * @param newAngle The new angle (radians) of the object given rotation
+     * @param initialAngle The starting angle (radians) of the arrow.
+     * @param newAngle The new angle (radians) of the arrow given rotation
      * @return An AffineTransform object which can be used to transform an
      * arrow to the correct spin position.
      */

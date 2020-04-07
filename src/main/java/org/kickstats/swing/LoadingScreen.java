@@ -63,6 +63,11 @@ public class LoadingScreen extends JFrame implements ActionListener{
         this.setVisible(true);
     }// LoadingScreen()
     
+    /**
+     * Changes the speed of the animation based on menu interaction.
+     * 
+     * @param event Some event (menu click) 
+     */
     @Override
     public void actionPerformed(ActionEvent event) {
         String actionCommand = event.getActionCommand();

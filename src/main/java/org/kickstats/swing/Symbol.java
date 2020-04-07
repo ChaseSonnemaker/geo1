@@ -212,6 +212,16 @@ public class Symbol extends JPanel implements ActionListener {
         return arcFin;
     }// createArc(double)
     
+    /**
+     * Creates a hat shape object using parameters defined in this class.
+     * 
+     * The hat shape is part of the symbol that connects the outer arcs and 
+     * are placed over the arrows.
+     * 
+     * @param angle The angle (radians) of the hat.
+     * @return A hat shape object with class defined parameters, scaled to 
+     * the window, and at a specified angle.
+     */
     public Shape createHat(double angle) {
         AffineTransform transform = rotateToPlace(angle);
         

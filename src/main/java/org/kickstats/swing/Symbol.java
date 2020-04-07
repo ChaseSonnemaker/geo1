@@ -97,14 +97,6 @@ public class Symbol extends JPanel implements ActionListener {
        timer.start();
     } // SwingPanel()
     
-    public Color getColor() {
-        return this.color;
-    }// getColor()
-    
-    public void setColor(Color c) {
-        this.color = c;
-    }// setColor
-    
     public void setSpeed(int i) {
         this.speed = i;
     }// setSpeed

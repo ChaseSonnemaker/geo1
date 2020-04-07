@@ -49,7 +49,7 @@ public class VectorTest {
      * Tests setting the first element of a 4 element vector to 10.
      */
     @Test
-    public void testSet1() {
+    public void testSet_int_double1() {
         System.out.println("set");
         int position = 0;
         double value = 10;
@@ -59,15 +59,15 @@ public class VectorTest {
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), instance.get(i), 1E-8);
         }// for
-    }// testSet1()
+    }// testSet_int_double1()
     
     /**
-     * Second test of set method, of class Vector.
+     * Second test of set element method, of class Vector.
      * 
      * Tests setting the last element of a 4 element vector to 5.
      */
     @Test
-    public void testSet2() {
+    public void testSet_int_double2() {
         System.out.println("set");
         int position = 3;
         double value = 5;
@@ -77,8 +77,40 @@ public class VectorTest {
         for(int i = 0; i < 4; i++) {
             assertEquals(expResult.get(i), instance.get(i), 1E-8);
         }// for
-    }// testSet2()
+    }// testSet_int_double2()
 
+    /**
+     * First test of set Vector method, of class Vector.
+     * 
+     * Tests setting a vector of (0, 0, 0, 0) to (1, 0, 0, 1).
+     */
+    @Test
+    public void testSet_Vector1() {
+        System.out.println("set");
+        Vector instance = new Vector();
+        Vector expResult = new Vector(1, 0, 0);
+        instance.set(expResult);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), instance.get(i), 1E-8);
+        }// for
+    }// testSet_Vector1()
+    
+    /**
+     * Second test of set Vector method, of class Vector.
+     * 
+     * Tests setting a vector of (0, 0, 0, 0) to (0, 1, 0, 1).
+     */
+    @Test
+    public void testSet_Vector2() {
+        System.out.println("set");
+        Vector instance = new Vector();
+        Vector expResult = new Vector(0, 1, 0);
+        instance.set(expResult);
+        for(int i = 0; i < 4; i++) {
+            assertEquals(expResult.get(i), instance.get(i), 1E-8);
+        }// for
+    }// testSet_Vector2()
+    
     /**
      * First test of toString method, of class Vector.
      * 

@@ -235,6 +235,9 @@ public class Symbol extends JPanel implements ActionListener {
         return outer;
     }// createHat(angle)
     
+    /**
+     * Paints the symbol and loading shapes onto the window.
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

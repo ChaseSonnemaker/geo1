@@ -174,6 +174,17 @@ public class Symbol extends JPanel implements ActionListener {
         return arrow;
     }// createArrow(double, double)
     
+    /**
+     * Creates a triangular arrowhead shape using parameters defined in this
+     * class.
+     * 
+     * @param initialAngle The starting angle (radians) of the arrowhead.
+     * @param newAngle The angle change (radians) of the arrowhead due to 
+     * a rotation.
+     * @return A triangular arrowhead shape with parameters defined in this 
+     * class, scaled to the window, and rotated based on an initial 
+     * and changed angle.
+     */
     public Shape createArrowHead(double initialAngle, double newAngle) {
         AffineTransform transform = spinArrows(initialAngle, newAngle);
         

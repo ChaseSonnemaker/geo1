@@ -242,7 +242,7 @@ public class Symbol extends JPanel implements ActionListener {
         
   
         //Color and stroke sizes used
-        g2D.setColor(this.getColor());
+        g2D.setColor(this.color);
         BasicStroke stroke = new BasicStroke(15f);
         g2D.setStroke(stroke);
         

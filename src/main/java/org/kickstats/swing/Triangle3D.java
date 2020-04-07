@@ -28,4 +28,13 @@ public class Triangle3D {
         }// for
     }// Triangle3D(double)
     
+    
+    public void change(Matrix m) {
+        for(Vector point : this.points) {
+            Vector newPoint = m.multiply(point);
+            point.set(newPoint);
+        }// for
+    }// change(Matrix)
+    
+    
 }// Triangle3D

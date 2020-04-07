@@ -446,9 +446,8 @@ public class MatrixTest {
         double z = 50.0;
         Matrix instance = new Matrix();
         instance.scale(x, y, z);
+        instance.scale(1/x, 1/y, 1/z);
         Matrix expResult = new Matrix();
-        expResult.set(1, 1, 25);
-        expResult.set(2, 2, 50);
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
@@ -470,10 +469,9 @@ public class MatrixTest {
         double y = 0.25;
         double z = 1.0;
         Matrix instance = new Matrix();
-        instance.scale(x, y, z);
+        instance.scale(x, y, z);        
+        instance.scale(1/x, 1/y, 1/z);
         Matrix expResult = new Matrix();
-        expResult.set(0, 0, 0.01);
-        expResult.set(1, 1, 0.25);
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);

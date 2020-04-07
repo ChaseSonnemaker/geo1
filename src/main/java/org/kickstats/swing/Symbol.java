@@ -109,6 +109,66 @@ public class Symbol extends JPanel implements ActionListener {
         this.speed = i;
     }// setSpeed
     
+    public AffineTransform rotateToPlace(double initialAngle) {
+        int w = this.getWidth();
+        int h = this.getHeight();
+        
+        AffineTransform transform = new AffineTransform();
+        AffineTransform scaling = new AffineTransform();
+        scaling.setToScale(w / 2, h / 2);
+        AffineTransform translation = new AffineTransform();
+        translation.setToTranslation(1.0, 1.0);
+        AffineTransform rotate1 = new AffineTransform();
+        rotate1.setToRotation(initialAngle, centerX, centerY);
+        
+        transform.concatenate(scaling);
+        transform.concatenate(translation);
+        transform.concatenate(rotate1);
+        
+        return transform;
+    }// rotateToPlace(double)
+    
+    /**
+     * Creates the AffineTransform object designed to move an arrow to the
+     * correct angle of rotation.
+     * 
+     * @param initialAngle The starting angle (radians) of the object.
+     * @param newAngle The new angle (radians) of the object given rotation
+     * @return An AffineTransform object which can be used to transform an
+     * arrow to the correct spin position.
+     */
+    public AffineTransform spinArrows(double initialAngle, double newAngle) {
+
+        AffineTransform transform = rotateToPlace(initialAngle);
+        
+        AffineTransform rotate2 = new AffineTransform();
+        rotate2.setToRotation(newAngle, centerX, centerY);
+        transform.concatenate(rotate2);
+        
+        return transform;
+    }// spinArrows(double, double)
+    
+    public Shape createArrow(double initialAngle, double newAngle) {
+        AffineTransform transform = spinArrows(initialAngle, newAngle);
+        
+        Line2D.Double line = new Line2D.Double(origX, origY, origX2, origY2);
+        Shape arrow = transform.createTransformedShape(line);
+        
+        return arrow;
+    }// createArrow(double, double)
+    
+    public Shape createArrowHead(double initialAngle, double newAngle) {
+        AffineTransform transform = spinArrows(initialAngle, newAngle);
+        
+        Path2D.Double arrowhead = new Path2D.Double();
+        arrowhead.moveTo(arpX, arpY);
+        arrowhead.lineTo(arX, arY);
+        arrowhead.lineTo(arX2, arY2);
+        Shape arrowFin = transform.createTransformedShape(arrowhead);
+        
+        return arrowFin;
+    }// createArrowHead(double, double)
+    
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

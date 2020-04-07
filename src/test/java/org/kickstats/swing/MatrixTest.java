@@ -340,11 +340,8 @@ public class MatrixTest {
         double angle = Math.PI;
         Matrix instance = new Matrix();
         instance.rotateX(angle);
+        instance.rotateX(-angle);
         Matrix expResult = new Matrix();
-        expResult.set(1, 1, Math.cos(Math.PI));
-        expResult.set(1, 2, -Math.sin(Math.PI));
-        expResult.set(2, 1, Math.sin(Math.PI));
-        expResult.set(2, 2, Math.cos(Math.PI));
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
@@ -384,11 +381,8 @@ public class MatrixTest {
         double angle = Math.PI;
         Matrix instance = new Matrix();
         instance.rotateY(angle);
+        instance.rotateY(-angle);
         Matrix expResult = new Matrix();
-        expResult.set(0, 0, Math.cos(Math.PI));
-        expResult.set(0, 2, Math.sin(Math.PI));
-        expResult.set(2, 0, -Math.sin(Math.PI));
-        expResult.set(2, 2, Math.cos(Math.PI));
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);
@@ -428,11 +422,8 @@ public class MatrixTest {
         double angle = Math.PI;
         Matrix instance = new Matrix();
         instance.rotateZ(angle);
+        instance.rotateZ(-angle);
         Matrix expResult = new Matrix();
-        expResult.set(0, 0, Math.cos(Math.PI));
-        expResult.set(0, 1, -Math.sin(Math.PI));
-        expResult.set(1, 0, Math.sin(Math.PI));
-        expResult.set(1, 1, Math.cos(Math.PI));
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 assertEquals(instance.get(i, j), expResult.get(i, j), 1E-8);

@@ -63,6 +63,7 @@ public class LoadingScreen extends JFrame implements ActionListener{
         this.setVisible(true);
     }// LoadingScreen()
     
+    
     /**
      * Changes the speed of the animation based on menu interaction.
      * 
@@ -80,6 +81,7 @@ public class LoadingScreen extends JFrame implements ActionListener{
         } // if
             
     } // actionPerformed( ActionEvent ) 
+    
     
     /**
      * Runs the loading screen animation.

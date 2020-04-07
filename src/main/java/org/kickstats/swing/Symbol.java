@@ -23,7 +23,7 @@ import javax.swing.Timer;
  * Also allows for rotation and movement of these drawings.
  * 
  * @author Chase Sonnemaker using code from Leon Tabak
- * @version 5 April 2020
+ * @version 7 April 2020
  */
 public class Symbol extends JPanel implements ActionListener {
     

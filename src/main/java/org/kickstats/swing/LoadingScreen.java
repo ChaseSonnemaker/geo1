@@ -31,6 +31,10 @@ public class LoadingScreen extends JFrame implements ActionListener{
     private final Symbol panel;
     
     
+    /**
+     * Creates the loading screen which holds the animations of the symbols and
+     * contains a menu for changing the speed of the symbol.
+     */
     public LoadingScreen() {
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setTitle(FRAME_TITLE);
@@ -41,6 +45,7 @@ public class LoadingScreen extends JFrame implements ActionListener{
         pane.add(panel);
         this.panel.setBackground(Color.BLACK);
         
+        //Speed Menu
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
 
@@ -54,8 +59,6 @@ public class LoadingScreen extends JFrame implements ActionListener{
             item.setActionCommand(label);
             speedMenu.add(item);
         }// for
-        
-        
         
         this.setVisible(true);
     }// LoadingScreen()

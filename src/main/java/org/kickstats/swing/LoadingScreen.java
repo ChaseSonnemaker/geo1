@@ -11,10 +11,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 /**
- * Creates a loading screen with the SCP symbol on it.
+ * Creates a loading screen with the SCP symbol and a moving loading screen 
+ * symbol on it.
  * 
  * An experiment designed to work on creating more precise and defined shapes
- * as well as work on random movement and boundaries. 
+ * as well as work on random movement, boundaries, and refactoring. 
  * 
  * @author Chase Sonnemaker using code from Leon Tabak.
  * @version 5 April 2020

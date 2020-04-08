@@ -31,10 +31,10 @@ public class Polygon3D {
     
     
     public Polygon3D(Vector p00, Vector p10, Vector p11, Vector p01) {
-        points.add(p00);
-        points.add(p10);
-        points.add(p11);
-        points.add(p01);
+        this.points.add(p00);
+        this.points.add(p10);
+        this.points.add(p11);
+        this.points.add(p01);
     }// Polygon3D(Vector, Vector, Vector, Vector)
     
     

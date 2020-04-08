@@ -55,7 +55,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         Matrix rotate = rotateX.multiply(rotateY).multiply(rotateZ);
         Matrix position = scaling.multiply(translation).multiply(rotate);
         
-        Triangle3D triangle = new Triangle3D(TRIANGLE_LENGTH);
+        Polygon3D triangle = new Polygon3D(6, TRIANGLE_LENGTH, 0);
         triangle.change(position);
         Shape newTriangle = triangle.getShape();
         

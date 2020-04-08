@@ -13,9 +13,9 @@ import java.util.List;
  */
 public class PolygonPrism {
     
-    Polygon3D primary1;
-    Polygon3D primary2;
-    List<Polygon3D> rectangles = new ArrayList<>(); 
+    private Polygon3D primary1;
+    private Polygon3D primary2;
+    private List<Polygon3D> rectangles = new ArrayList<>(); 
     
     
     public PolygonPrism(int sides, double radius, double length) {
@@ -48,12 +48,33 @@ public class PolygonPrism {
     }// PolygonPrism(int, double)
     
     public void change(Matrix m) {
-        this.primary1.change(m);
-        this.primary2.change(m);
-        for(Polygon3D p : this.rectangles) {
+        this.getPrimary1().change(m);
+        this.getPrimary2().change(m);
+        for(Polygon3D p : this.getRectangles()) {
             p.change(m);
         }// for
     }// change(Matrix)
+
+    /**
+     * @return the primary1
+     */
+    public Polygon3D getPrimary1() {
+        return primary1;
+    }
+
+    /**
+     * @return the primary2
+     */
+    public Polygon3D getPrimary2() {
+        return primary2;
+    }
+
+    /**
+     * @return the rectangles
+     */
+    public List<Polygon3D> getRectangles() {
+        return rectangles;
+    }
     
     
 }// PolygonPrism

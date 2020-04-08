@@ -45,12 +45,12 @@ public class PolygonPrism {
         return new Polygon3D(this.shape1Points);
     }// getFace1
 //
-//    /**
-//     * @return the primary2
-//     */
-//    public Polygon3D getPrimary2() {
-//        return primary2;
-//    }
+    /**
+     * @return the primary2
+     */
+    public Polygon3D getFace2() {
+        return new Polygon3D(this.shape2Points);
+    }// getFace2
 //
 //    /**
 //     * @return the rectangles

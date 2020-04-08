@@ -30,6 +30,14 @@ public class Polygon3D {
     }// Polygon3D(int, double, double)
     
     
+    public Polygon3D(Vector p00, Vector p10, Vector p01, Vector p11) {
+        points.add(p00);
+        points.add(p10);
+        points.add(p01);
+        points.add(p11);
+    }// Polygon3D(Vector, Vector, Vector, Vector)
+    
+    
     public void change(Matrix m) {
         for(Vector point : this.points) {
             Vector newPoint = m.multiply(point);

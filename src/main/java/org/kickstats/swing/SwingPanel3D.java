@@ -51,13 +51,13 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         
         Matrix transform = scale.multiply(translate).multiply(rotation);
         
-        Polygon3D thing = new Polygon3D(6, 0.8, 0);
-        thing.change(transform);
-        Shape newThing = thing.getShape();
-        System.out.println("OG");
-        for(Vector v : thing.getPoints()) {
-            System.out.println(v);
-        }
+//        Polygon3D thing = new Polygon3D(6, 0.8, 0);
+//        thing.change(transform);
+//        Shape newThing = thing.getShape();
+//        System.out.println("OG");
+//        for(Vector v : thing.getPoints()) {
+//            System.out.println(v);
+//        }
 //        g2D.draw(newThing);
 
         PolygonPrism prism = new PolygonPrism(6, 0.8, 0.5);
@@ -80,6 +80,13 @@ public class SwingPanel3D extends JPanel implements ActionListener {
             System.out.println(v);
         }
         g2D.draw(poly2);
+        
+        
+        List<Polygon3D> recs = prism.getRectangles();
+        for(Polygon3D p : recs) {
+            Shape newP = p.getShape();
+            g2D.draw(newP);
+        }
         
 //        prism.change(transform);
         

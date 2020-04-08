@@ -38,8 +38,8 @@ public class PolygonPrism {
             this.rectangles.add(newRec);
         }// for
         
-        Vector p00 = points1.get(size);
-        Vector p10 = points2.get(size);
+        Vector p00 = points1.get(size-1);
+        Vector p10 = points2.get(size-1);
         Vector p11 = points2.get(0);
         Vector p01 = points1.get(0);
             

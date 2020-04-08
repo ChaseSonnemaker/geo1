@@ -62,32 +62,39 @@ public class SwingPanel3D extends JPanel implements ActionListener {
 
         PolygonPrism prism = new PolygonPrism(6, 0.8, 0.5);
         prism.change(transform);
-        Polygon3D face1 = prism.getFace1();
-//        face1.change(transform);
-        Shape poly1 = face1.getShape();
-        System.out.println("test");
-        for(Vector v : face1.getPoints()) {
-            System.out.println(v);
-        }
-        g2D.draw(poly1);
+//        Polygon3D face1 = prism.getFace1();
+////        face1.change(transform);
+//        Shape poly1 = face1.getShape();
+//        System.out.println("test");
+//        for(Vector v : face1.getPoints()) {
+//            System.out.println(v);
+//        }
+//        g2D.draw(poly1);
+//        
+//        
+//        Polygon3D face2 = prism.getFace2();
+////        face2.change(transform);
+//        Shape poly2 = face2.getShape();
+//        System.out.println("test2");
+//        for(Vector v : face2.getPoints()) {
+//            System.out.println(v);
+//        }
+//        g2D.draw(poly2);
+//        
+//        
+//        List<Polygon3D> recs = prism.getRectangles();
+//        for(Polygon3D p : recs) {
+//            Shape newP = p.getShape();
+//            g2D.draw(newP);
+//        }
         
-        
-        Polygon3D face2 = prism.getFace2();
-//        face2.change(transform);
-        Shape poly2 = face2.getShape();
-        System.out.println("test2");
-        for(Vector v : face2.getPoints()) {
-            System.out.println(v);
-        }
-        g2D.draw(poly2);
-        
-        
-        List<Polygon3D> recs = prism.getRectangles();
-        for(Polygon3D p : recs) {
-            Shape newP = p.getShape();
-            g2D.draw(newP);
-        }
-        
+        List<Shape> toDraw = prism.getOrderedShapes();
+        for(Shape s : toDraw) {
+            g2D.setColor(Color.red);
+            g2D.fill(s);
+            g2D.setColor(Color.black);
+            g2D.draw(s);
+        }// for
 
     }//paintComponent(Graphics)    
         

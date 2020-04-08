@@ -1,6 +1,7 @@
 
 package org.kickstats.swing;
 
+import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,21 +13,38 @@ import java.util.List;
  */
 public class PolygonPrism {
     
-    List<Vector> shape1 = new ArrayList<>();
-    List<Vector> shape2 = new ArrayList<>();
+    Polygon3D primary1;
+    Polygon3D primary2;
+    List<Polygon3D> rectangles = new ArrayList<>(); 
     
     
     public PolygonPrism(int sides, double radius, double length) {
-        for(int i = 0; i < sides; i++) {
-            double percent = ((double) i) / sides;
-            double angle = percent * 2 * Math.PI;
+        
+        this.primary1 = new Polygon3D(sides, radius, 0);
+        this.primary2 = new Polygon3D(sides, radius, -length);
+        
+        List<Vector> points1 = this.primary1.getPoints();
+        List<Vector> points2 = this.primary1.getPoints();
+        
+        int size = points1.size();
+        
+        for(int i = 0; i < size - 1; i++) {
+            Vector p00 = points1.get(i);
+            Vector p10 = points2.get(i);
+            Vector p11 = points2.get(i + 1);
+            Vector p01 = points1.get(i + 1);
             
-            double x = radius * Math.cos(angle);
-            double y = radius * Math.sin(angle);
-            
-            Vector v1 = new Vector(x, y, 0.0);
-            Vector v2 = new Vector(x, y, -length);
+            Polygon3D newRec = new Polygon3D(p00, p10, p11, p01);
+            this.rectangles.add(newRec);
         }// for
+        
+        Vector p00 = points1.get(size);
+        Vector p10 = points2.get(size);
+        Vector p11 = points2.get(0);
+        Vector p01 = points1.get(0);
+            
+        Polygon3D newRec = new Polygon3D(p00, p10, p11, p01);
+        this.rectangles.add(newRec); 
     }// PolygonPrism(int, double)
     
     public void change(Matrix m) {
@@ -49,5 +67,11 @@ public class PolygonPrism {
         this.shape1 = newShape1;
         this.shape2 = newShape2;
     }// change(Matrix)
+    
+    
+    public Shape getShape() {
+        
+    }// getShape()
+    
     
 }// PolygonPrism

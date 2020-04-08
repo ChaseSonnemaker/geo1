@@ -58,8 +58,9 @@ public class Polygon3D {
     
     public Shape getShape() {
         Path2D.Double newPath = new Path2D.Double();
+        int length = this.points.size();
         
-        Vector start = this.points.get(2);
+        Vector start = this.points.get(length - 1);
         newPath.moveTo(start.get(0), start.get(1));
         
         for(Vector point : this.points) {

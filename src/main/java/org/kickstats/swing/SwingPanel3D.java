@@ -70,6 +70,16 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         }
         g2D.draw(poly1);
         
+        
+        Polygon3D face2 = prism.getFace2();
+        face2.change(transform);
+        Shape poly2 = face2.getShape();
+        System.out.println("test2");
+        for(Vector v : face2.getPoints()) {
+            System.out.println(v);
+        }
+        g2D.draw(poly2);
+        
 //        prism.change(transform);
         
 //        System.out.println("new");

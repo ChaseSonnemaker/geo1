@@ -28,16 +28,17 @@ public class PolygonPrism {
         this.shape2Points = points2;
     }// PolygonPrism(int, double)
     
-//    public void change(Matrix m) {
-//        this.primary1 = this.primary1.changeShape(m);
-//        this.primary2 = this.primary2.changeShape(m);
-//        List<Polygon3D> newList = new ArrayList<>();
-//        for(Polygon3D p : this.rectangles) {
-//            newList.add(p.changeShape(m));
-//        }// for
-//        this.rectangles = newList;
-//    }// change(Matrix)
-//
+    public void change(Matrix m) {
+        Polygon3D face1 = new Polygon3D(this.shape1Points);
+        Polygon3D face2 = new Polygon3D(this.shape2Points);
+        
+        face1.change(m);
+        face2.change(m);
+        
+        this.shape1Points = face1.getPoints();
+        this.shape2Points = face2.getPoints();
+    }// change(Matrix)
+
     /**
      * @return the primary1
      */

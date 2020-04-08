@@ -44,20 +44,43 @@ public class PolygonPrism {
     public Polygon3D getFace1() {
         return new Polygon3D(this.shape1Points);
     }// getFace1
-//
+
     /**
      * @return the primary2
      */
     public Polygon3D getFace2() {
         return new Polygon3D(this.shape2Points);
     }// getFace2
-//
-//    /**
-//     * @return the rectangles
-//     */
-//    public List<Polygon3D> getRectangles() {
-//        return rectangles;
-//    }
+
+    /**
+     * @return the rectangles
+     */
+    public List<Polygon3D> getRectangles() {
+        int pointNum = this.shape1Points.size();
+        
+        List<Polygon3D> rectangles = new ArrayList<>();
+        List<Vector> points = new ArrayList<>();
+        
+        points.add(this.shape1Points.get(pointNum - 1));
+        points.add(this.shape2Points.get(pointNum - 1));
+        points.add(this.shape1Points.get(0));
+        points.add(this.shape2Points.get(0));
+        
+        rectangles.add(new Polygon3D(points));
+        
+        for(int i = 0; i < pointNum - 1; i++) {
+            points = new ArrayList<>();
+        
+            points.add(this.shape1Points.get(i + 1));
+            points.add(this.shape2Points.get(i + 1));
+            points.add(this.shape1Points.get(i));
+            points.add(this.shape2Points.get(i));
+        
+            rectangles.add(new Polygon3D(points));
+        }// for
+        
+        return rectangles;
+    }// getRectangles()
 //    
 //    
 }// PolygonPrism

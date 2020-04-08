@@ -12,38 +12,20 @@ import java.util.List;
  */
 public class PolygonPrism {
     
-    private Polygon3D primary1;
-    private Polygon3D primary2;
-    private List<Polygon3D> rectangles = new ArrayList<>(); 
+    private List<Vector> shape1Points = new ArrayList<>();
+    private List<Vector> shape2Points = new ArrayList<>();
     
     
     public PolygonPrism(int sides, double radius, double length) {
         
-        this.primary1 = new Polygon3D(sides, radius, 0);
-        this.primary2 = new Polygon3D(sides, radius, -length);
+        Polygon3D face1 = new Polygon3D(sides, radius, 0);
+        Polygon3D face2 = new Polygon3D(sides, radius, -length);
         
-        List<Vector> points1 = this.primary1.getPoints();
-        List<Vector> points2 = this.primary2.getPoints();
+        List<Vector> points1 = face1.getPoints();
+        List<Vector> points2 = face2.getPoints();
         
-        int size = points1.size();
-        
-        for(int i = 0; i < size - 1; i++) {
-            Vector p00 = points1.get(i);
-            Vector p10 = points2.get(i);
-            Vector p11 = points2.get(i + 1);
-            Vector p01 = points1.get(i + 1);
-            
-            Polygon3D newRec = new Polygon3D(p00, p10, p11, p01);
-            this.rectangles.add(newRec);
-        }// for
-        
-        Vector p00 = points1.get(size-1);
-        Vector p10 = points2.get(size-1);
-        Vector p11 = points2.get(0);
-        Vector p01 = points1.get(0);
-            
-        Polygon3D newRec = new Polygon3D(p00, p10, p11, p01);
-        this.rectangles.add(newRec); 
+        this.shape1Points = points1;
+        this.shape2Points = points2;
     }// PolygonPrism(int, double)
     
     public void change(Matrix m) {

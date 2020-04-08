@@ -58,11 +58,12 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         for(Vector v : thing.getPoints()) {
             System.out.println(v);
         }
-        g2D.draw(newThing);
+//        g2D.draw(newThing);
 
         PolygonPrism prism = new PolygonPrism(6, 0.8, 0.5);
+        prism.change(transform);
         Polygon3D face1 = prism.getFace1();
-        face1.change(transform);
+//        face1.change(transform);
         Shape poly1 = face1.getShape();
         System.out.println("test");
         for(Vector v : face1.getPoints()) {
@@ -72,7 +73,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         
         
         Polygon3D face2 = prism.getFace2();
-        face2.change(transform);
+//        face2.change(transform);
         Shape poly2 = face2.getShape();
         System.out.println("test2");
         for(Vector v : face2.getPoints()) {

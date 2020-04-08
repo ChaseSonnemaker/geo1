@@ -23,7 +23,7 @@ public class PolygonPrism {
         this.primary2 = new Polygon3D(sides, radius, -length);
         
         List<Vector> points1 = this.primary1.getPoints();
-        List<Vector> points2 = this.primary1.getPoints();
+        List<Vector> points2 = this.primary2.getPoints();
         
         int size = points1.size();
         

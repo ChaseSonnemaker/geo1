@@ -85,4 +85,9 @@ public class Polygon3D {
     }// getShape()
     
     
+    public double getBrightness(Vector illuminationVector) {
+        return 0.0;
+    }// getBrightness(Vector)
+    
+    
 }// Polygon3D

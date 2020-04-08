@@ -1,7 +1,6 @@
 
 package org.kickstats.swing;
 
-import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,11 +47,13 @@ public class PolygonPrism {
     }// PolygonPrism(int, double)
     
     public void change(Matrix m) {
-        this.getPrimary1().change(m);
-        this.getPrimary2().change(m);
-        for(Polygon3D p : this.getRectangles()) {
-            p.change(m);
+        this.primary1 = this.primary1.changeShape(m);
+        this.primary2 = this.primary2.changeShape(m);
+        List<Polygon3D> newList = new ArrayList<>();
+        for(Polygon3D p : this.rectangles) {
+            newList.add(p.changeShape(m));
         }// for
+        this.rectangles = newList;
     }// change(Matrix)
 
     /**

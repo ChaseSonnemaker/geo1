@@ -19,6 +19,11 @@ import javax.swing.Timer;
  */
 public class SwingPanel3D extends JPanel implements ActionListener {
     
+    final double TRIANGLE_LENGTH = 0.8;
+    final double ROTATION = (2 * Math.PI) / 60;
+    
+    double angle = 0;
+    
     
     public SwingPanel3D() {
        Timer timer = new Timer(50, this);
@@ -40,11 +45,18 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         scaling.scale(w / 2, h / 2, 1);
         Matrix translation = new Matrix();
         translation.translate(1, 1, 0);
+        Matrix rotateX = new Matrix();
+        rotateX.rotateX(angle);
+        Matrix rotateY = new Matrix();
+        rotateY.rotateY(angle);
+        Matrix rotateZ = new Matrix();
+        rotateZ.rotateZ(angle);
         
-        Matrix start = scaling.multiply(translation);
+        Matrix rotate = rotateX.multiply(rotateY).multiply(rotateZ);
+        Matrix position = scaling.multiply(translation).multiply(rotate);
         
-        Triangle3D triangle = new Triangle3D(0.5);
-        triangle.change(start);
+        Triangle3D triangle = new Triangle3D(TRIANGLE_LENGTH);
+        triangle.change(position);
         Shape newTriangle = triangle.getShape();
         
         g2D.fill(newTriangle);
@@ -56,6 +68,13 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         
     @Override
     public void actionPerformed(ActionEvent event) {
+        if(this.angle < (2 * Math.PI)) {
+            this.angle = this.angle + this.ROTATION;
+        }// if
+        else {
+            this.angle = this.angle + this.ROTATION - (2 * Math.PI);
+        }// else
+        
         this.repaint();
     }// actionPerformed(ActionEvent)
     

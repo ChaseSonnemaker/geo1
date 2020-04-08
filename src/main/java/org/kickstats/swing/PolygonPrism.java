@@ -1,6 +1,7 @@
 
 package org.kickstats.swing;
 
+import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +82,41 @@ public class PolygonPrism {
         }// for
         
         return rectangles;
-    }// getRectangles()
-//    
-//    
+    }// getRectangles()    
+    
+    
+    public List<Shape> getOrderedShapes() {
+        List<Polygon3D> shapeList = this.getRectangles();
+        shapeList.add(this.getFace1());
+        shapeList.add(this.getFace2());
+        int length = shapeList.size();
+        
+        for(int i = 0; i < length; i++) {
+            int smallestIndex = i;
+            
+            for(int j = i + 1; j < length; j++) {
+                double smallestZ = shapeList.get(smallestIndex).smallestZ();
+                double currentZ = shapeList.get(j).smallestZ();
+                
+                
+                if(smallestZ > currentZ) {
+                    smallestIndex = j; 
+                }// if    
+            }// for
+            Polygon3D placeholder = shapeList.get(i);
+            shapeList.set(i, shapeList.get(smallestIndex));
+            shapeList.set(smallestIndex, placeholder);
+        }// for
+        
+        List<Shape> shapes = new ArrayList<>();
+        
+        for(Polygon3D p : shapeList) {
+            Shape newShape = p.getShape();
+            shapes.add(newShape);
+        }// for
+        
+        return shapes;
+    }// getOrderedShapes()
+    
+    
 }// PolygonPrism

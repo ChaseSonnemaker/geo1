@@ -63,18 +63,18 @@ public class PolygonPrism {
         List<Vector> points = new ArrayList<>();
         
         points.add(this.shape1Points.get(pointNum - 1));
-        points.add(this.shape2Points.get(pointNum - 1));
         points.add(this.shape1Points.get(0));
         points.add(this.shape2Points.get(0));
+        points.add(this.shape2Points.get(pointNum - 1));
         
         rectangles.add(new Polygon3D(points));
         
         for(int i = 0; i < pointNum - 1; i++) {
             points = new ArrayList<>();
         
+            points.add(this.shape1Points.get(i));
             points.add(this.shape1Points.get(i + 1));
             points.add(this.shape2Points.get(i + 1));
-            points.add(this.shape1Points.get(i));
             points.add(this.shape2Points.get(i));
         
             rectangles.add(new Polygon3D(points));

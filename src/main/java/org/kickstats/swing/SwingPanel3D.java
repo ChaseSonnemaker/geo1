@@ -88,67 +88,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
             g2D.draw(newP);
         }
         
-//        prism.change(transform);
-        
-//        System.out.println("new");
-//        Polygon3D primary1 = prism.getPrimary1();
-//        primary1.change(transform);
-//        Shape p1 = primary1.getShape();
-//        g2D.draw(p1);
-//        for(Vector v : primary1.getPoints()) {
-//            System.out.println(v);
-//        }
-//         
-//        System.out.println("new2");
-//        Polygon3D primary2 = prism.getPrimary2();
-//        primary2.change(transform);
-//        Shape p2 = primary2.getShape();
-//        g2D.draw(p2);
-//        for(Vector v : primary2.getPoints()) {
-//            System.out.println(v);
-//        }
-//         
-//        List<Vector> s1 = primary1.getPoints();
-//        List<Vector> s2 = primary2.getPoints();
-//        
-//        for(int i = 0; i < s1.size() - 1; i++){
-//            Vector p00 = s1.get(i);
-//            Vector p10 = s2.get(i);
-//            Vector p11 = s1.get(i + 1);
-//            Vector p01 = s2.get(i + 1);
-//            
-//            Polygon3D rec = new Polygon3D(p00, p10, p01, p11);
-//            
-//            for(Vector v : rec.getPoints()) {
-//                System.out.println(i + "1");
-//                System.out.println(v);
-//            }
-//            
-//            for(Vector v : rec.getPoints()) {
-//                System.out.println(i + "2");
-//                System.out.println(v);
-//            }
-//            
-//            Shape rectangle = rec.getShape();
-//            
-//            g2D.fill(rectangle);
-//            
-//        }// for
-//         List<Polygon3D> recs = prism.getRectangles();
-//         int i = 0;
-//         for(Polygon3D p : recs) {
-//             System.out.println(i);
-//             i++;
-//             p.change(transform);
-//             for(Vector v : p.getPoints()) {
-//                 System.out.println(v);
-//             }
-//             Shape rectangle = p.getShape();
-//             
-//             g2D.draw(rectangle);
-//         }// for      
-        
-        
+
     }//paintComponent(Graphics)    
         
     @Override

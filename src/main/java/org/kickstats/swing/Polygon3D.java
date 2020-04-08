@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Polygon3D {
     
-    private final List<Vector> points = new ArrayList<>();
+    private List<Vector> points = new ArrayList<>();
     
     public Polygon3D(int sides, double radius, double z) {
         for(int i = 0; i < sides; i++) {
@@ -28,6 +28,11 @@ public class Polygon3D {
             this.points.add(v);
         }// for
     }// Polygon3D(int, double, double)
+    
+    
+    public Polygon3D(List<Vector> points) {
+        this.points = points;
+    }// Polygon3D(List<Vector>)
     
     
     public void change(Matrix m) {

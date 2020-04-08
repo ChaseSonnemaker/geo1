@@ -38,6 +38,11 @@ public class Polygon3D {
     }// change(Matrix)
     
     
+    public List<Vector> getPoints() {
+        return this.points;
+    }// getPoints()
+    
+    
     public double smallestZ() {
         double smallestZ = this.points.get(0).get(2);
         for(Vector point : this.points) {

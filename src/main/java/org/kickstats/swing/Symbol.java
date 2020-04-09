@@ -139,12 +139,12 @@ public class Symbol extends JPanel implements ActionListener {
         scaling.setToScale(w / 2, h / 2);
         AffineTransform translation = new AffineTransform();
         translation.setToTranslation(1.0, 1.0);
-        AffineTransform rotate1 = new AffineTransform();
-        rotate1.setToRotation(initialAngle, centerX, centerY);
+        AffineTransform rotate = new AffineTransform();
+        rotate.setToRotation(initialAngle, centerX, centerY);
         
         transform.concatenate(scaling);
         transform.concatenate(translation);
-        transform.concatenate(rotate1);
+        transform.concatenate(rotate);
         
         return transform;
     }// rotateToPlace(double)
@@ -168,9 +168,9 @@ public class Symbol extends JPanel implements ActionListener {
 
         AffineTransform transform = rotateToPlace(initialAngle);
         
-        AffineTransform rotate2 = new AffineTransform();
-        rotate2.setToRotation(newAngle, centerX, centerY);
-        transform.concatenate(rotate2);
+        AffineTransform rotate = new AffineTransform();
+        rotate.setToRotation(newAngle, centerX, centerY);
+        transform.concatenate(rotate);
         
         return transform;
     }// spinArrows(double, double)

@@ -93,8 +93,8 @@ public class Symbol extends JPanel implements ActionListener {
     private Color color = Color.white;
     
     //Move Information
-    double xMove1 = 0;
-    double yMove1 = 0;
+    double xMove = 0;
+    double yMove = 0;
     Random rdm1 = new Random();
     Random rdm2 = new Random();
  
@@ -378,7 +378,7 @@ public class Symbol extends JPanel implements ActionListener {
                                         loadEndX, loadEndY);
             
             AffineTransform transformLoad = spinLoading(startingAngle, angleLoad, 
-                                            xMove1, yMove1);
+                                            xMove, yMove);
             
             Shape newLineFin = transformLoad.createTransformedShape(newLine);
             
@@ -416,30 +416,30 @@ public class Symbol extends JPanel implements ActionListener {
         }// if
         
         //Loading random x-axis movement
-        if(this.xMove1 > 1) {
-            this.xMove1 = this.xMove1 + this.speed * 
+        if(this.xMove > 1) {
+            this.xMove = this.xMove + this.speed * 
                 (( - 0.05));
         }// if
-        else if((this.xMove1 < -1)) {
-            this.xMove1 = this.xMove1 + this.speed *
+        else if((this.xMove < -1)) {
+            this.xMove = this.xMove + this.speed *
                     ((0.05));
         }// else if
         else {
-            this.xMove1 = this.xMove1 + this.speed * 
+            this.xMove = this.xMove + this.speed * 
                 (rdm1.nextDouble() * 0.1 - 0.05);
         }// else
         
         //Loading random y-axis movement        
-        if(this.yMove1 > 1) {
-            this.yMove1 = this.yMove1 + this.speed * 
+        if(this.yMove > 1) {
+            this.yMove = this.yMove + this.speed * 
                 (( - 0.05));
         }// if
-        else if((this.yMove1 < -1)) {
-            this.yMove1 = this.yMove1 + this.speed *
+        else if((this.yMove < -1)) {
+            this.yMove = this.yMove + this.speed *
                     ((0.05));
         }// else if
         else {
-            this.yMove1 = this.yMove1 + this.speed * 
+            this.yMove = this.yMove + this.speed * 
                 (rdm2.nextDouble() * 0.1 - 0.05);
         }// else
 

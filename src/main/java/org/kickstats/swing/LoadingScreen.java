@@ -11,8 +11,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 /**
- * Creates a loading screen with the SCP symbol and a randomly moving 
- * loading screen symbol on it.
+ * Creates a loading screen window with the SCP symbol and a randomly moving 
+ * loading screen symbol animation on it.
  * 
  * Has a menu which allows for someone to change the speed of the rotation
  * and random movement. This was an experiment designed to help me work on 

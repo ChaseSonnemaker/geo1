@@ -44,12 +44,6 @@ public class Polygon3D {
     }// change(Matrix)
     
     
-    public Polygon3D changeShape(Matrix m) {
-        this.change(m);
-        return this;
-    }// changeShape(Matrix)
-    
-    
     public List<Vector> getPoints() {
         return this.points;
     }// getPoints()

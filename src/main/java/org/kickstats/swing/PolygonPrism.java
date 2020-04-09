@@ -141,9 +141,7 @@ public class PolygonPrism {
 
     
     public List<Polygon3D> getOrderedShapes() {
-        List<Polygon3D> shapeList = this.getRectangles();
-        shapeList.add(this.getFace1());
-        shapeList.add(this.getFace2());
+        List<Polygon3D> shapeList = this.triangles;
         int length = shapeList.size();
         
         for(int i = 0; i < length; i++) {

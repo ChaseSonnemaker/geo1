@@ -85,9 +85,39 @@ public class Polygon3D {
     }// getShape()
     
     
-    public double getBrightness(Vector illuminationVector) {
-        return 0.0;
+    public double getBrightness(Vector illumination) {
+        illumination.normalize();
+        
+        Vector v0 = this.points.get(0);
+        Vector v1 = this.points.get(1);
+        Vector v2 = this.points.get(2);
+        
+        Vector newV = (v2.subtract(v1)).cross(v0.subtract(v1));
+        newV.normalize();
+        
+        double brightness = illumination.dot(newV);
+        
+        return brightness;
     }// getBrightness(Vector)
+    
+    
+    public double getAttenuation(Vector illumination) {
+        double distance = illumination.magnitude();
+        double lum = 1 / (distance * distance);
+        
+        return lum;
+    }// getAttenuation(Vector)
+    
+    
+    public double getNewColorValue(double origValue, Vector illumniation) {
+        double brightFactor = this.getBrightness(illumniation);
+        double luminosity = this.getAttenuation(illumniation);
+        double materialValue = origValue;
+        
+        double newValue = brightFactor * luminosity * materialValue;
+        
+        return newValue;
+    }// getNewColorValue(double, 
     
     
 }// Polygon3D

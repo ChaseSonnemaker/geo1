@@ -26,8 +26,8 @@ public class PolygonPrism {
         double centerX = 0.0;
         double centerY = 0.0;
         
-        double shape1Z = -height / 2;
-        double shape2Z = height / 2;
+        double shape1Z = height / 2;
+        double shape2Z = -height / 2;
         
         this.shape1Center = new Vector(centerX, centerY, shape1Z);
         this.shape2Center = new Vector(centerX, centerY, shape2Z);

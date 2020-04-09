@@ -11,11 +11,14 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 /**
- * Creates a loading screen with the SCP symbol and a moving loading screen 
- * symbol on it.
+ * Creates a loading screen with the SCP symbol and a randomly moving 
+ * loading screen symbol on it.
  * 
- * An experiment designed to work on creating more precise and defined shapes
- * as well as work on random movement, boundaries, and refactoring. 
+ * Has a menu which allows for someone to change the speed of the rotation
+ * and random movement. This was an experiment designed to help me work on 
+ * creating more precise and defined shapes as well as work on random movement, 
+ * boundaries, and refactoring. The class used by this class as a panel is 
+ * called Symbol.
  * 
  * @author Chase Sonnemaker using code from Leon Tabak.
  * @version 7 April 2020
@@ -32,8 +35,12 @@ public class LoadingScreen extends JFrame implements ActionListener{
     
     
     /**
-     * Creates the loading screen which holds the animations of the symbols and
-     * contains a menu for changing the speed of the symbol.
+     * Creates a window with the animations of the symbols,
+     * containing a menu for changing the speed of the animation.
+     * 
+     * The speed menu will increase, by a labeled factor, the speed of the 
+     * rotation of the symbol and loading screen sign, as well as increase the 
+     * random movement of the loading screen sign.
      */
     public LoadingScreen() {
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -45,13 +52,14 @@ public class LoadingScreen extends JFrame implements ActionListener{
         pane.add(panel);
         this.panel.setBackground(Color.BLACK);
         
-        //Speed Menu
+        //Speed menu creation
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
 
         JMenu speedMenu = new JMenu(SPEED);
         menuBar.add(speedMenu);
         
+        //Add speeds to the menu
         for(int i = 0; i < SPEEDS; i++) {
             String label = SPEED + " " + i;
             JMenuItem item = new JMenuItem(label);
@@ -65,9 +73,10 @@ public class LoadingScreen extends JFrame implements ActionListener{
     
     
     /**
-     * Changes the speed of the animation based on menu interaction.
+     * When a speed is selected from the speed menu, changes the speed of the 
+     * rotation and movement animation by the labeled factor.
      * 
-     * @param event Some event (menu click) 
+     * @param event A user click on the speed menu. 
      */
     @Override
     public void actionPerformed(ActionEvent event) {
@@ -84,7 +93,8 @@ public class LoadingScreen extends JFrame implements ActionListener{
     
     
     /**
-     * Runs the loading screen animation.
+     * Calls the constructor of this class to create 
+     * the window and begin the animation.
      */
     public static void main(String[] args) {
         LoadingScreen ls = new LoadingScreen();

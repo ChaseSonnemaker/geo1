@@ -80,21 +80,16 @@ public class Polygon3D {
     }// getShape()
     
     
-    public double getBrightness(Vector illumination) {
-        Vector normalIllum = illumination.normalize();
-        
+    public Vector getNormal() {       
         Vector v0 = this.points.get(0);
         Vector v1 = this.points.get(1);
         Vector v2 = this.points.get(2);
         
-        Vector newV = (v2.subtract(v1)).cross(v0.subtract(v1));
-        Vector normalV = newV.normalize();
+        Vector normalV = (v2.subtract(v1)).cross(v0.subtract(v1));
+        normalV = normalV.normalize();
         
-        double brightness = normalIllum.dot(normalV);
-        System.out.println("bright");
-        System.out.println(brightness);
-        return brightness;
-    }// getBrightness(Vector)
+        return normalV;
+    }// getNormal()
     
     
 }// Polygon3D

@@ -121,14 +121,22 @@ public class PolygonPrism {
     
     
     public void change(Matrix m) {
-        Polygon3D face1 = new Polygon3D(this.shape1Points);
-        Polygon3D face2 = new Polygon3D(this.shape2Points);
         
-        face1.change(m);
-        face2.change(m);
+        for(int i = 0; i < this.shape1Points.size(); i++) {
+            Vector newV1 = this.shape1Points.get(i);
+            Vector newV2 = this.shape2Points.get(i);
+            
+            newV1 = m.multiply(newV1);
+            newV2 = m.multiply(newV2);
+            
+            this.shape1Points.set(i, newV1);
+            this.shape2Points.set(i, newV2);
+        }// for
         
-        this.shape1Points = face1.getPoints();
-        this.shape2Points = face2.getPoints();
+        this.shape1Center = m.multiply(this.shape1Center);
+        this.shape2Center = m.multiply(this.shape2Center);
+        
+        this.makeTriangles();
     }// change(Matrix)
 
     /**

@@ -47,6 +47,7 @@ public class Swing extends JFrame implements ActionListener {
         this.panel = new SwingPanel();
         pane.add(panel);
 
+        //List of randomized background colors
         Random rng = new Random();
         for (int i = 0; i < NUMBER_OF_COLORS; i++) {
             int red = 64 + rng.nextInt(128);
@@ -57,6 +58,7 @@ public class Swing extends JFrame implements ActionListener {
         } // for
         this.panel.setBackground(bgPalette.get(0));
 
+        //List of randomized cube colors
         for (int i = 0; i < NUMBER_OF_COLORS; i++) {
             int red = 32 + rng.nextInt(224);
             int green = 32 + rng.nextInt(224);
@@ -66,6 +68,7 @@ public class Swing extends JFrame implements ActionListener {
         } // for
         this.panel.setColor(fgPalette.get(0));
         
+        //List of cube wave sizes
         for(int i = 0; i < NUMBER_OF_COLORS; i++) {
             sizes.add(i * 0.2);
         }

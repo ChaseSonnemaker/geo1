@@ -31,8 +31,10 @@ public class Polygon3D {
     }// Polygon3D(int, double, double)
     
     
-    public Polygon3D(List<Vector> points) {
-        this.points = points;
+    public Polygon3D(Vector v0, Vector v1, Vector v2) {
+        this.points.add(v0);
+        this.points.add(v1);
+        this.points.add(v2);
     }// Polygon3D(List<Vector>)
     
     

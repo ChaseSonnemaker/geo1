@@ -97,25 +97,4 @@ public class Polygon3D {
     }// getBrightness(Vector)
     
     
-//    public double getAttenuation(Vector illumination) {
-//        double distance = illumination.magnitude();
-//        double lum = 1 / (distance * distance);
-//        System.out.println("lum");
-//        System.out.println(lum);
-//        return lum;
-//    }// getAttenuation(Vector)
-    
-    
-    public double getNewColorValue(double origValue, Vector illumniation) {
-        double brightFactor = this.getBrightness(illumniation);
-//        double luminosity = this.getAttenuation(illumniation);
-        double materialValue = origValue;
-        
-        double newValue = brightFactor * materialValue;
-        System.out.println("color");
-        System.out.println(newValue);
-        return max(0, newValue);
-    }// getNewColorValue(double, 
-    
-    
 }// Polygon3D

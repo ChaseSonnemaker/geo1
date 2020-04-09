@@ -3,6 +3,7 @@ package org.kickstats.swing;
 
 import java.awt.Shape;
 import java.awt.geom.Path2D;
+import static java.lang.Math.max;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,37 +87,40 @@ public class Polygon3D {
     
     
     public double getBrightness(Vector illumination) {
-        illumination.normalize();
+        Vector normalIllum = illumination.normalize();
         
         Vector v0 = this.points.get(0);
         Vector v1 = this.points.get(1);
         Vector v2 = this.points.get(2);
         
         Vector newV = (v2.subtract(v1)).cross(v0.subtract(v1));
-        newV.normalize();
+        Vector normalV = newV.normalize();
         
-        double brightness = illumination.dot(newV);
-        
+        double brightness = normalIllum.dot(normalV);
+        System.out.println("bright");
+        System.out.println(brightness);
         return brightness;
     }// getBrightness(Vector)
     
     
-    public double getAttenuation(Vector illumination) {
-        double distance = illumination.magnitude();
-        double lum = 1 / (distance * distance);
-        
-        return lum;
-    }// getAttenuation(Vector)
+//    public double getAttenuation(Vector illumination) {
+//        double distance = illumination.magnitude();
+//        double lum = 1 / (distance * distance);
+//        System.out.println("lum");
+//        System.out.println(lum);
+//        return lum;
+//    }// getAttenuation(Vector)
     
     
     public double getNewColorValue(double origValue, Vector illumniation) {
         double brightFactor = this.getBrightness(illumniation);
-        double luminosity = this.getAttenuation(illumniation);
+//        double luminosity = this.getAttenuation(illumniation);
         double materialValue = origValue;
         
-        double newValue = brightFactor * luminosity * materialValue;
-        
-        return newValue;
+        double newValue = brightFactor * materialValue;
+        System.out.println("color");
+        System.out.println(newValue);
+        return max(0, newValue);
     }// getNewColorValue(double, 
     
     

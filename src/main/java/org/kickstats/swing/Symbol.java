@@ -380,13 +380,13 @@ public class Symbol extends JPanel implements ActionListener {
         //Symbol Rotate
         this.angleSymbol = this.angleSymbol + this.speed * this.moveSymbol;
         if(this.angleSymbol > (2 * Math.PI)) {
-            this.angleSymbol = this.angleSymbol / this.rotateSymbol;
+            this.angleSymbol = this.angleSymbol - 2 * Math.PI;
         }// if
         
         //Loading Rotate
         this.angleLoad = this.angleLoad + this.speed * this.moveLoad;
         if(this.angleLoad > (2 * Math.PI)) {
-            this.angleLoad = this.angleLoad / this.rotateLoad;
+            this.angleLoad = this.angleLoad - 2 * Math.PI;
         }// if
         
         //Loading random x-axis movement

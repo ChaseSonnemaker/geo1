@@ -28,7 +28,7 @@ public class Swing extends JFrame implements ActionListener {
     private final int FRAME_WIDTH = 800;
     private final int FRAME_HEIGHT = 800;
     private final String FRAME_TITLE = "Swing";
-    private final int NUMBER_OF_COLORS = 8;
+    private final int NUMBER_OF_MENU_ITEMS = 8;
     private final String BG_COLOR = "Background Color";
     private final String FG_COLOR = "Foreground Color";
     private final String SIZESTRING = "Size";
@@ -49,7 +49,7 @@ public class Swing extends JFrame implements ActionListener {
 
         //List of randomized background colors
         Random rng = new Random();
-        for (int i = 0; i < NUMBER_OF_COLORS; i++) {
+        for (int i = 0; i < NUMBER_OF_MENU_ITEMS; i++) {
             int red = 64 + rng.nextInt(128);
             int green = 64 + rng.nextInt(128);
             int blue = 64 + rng.nextInt(128);
@@ -59,7 +59,7 @@ public class Swing extends JFrame implements ActionListener {
         this.panel.setBackground(bgPalette.get(0));
 
         //List of randomized cube colors
-        for (int i = 0; i < NUMBER_OF_COLORS; i++) {
+        for (int i = 0; i < NUMBER_OF_MENU_ITEMS; i++) {
             int red = 32 + rng.nextInt(224);
             int green = 32 + rng.nextInt(224);
             int blue = 32 + rng.nextInt(224);
@@ -69,7 +69,7 @@ public class Swing extends JFrame implements ActionListener {
         this.panel.setColor(fgPalette.get(0));
         
         //List of cube wave sizes
-        for(int i = 0; i < NUMBER_OF_COLORS; i++) {
+        for(int i = 0; i < NUMBER_OF_MENU_ITEMS; i++) {
             sizes.add(i * 0.2);
         }
         this.panel.setMaximum(sizes.get(5));
@@ -80,7 +80,7 @@ public class Swing extends JFrame implements ActionListener {
         JMenu bgColorMenu = new JMenu(BG_COLOR);
         menuBar.add(bgColorMenu);
 
-        for (int i = 0; i < NUMBER_OF_COLORS; i++) {
+        for (int i = 0; i < NUMBER_OF_MENU_ITEMS; i++) {
             String label = BG_COLOR + " " + i;
             JMenuItem item = new JMenuItem(label);
             item.addActionListener(this);
@@ -91,7 +91,7 @@ public class Swing extends JFrame implements ActionListener {
         JMenu fgColorMenu = new JMenu(FG_COLOR);
         menuBar.add(fgColorMenu);
 
-        for (int i = 0; i < NUMBER_OF_COLORS; i++) {
+        for (int i = 0; i < NUMBER_OF_MENU_ITEMS; i++) {
             String label = FG_COLOR + " " + i;
             JMenuItem item = new JMenuItem(label);
             item.addActionListener(this);
@@ -102,7 +102,7 @@ public class Swing extends JFrame implements ActionListener {
         JMenu size = new JMenu("Size");
         menuBar.add(size);
         
-        for(int i = 0; i < NUMBER_OF_COLORS; i++) {
+        for(int i = 0; i < NUMBER_OF_MENU_ITEMS; i++) {
             String label = SIZESTRING + " " + (i);
             JMenuItem item = new JMenuItem(label);
             item.addActionListener(this);

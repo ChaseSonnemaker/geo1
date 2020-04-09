@@ -14,7 +14,10 @@ import java.util.List;
 public class PolygonPrism {
     
     private List<Vector> shape1Points = new ArrayList<>();
+    private Vector shape1Center;
     private List<Vector> shape2Points = new ArrayList<>();
+    private Vector shape2Center;
+    private List<Polygon3D> triangles = new ArrayList<>();
     
     
     public PolygonPrism(int sides, double radius, double length) {

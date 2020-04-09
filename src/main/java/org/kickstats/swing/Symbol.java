@@ -175,6 +175,46 @@ public class Symbol extends JPanel implements ActionListener {
         return transform;
     }// spinArrows(double, double)
     
+    /**
+     * Creates an AffineTransform object designed to move, scale, and rotate 
+     * a loading symbol line to its original position, as create the rotation
+     * movement and random movement that occurs during the animation. 
+     * 
+     * @param initialAngle The starting angle (radians) of the shape.
+     * @param newAngle The angle (radians) by which the shape will rotate 
+     * during animation.
+     * @param xMovement The distance the shape moves on the x-axis from its 
+     * starting position.
+     * @param yMovement The distance the shape moves on the y-axis from its 
+     * starting position.
+     * @return An AffineTransform object which can be used to move a loading 
+     * symbol line to a proper position given starting angle, rotation, and
+     * movement.
+     */
+    public AffineTransform spinLoading(double initialAngle, double newAngle, 
+                                        double xMovement, double yMovement) {
+            int w = this.getWidth();
+            int h = this.getHeight();
+            
+            AffineTransform transform = new AffineTransform();
+            AffineTransform scaling = new AffineTransform();
+            scaling.setToScale(w / 2, h / 2);
+            AffineTransform translation = new AffineTransform();
+            translation.setToTranslation(1.0, 1.0);
+            AffineTransform move = new AffineTransform();
+            move.translate(xMovement, yMovement);
+            AffineTransform rotate = new AffineTransform();
+            rotate.setToRotation(initialAngle + newAngle, 
+                                    loadCenterX, loadCenterY);
+            
+            transform.concatenate(scaling);
+            transform.concatenate(translation);
+            transform.concatenate(move);
+            transform.concatenate(rotate);
+            
+            return transform;
+    }// spinLoading(double, double)
+    
     
     /**
      * Creates a straight line shape object using instance variables defined
@@ -332,29 +372,15 @@ public class Symbol extends JPanel implements ActionListener {
         
         //Loading sign and movement 
         for(int i = 0; i < loadLines; i++) {
-            double newAngle = i * ((2 * Math.PI) / loadLines);
+            double startingAngle = i * ((2 * Math.PI) / loadLines);
             
-            int w = this.getWidth();
-            int h = this.getHeight();
-            
-            AffineTransform transform2 = new AffineTransform();
-            AffineTransform scaling2 = new AffineTransform();
-            scaling2.setToScale(w / 2, h / 2);
-            AffineTransform translation2 = new AffineTransform();
-            translation2.setToTranslation(1.0, 1.0);
-            AffineTransform move = new AffineTransform();
-            move.translate(xMove1, yMove1);
-            AffineTransform rotate = new AffineTransform();
-            rotate.setToRotation(newAngle + angleLoad, 
-                                    loadCenterX, loadCenterY);
-            
-            transform2.concatenate(scaling2);
-            transform2.concatenate(move);
-            transform2.concatenate(rotate);
- 
             Line2D.Double newLine = new Line2D.Double(loadStartX, loadStartY, 
                                         loadEndX, loadEndY);
-            Shape newLineFin = transform2.createTransformedShape(newLine);
+            
+            AffineTransform transformLoad = spinLoading(startingAngle, angleLoad, 
+                                            xMove1, yMove1);
+            
+            Shape newLineFin = transformLoad.createTransformedShape(newLine);
             
             g2D.draw(newLineFin);
         }// for

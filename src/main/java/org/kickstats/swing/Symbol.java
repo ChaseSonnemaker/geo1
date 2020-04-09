@@ -180,6 +180,9 @@ public class Symbol extends JPanel implements ActionListener {
      * a loading symbol line to its original position, as create the rotation
      * movement and random movement that occurs during the animation. 
      * 
+     * Designed to facilitate the rotation and random movement of the 
+     * loading screen symbol.
+     * 
      * @param initialAngle The starting angle (radians) of the shape.
      * @param newAngle The angle (radians) by which the shape will rotate 
      * during animation.

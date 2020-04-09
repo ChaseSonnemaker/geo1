@@ -20,17 +20,102 @@ public class PolygonPrism {
     private List<Polygon3D> triangles = new ArrayList<>();
     
     
-    public PolygonPrism(int sides, double radius, double length) {
+    public PolygonPrism(int sides, double radius, double height) {
         
-        Polygon3D face1 = new Polygon3D(sides, radius, 0);
-        Polygon3D face2 = new Polygon3D(sides, radius, -length);
+        //Finding shape centers
+        double centerX = 0.0;
+        double centerY = 0.0;
         
-        List<Vector> points1 = face1.getPoints();
-        List<Vector> points2 = face2.getPoints();
+        double shape1Z = -height / 2;
+        double shape2Z = height / 2;
         
-        this.shape1Points = points1;
-        this.shape2Points = points2;
+        this.shape1Center = new Vector(centerX, centerY, shape1Z);
+        this.shape2Center = new Vector(centerX, centerY, shape2Z);
+        
+        
+        //Finding point lists
+        for(int i = 0; i < sides; i++) {
+            double angle = ((double) i) / sides;
+            double x = radius * Math.cos(angle);
+            double y = radius * Math.sin(radius);
+            
+            Vector shape1V = new Vector(x, y, shape1Z);
+            Vector shape2V = new Vector(x, y, shape2Z);
+            
+            this.shape1Points.add(shape1V);
+            this.shape2Points.add(shape2V); 
+        }// for
+        
+        
+        
+        
     }// PolygonPrism(int, double)
+    
+    
+    public void makeTriangles() {
+        
+        //Creating shape 1 triangles
+        int length = this.shape1Points.size();
+        
+        Vector v0 = this.shape1Center;
+        Vector v1 = this.shape1Points.get(length - 1);
+        Vector v2 = this.shape1Points.get(0);
+
+        Polygon3D triangle = new Polygon3D(v0, v1, v2);
+        this.triangles.add(triangle);
+        
+        for(int i = 0; i < length - 1; i++) {
+            v1 = this.shape1Points.get(i);
+            v2 = this.shape1Points.get(i + 1);
+            
+            triangle = new Polygon3D(v0, v1, v2);
+            this.triangles.add(triangle);
+        } // for
+        
+        
+        //Creating shape 2 triangles
+        length = this.shape2Points.size();
+        
+        v0 = this.shape2Center;
+        v1 = this.shape2Points.get(length - 1);
+        v2 = this.shape2Points.get(0);
+
+        triangle = new Polygon3D(v0, v2, v1);
+        this.triangles.add(triangle);
+        
+        for(int i = 0; i < length - 1; i++) {
+            v1 = this.shape2Points.get(i);
+            v2 = this.shape2Points.get(i + 1);
+            
+            triangle = new Polygon3D(v0, v2, v1);
+            this.triangles.add(triangle);
+        } // for
+        
+        
+        //Creating side triangles
+        v0 = this.shape1Points.get(length - 1);
+        v1 = this.shape1Points.get(0);
+        v2 = this.shape2Points.get(0);
+        Vector v3 = this.shape2Points.get(length - 1);
+        
+        triangle = new Polygon3D(v0, v1, v2);
+        triangles.add(triangle);
+        triangle = new Polygon3D(v0, v2, v3);
+        triangles.add(triangle);
+        
+        for(int i = 0; i < length - 1; i++) {
+            v0 = this.shape1Points.get(i);
+            v1 = this.shape1Points.get(i + 1);
+            v2 = this.shape2Points.get(i);
+            v3 = this.shape2Points.get(i + 1);
+        
+            triangle = new Polygon3D(v0, v1, v2);
+            triangles.add(triangle);
+            triangle = new Polygon3D(v0, v2, v3);
+            triangles.add(triangle);
+        }// for
+    }// makeTriangles()
+    
     
     public void change(Matrix m) {
         Polygon3D face1 = new Polygon3D(this.shape1Points);

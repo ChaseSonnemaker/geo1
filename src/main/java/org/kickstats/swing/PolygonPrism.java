@@ -85,7 +85,7 @@ public class PolygonPrism {
     }// getRectangles()    
     
     
-    public List<Shape> getOrderedShapes() {
+    public List<Polygon3D> getOrderedShapes() {
         List<Polygon3D> shapeList = this.getRectangles();
         shapeList.add(this.getFace1());
         shapeList.add(this.getFace2());
@@ -108,14 +108,7 @@ public class PolygonPrism {
             shapeList.set(smallestIndex, placeholder);
         }// for
         
-        List<Shape> shapes = new ArrayList<>();
-        
-        for(Polygon3D p : shapeList) {
-            Shape newShape = p.getShape();
-            shapes.add(newShape);
-        }// for
-        
-        return shapes;
+        return shapeList;
     }// getOrderedShapes()
     
     

@@ -92,7 +92,7 @@ public class Symbol extends JPanel implements ActionListener {
     //Color Information
     private Color color = Color.white;
     
-    //Move Information
+    //Movement Information
     double xMove = 0;
     double yMove = 0;
     Random rdm1 = new Random();

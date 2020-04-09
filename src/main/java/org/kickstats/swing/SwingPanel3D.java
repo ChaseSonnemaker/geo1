@@ -42,18 +42,35 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         int w = this.getWidth();
         int h = this.getHeight();
         
-        Matrix scale = new Matrix();
-        scale.scale(w/2, h/2, 1);
-        Matrix translate = new Matrix();
-        translate.translate(1, 1, 1);
-        Matrix rotation = new Matrix();
-        rotation.rotateY(angle);
+        AffineTransform transform = new AffineTransform();
+        AffineTransform scale = new AffineTransform();
+        scale.setToScale(w / 2, h / 2);
+        AffineTransform translate = new AffineTransform();
+        translate.setToTranslation(1, 1);
+        transform.concatenate(scale);
+        transform.concatenate(translate);
+        
+//        Matrix scale = new Matrix();
+//        scale.scale(w/2, h/2, 1);
+//        Matrix translate = new Matrix();
+//        translate.translate(1, 1, 1);
+
+        Matrix rotationX = new Matrix();
+        Matrix rotationY = new Matrix();
+        Matrix rotationZ = new Matrix();
+        
+        rotationX.rotateX(angle);
+        rotationY.rotateY(angle);
+        rotationZ.rotateZ(angle);
+        
+        Matrix rotate = rotationX.multiply(rotationZ);
         
 //        Matrix rotation2 = new Matrix();
 //        rotation2.rotateY(angle);
         
-        Matrix originalTransform = scale.multiply(translate);
-        Matrix transform = originalTransform.multiply(rotation);
+//        Matrix originalTransform = scale.multiply(translate);
+//        Matrix transform = originalTransform.multiply(rotation);
+        
 //        Matrix transform2 = originalTransform.multiply(rotation2);
         
 //        Polygon3D thing = new Polygon3D(6, 0.8, 0);
@@ -65,8 +82,8 @@ public class SwingPanel3D extends JPanel implements ActionListener {
 //        }
 //        g2D.draw(newThing);
 
-        PolygonPrism prism = new PolygonPrism(10, 0.8, 0.5);
-        prism.change(transform);
+        PolygonPrism prism = new PolygonPrism(54, 0.8, 0.5);
+        prism.change(rotate);
 //        Polygon3D face1 = prism.getFace1();
 ////        face1.change(transform);
 //        Shape poly1 = face1.getShape();
@@ -98,20 +115,36 @@ public class SwingPanel3D extends JPanel implements ActionListener {
 //        double origR = 102.0 / 255.0;
 //        double origG = 0.0 / 255.0;
 //        double origB = 153.0 / 255.0;
-                
+        Color color = Color.red;
+        double ambientColor = 0.2;
+        Vector lightV = new Vector(1.0, 2.0, 4.0);
+        lightV = lightV.normalize();
 
         List<Polygon3D> toDraw = prism.getOrderedShapes();
         for(Polygon3D p : toDraw) {
             Shape s = p.getShape();
+            s = transform.createTransformedShape(s);
             
 //            float newR = (float) p.getNewColorValue(origR, lightSource);
 //            float newG = (float) p.getNewColorValue(origG, lightSource);
 //            float newB = (float) p.getNewColorValue(origB, lightSource);
             
-            g2D.setColor(Color.red);
+            int red = color.getRed();
+            int green = color.getGreen();
+            int blue = color.getBlue();
+            
+            Vector normalP = p.getNormal();
+            
+            double focusedColor = lightV.dot(normalP);
+            double colorChange = Math.max(ambientColor, focusedColor);
+            
+            red = (int) ( red * colorChange);
+            green = (int) (green * colorChange);
+            blue = (int) (blue * colorChange);
+            
+            g2D.setColor(new Color(red, green, blue));
+            
             g2D.fill(s);
-            g2D.setColor(Color.black);
-            g2D.draw(s);
         }// for
 
     }//paintComponent(Graphics)    

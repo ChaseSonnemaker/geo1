@@ -18,9 +18,13 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- * Contains methods used to draw the symbol and a loading screen sign.
+ * Draws an SCP symbol and a loading screen symbol and animates them
+ * based on a timer.
  * 
- * Also allows for rotation and movement of these drawings.
+ * Contains methods used to draw and animate both symbols. This class is used 
+ * by the LoadingScreen class. A large portion of the instance variables 
+ * found in this class were calculated using mathematical reasoning, other 
+ * graphing software, and trial and error.
  * 
  * @author Chase Sonnemaker using code from Leon Tabak
  * @version 7 April 2020
@@ -29,21 +33,21 @@ public class Symbol extends JPanel implements ActionListener {
     
     private final double ARROW_ANGLE = (2 * Math.PI) / 3;
     
-    //Speed
+    //Speed Information
     private int speed = 1;
     
-    //Main Circle
+    //Main Circle Information
     double centerX = 0;
     double centerY = -0.4;
     double radius = 0.4;
     
-    //Arrow Lines
+    //Arrow Lines Information
     double origX = 0;
     double origY = -0.875;
     double origX2 = 0;
     double origY2 = -0.6;
     
-    //Arrow Points
+    //Arrow Points Information
     double arpX = 0;
     double arpY = -0.45;
     double arX = -0.075;
@@ -51,7 +55,7 @@ public class Symbol extends JPanel implements ActionListener {
     double arX2 = 0.075;
     double arY2 = -0.6;
     
-    //Outer Circle Hats
+    //Outer Circle Hats Information
     double outerX1 = 0.12;
     double outerY1 = -0.9;
     double outerX2 = 0.1;
@@ -61,14 +65,14 @@ public class Symbol extends JPanel implements ActionListener {
     double outerX4 = -0.12;
     double outerY4 = -0.9;
     
-    //Outer Circle Arcs
+    //Outer Circle Arcs Information
     double centerX2 = 0;
     double centerY2 = -0.4;
     double radius2 = 0.514;
     double startAngle = 197;
     double endAngle = -93.5;
     
-    //Loading Lines
+    //Loading Lines Information
     double loadStartX = 0;
     double loadStartY = 0.425;
     double loadEndX = 0;
@@ -77,7 +81,7 @@ public class Symbol extends JPanel implements ActionListener {
     double loadCenterY = 0.525;
     int loadLines = 8;
     
-    //Rotation
+    //Rotation Information
     double rotateSymbol = 360;
     double rotateLoad = 60;
     double moveSymbol = (2 * Math.PI) / this.rotateSymbol;
@@ -85,10 +89,10 @@ public class Symbol extends JPanel implements ActionListener {
     double angleSymbol = 0;
     double angleLoad = 0;
     
-    //Color
+    //Color Information
     private Color color = Color.white;
     
-    //Move
+    //Move Information
     double xMove1 = 0;
     double yMove1 = 0;
     Random rdm1 = new Random();
@@ -108,8 +112,8 @@ public class Symbol extends JPanel implements ActionListener {
     /**
      * Sets the speed instance variable to a new integer value.
      * 
-     * @param i A factor by which to increase the change in movement and 
-     * angle of shapes.
+     * @param i A factor by which to increase the random movement speed and 
+     * rotation of shapes.
      */
     public void setSpeed(int i) {
         this.speed = i;
@@ -119,6 +123,9 @@ public class Symbol extends JPanel implements ActionListener {
     /**
      * Creates an AffineTransform object designed to scale a new shape to fit 
      * the window, and rotate the shape to a starting position.
+     * 
+     * Used for the pieces of the animation that are repeatedly made and do not
+     * move aside from a rotation to an initial angle.
      * 
      * @param initialAngle The starting angle (radians) of the shape.
      * @return An AffineTransform object that will scale and rotate a shape.
@@ -144,14 +151,18 @@ public class Symbol extends JPanel implements ActionListener {
     
     
     /**
-     * Creates the AffineTransform object designed to move an arrow to, scale
-     * an arrow to the window, rotate the arrow to a starting position, and
-     * rotate the arrow to a new position based on spin movement.
+     * Creates an AffineTransform object designed to move, scale, and rotate 
+     * an arrow to a starting position, as well as rotate the arrow to a 
+     * new position based on spin movement.
+     * 
+     * Designed to be used with the arrow shapes that make up the main
+     * SCP symbol which need to be moved to an initial angle and have a 
+     * rotation animation. 
      * 
      * @param initialAngle The starting angle (radians) of the arrow.
      * @param newAngle The new angle (radians) of the arrow given rotation
      * @return An AffineTransform object which can be used to transform an
-     * arrow to the correct spin position.
+     * arrow to the correctly rotated position.
      */
     public AffineTransform spinArrows(double initialAngle, double newAngle) {
 
@@ -166,13 +177,15 @@ public class Symbol extends JPanel implements ActionListener {
     
     
     /**
-     * Creates a straight line shape object using parameters defined in this
-     * class.
+     * Creates a straight line shape object using instance variables defined
+     * in this class.
+     * 
+     * Part of the rotating arrows which make up the main SCP symbol.
      * 
      * @param initialAngle The starting angle (radians) of the line.
      * @param newAngle The angle change (radians) of the line due to a rotation.
      * @return A straight line shape with parameters defined in this class, 
-     * scaled to the window, and rotated based on an initial and changed angle.
+     * scaled to the window, and rotated based on an initial and rotated angle.
      */
     public Shape createArrow(double initialAngle, double newAngle) {
         AffineTransform transform = spinArrows(initialAngle, newAngle);
@@ -185,15 +198,17 @@ public class Symbol extends JPanel implements ActionListener {
     
     
     /**
-     * Creates a triangular arrowhead shape using parameters defined in this
-     * class.
+     * Creates a triangular arrowhead shape using instance variables defined 
+     * in this class.
+     * 
+     * Part of the rotating arrows which make up the main SCP symbol.
      * 
      * @param initialAngle The starting angle (radians) of the arrowhead.
      * @param newAngle The angle change (radians) of the arrowhead due to 
      * a rotation.
      * @return A triangular arrowhead shape with parameters defined in this 
      * class, scaled to the window, and rotated based on an initial 
-     * and changed angle.
+     * and rotated angle.
      */
     public Shape createArrowHead(double initialAngle, double newAngle) {
         AffineTransform transform = spinArrows(initialAngle, newAngle);
@@ -209,13 +224,13 @@ public class Symbol extends JPanel implements ActionListener {
     
     
     /**
-     * Creates an arc using parameters defined in this class. 
+     * Creates an arc using instance variables defined in this class. 
      * 
-     * The arc is part of the outer circle of the symbol.
+     * Part of the outer circle of the symbol.
      * 
      * @param angle The angle (radians) of the arc.
      * @return An arc shape with class defined parameters, scaled to the 
-     * window, and at a defined angle. 
+     * window, and set to a defined angle. 
      */
     public Shape createArc(double angle) {
         AffineTransform transform = rotateToPlace(angle);
@@ -233,10 +248,12 @@ public class Symbol extends JPanel implements ActionListener {
     
     
     /**
-     * Creates a hat shape object using parameters defined in this class.
+     * Creates a hat shape object using instance variables 
+     * defined in this class.
      * 
-     * The hat shape is part of the symbol that connects the outer arcs and 
-     * are placed over the arrows.
+     * Part of the outer circle of the symbol and connects the outer arcs. 
+     * The arrows are initially placed below these hats until they begin 
+     * rotating.
      * 
      * @param angle The angle (radians) of the hat.
      * @return A hat shape object with class defined parameters, scaled to 
@@ -257,7 +274,9 @@ public class Symbol extends JPanel implements ActionListener {
     
     
     /**
-     * Paints the symbol and loading shapes onto the window.
+     * Paints the symbol and loading screen symbol shapes onto the window.
+     * 
+     * The painted components are white with various stroke sizes.
      */
     @Override
     public void paintComponent(Graphics g) {
@@ -345,11 +364,16 @@ public class Symbol extends JPanel implements ActionListener {
     
     /**
      * Creates changes in the position and angle of the shapes to create 
-     * animation based on a timer. 
+     * animation based on a timer and redraws the panel. 
      * 
-     * Redraws the picture with new parameters based on a timer.
+     * Uses instance variables to increase the angles of rotation for the 
+     * arrows and the loading screen symbol. Also checks to see if the center 
+     * of the loading screen symbol is on the panel, then either moves it back
+     * to being on the panel or randomly moves it to a new set of positions. 
+     * All of the calculated angles are multiplied by a speed factor which can
+     * be changed from the menu located in the LoadingScreen class. 
      * 
-     * @param event Some event (such as a timer) by which change will occur.
+     * @param event An event trigger caused by a timer.
      */
     @Override
     public void actionPerformed(ActionEvent event) {
@@ -365,7 +389,7 @@ public class Symbol extends JPanel implements ActionListener {
             this.angleLoad = this.angleLoad / this.rotateLoad;
         }// if
         
-        //Loading random movement
+        //Loading random x-axis movement
         if(this.xMove1 > 1) {
             this.xMove1 = this.xMove1 + this.speed * 
                 (( - 0.05));
@@ -379,7 +403,7 @@ public class Symbol extends JPanel implements ActionListener {
                 (rdm1.nextDouble() * 0.1 - 0.05);
         }// else
         
-                
+        //Loading random y-axis movement        
         if(this.yMove1 > 1) {
             this.yMove1 = this.yMove1 + this.speed * 
                 (( - 0.05));
@@ -393,7 +417,9 @@ public class Symbol extends JPanel implements ActionListener {
                 (rdm2.nextDouble() * 0.1 - 0.05);
         }// else
 
+        //Redraw panel
         this.repaint();
     } // actionPerformed( ActionEvent )
 
+    
 }// Symbol

@@ -47,12 +47,13 @@ public class PolygonPrism {
         }// for
         
         
-        
-        
+        //Finding triangle list
+        this.makeTriangles();
     }// PolygonPrism(int, double)
     
     
     public void makeTriangles() {
+        List<Polygon3D> triangleList = new ArrayList<>();
         
         //Creating shape 1 triangles
         int length = this.shape1Points.size();
@@ -62,14 +63,14 @@ public class PolygonPrism {
         Vector v2 = this.shape1Points.get(0);
 
         Polygon3D triangle = new Polygon3D(v0, v1, v2);
-        this.triangles.add(triangle);
+        triangleList.add(triangle);
         
         for(int i = 0; i < length - 1; i++) {
             v1 = this.shape1Points.get(i);
             v2 = this.shape1Points.get(i + 1);
             
             triangle = new Polygon3D(v0, v1, v2);
-            this.triangles.add(triangle);
+            triangleList.add(triangle);
         } // for
         
         
@@ -81,14 +82,14 @@ public class PolygonPrism {
         v2 = this.shape2Points.get(0);
 
         triangle = new Polygon3D(v0, v2, v1);
-        this.triangles.add(triangle);
+        triangleList.add(triangle);
         
         for(int i = 0; i < length - 1; i++) {
             v1 = this.shape2Points.get(i);
             v2 = this.shape2Points.get(i + 1);
             
             triangle = new Polygon3D(v0, v2, v1);
-            this.triangles.add(triangle);
+            triangleList.add(triangle);
         } // for
         
         
@@ -99,9 +100,9 @@ public class PolygonPrism {
         Vector v3 = this.shape2Points.get(length - 1);
         
         triangle = new Polygon3D(v0, v1, v2);
-        triangles.add(triangle);
+        triangleList.add(triangle);
         triangle = new Polygon3D(v0, v2, v3);
-        triangles.add(triangle);
+        triangleList.add(triangle);
         
         for(int i = 0; i < length - 1; i++) {
             v0 = this.shape1Points.get(i);
@@ -110,10 +111,12 @@ public class PolygonPrism {
             v3 = this.shape2Points.get(i + 1);
         
             triangle = new Polygon3D(v0, v1, v2);
-            triangles.add(triangle);
+            triangleList.add(triangle);
             triangle = new Polygon3D(v0, v2, v3);
-            triangles.add(triangle);
+            triangleList.add(triangle);
         }// for
+        
+        this.triangles = triangleList;
     }// makeTriangles()
     
     

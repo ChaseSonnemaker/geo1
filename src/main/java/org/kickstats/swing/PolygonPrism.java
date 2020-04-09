@@ -35,9 +35,10 @@ public class PolygonPrism {
         
         //Finding point lists
         for(int i = 0; i < sides; i++) {
-            double angle = ((double) i) / sides;
+            double percent = ((double) i) / sides;
+            double angle = percent * 2 * Math.PI;
             double x = radius * Math.cos(angle);
-            double y = radius * Math.sin(radius);
+            double y = radius * Math.sin(angle);
             
             Vector shape1V = new Vector(x, y, shape1Z);
             Vector shape2V = new Vector(x, y, shape2Z);
@@ -107,8 +108,8 @@ public class PolygonPrism {
         for(int i = 0; i < length - 1; i++) {
             v0 = this.shape1Points.get(i);
             v1 = this.shape1Points.get(i + 1);
-            v2 = this.shape2Points.get(i);
-            v3 = this.shape2Points.get(i + 1);
+            v2 = this.shape2Points.get(i + 1);
+            v3 = this.shape2Points.get(i);
         
             triangle = new Polygon3D(v0, v1, v2);
             triangleList.add(triangle);

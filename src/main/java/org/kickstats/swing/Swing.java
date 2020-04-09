@@ -13,7 +13,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 /**
- * Creates a twisting spinning cube.
+ * Creates window that animates a twisting spinning cube made up of quadratic 
+ * curves and has menus for changing background color, cube color, and cube 
+ * size.
  * 
  * An experiment working with different types of shapes, menus, and 
  * movement as well as a general introduction to 2D graphic design.

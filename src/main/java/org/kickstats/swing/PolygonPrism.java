@@ -16,11 +16,11 @@ import java.util.List;
  */
 public class PolygonPrism {
     
-    private List<Vector> shape1Points = new ArrayList<>();
-    private Vector shape1Center;
-    private List<Vector> shape2Points = new ArrayList<>();
-    private Vector shape2Center;
-    private List<Polygon3D> triangles = new ArrayList<>();
+    protected List<Vector> shape1Points = new ArrayList<>();
+    protected Vector shape1Center;
+    protected List<Vector> shape2Points = new ArrayList<>();
+    protected Vector shape2Center;
+    protected List<Polygon3D> triangles = new ArrayList<>();
     
     /**
      * Creates an instance of the PolygonPrism class with specified attributes.

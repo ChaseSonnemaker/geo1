@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
 
 /**
@@ -15,10 +17,23 @@ import javax.swing.JFrame;
  */
 public class Swing3D extends JFrame implements ActionListener {
     
+    //Frame constants
     private final int FRAME_WIDTH = 800;
     private final int FRAME_HEIGHT = 800;
-    private final String FRAME_TITLE = "3D Shapes";
+    private final String FRAME_TITLE = "3D Shaded Prism";
     
+    //Menu name constants
+    private final String B_COLOR = "Background Color";
+    private final String S_COLOR = "Shape Color";
+    private final String SIDES = "Number of Sides";
+    private final String SPEED = "Rotation Speed";
+    private final String WIDTH = "Shape Width";
+    private final String R_TYPE = "Type of Rotation";
+    
+    //Menu lists
+    private final List<Color> colors = new ArrayList<>();
+    
+    //Panel
     private final SwingPanel3D panel;
     
     

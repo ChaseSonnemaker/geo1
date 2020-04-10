@@ -7,7 +7,9 @@ package org.kickstats.swing;
  * Uses a series of vectors which represent vertices and a series of triangular
  * Polygon3D objects for modeling the antiprism. Extends the PolygonTwoFace 
  * class allowing it to inherit methods designed to facilitate 
- * transformation and visual representation of prism-like 3D shapes. 
+ * transformation and visual representation of prism-like 3D shapes. More
+ * information about antiprisms can be found 
+ * <<a href="https://math.wikia.org/wiki/Antiprism">here</a>.
  * 
  * @author Chase Sonnemaker
  * @version 10 April 2020
@@ -21,9 +23,7 @@ public class PolygonAntiPrism extends PolygonTwoFace {
      * The antiprism represented will have main faces that are regular 
      * polygons. The second face will be turned <code>180 / sides</code> 
      * degrees to make the side triangles of the antiprism equally sized. 
-     * The antiprism will also be centered at the origin in 3D space. More
-     * information about antiprisms can be found 
-     * <<a href="https://math.wikia.org/wiki/Antiprism">here</a>.
+     * The antiprism will also be centered at the origin in 3D space. 
      * 
      * 
      * @param sides The number of sides in each of the mains faces 

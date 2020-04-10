@@ -96,24 +96,31 @@ public class PolygonPrism {
         
         //Creating side triangles
         v0 = this.shape1Points.get(length - 1);
-        v1 = this.shape1Points.get(0);
-        v2 = this.shape2Points.get(0);
-        Vector v3 = this.shape2Points.get(length - 1);
+        v1 = this.shape2Points.get(length - 1);
+        v2 = this.shape1Points.get(0);
         
-        triangle = new Polygon3D(v2, v1, v0);
+        triangle = new Polygon3D(v0, v1, v2);
         triangleList.add(triangle);
-        triangle = new Polygon3D(v2, v0, v3);
+        
+        v0 = this.shape1Points.get(0);
+        v1 = this.shape2Points.get(length - 1);
+        v2 = this.shape2Points.get(0);
+        
+        triangle = new Polygon3D(v0, v1, v2);
         triangleList.add(triangle);
         
         for(int i = 0; i < length - 1; i++) {
             v0 = this.shape1Points.get(i);
-            v1 = this.shape1Points.get(i + 1);
-            v2 = this.shape2Points.get(i + 1);
-            v3 = this.shape2Points.get(i);
-        
-            triangle = new Polygon3D(v2, v1, v0);
+            v1 = this.shape2Points.get(i);
+            v2 = this.shape1Points.get(i + 1);
+
+            triangle = new Polygon3D(v0, v1, v2);
             triangleList.add(triangle);
-            triangle = new Polygon3D(v2, v0, v3);
+            
+            v0 = this.shape1Points.get(i + 1);
+            v1 = this.shape2Points.get(i);
+            v2 = this.shape2Points.get(i + 1);
+            triangle = new Polygon3D(v0, v1, v2);
             triangleList.add(triangle);
         }// for
         

@@ -20,9 +20,9 @@ import javax.swing.Timer;
  */
 public class SwingPanel3D extends JPanel implements ActionListener {
     
-    private final double TRIANGLE_LENGTH = 0.5;
-    private final double ROTATION = (2 * Math.PI) / 200;
-    private double angle = 0;
+    private final double RADIUS = 0.5;
+    private final double ROTATION_ANGLE = (2 * Math.PI) / 200;
+    private double currentAngle = 0;
     
     //Menu manipulatable
     private Color color;

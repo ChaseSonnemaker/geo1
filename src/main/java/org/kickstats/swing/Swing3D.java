@@ -46,9 +46,6 @@ public class Swing3D extends JFrame implements ActionListener {
     //Panel
     private final SwingPanel3D panel;
     
-    public void orderList(List<String> s) {
-        
-    }// orderList(List<String>)
     
     public final void createNewMenu(JMenuBar m, String name, List<String> s) {
         JMenu menu = new JMenu(name);

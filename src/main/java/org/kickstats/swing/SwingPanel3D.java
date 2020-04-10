@@ -20,8 +20,9 @@ import javax.swing.Timer;
  */
 public class SwingPanel3D extends JPanel implements ActionListener {
     
+    private final double FULL_CIRCLE = 2 * Math.PI;
     private final double RADIUS = 0.5;
-    private final double ROTATION_ANGLE = (2 * Math.PI) / 200;
+    private final double ROTATION_ANGLE = FULL_CIRCLE / 200;
     private final double AMBIENT_LIGHT = 0.25;
     private final Vector LIGHT_VECTOR = new Vector(1.0, 2.0, 4.0).normalize();
     
@@ -137,11 +138,14 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent event) {
-        if(this.angle < (2 * Math.PI)) {
-            this.angle = this.angle + this.ROTATION;
+        double angleChange = this.ROTATION_ANGLE * this.speed;
+        
+        if(this.currentAngle < (this.FULL_CIRCLE)) {
+            this.currentAngle = this.currentAngle + angleChange;
         }// if
         else {
-            this.angle = this.angle + this.ROTATION - (2 * Math.PI);
+            this.currentAngle = this.currentAngle + angleChange 
+                                - (this.FULL_CIRCLE);
         }// else
         
         this.repaint();

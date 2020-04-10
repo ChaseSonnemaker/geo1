@@ -20,16 +20,36 @@ import javax.swing.Timer;
  */
 public class SwingPanel3D extends JPanel implements ActionListener {
     
-    final double TRIANGLE_LENGTH = 0.5;
-    final double ROTATION = (2 * Math.PI) / 60;
+    private final double TRIANGLE_LENGTH = 0.5;
+    private final double ROTATION = (2 * Math.PI) / 200;
+    private double angle = 0;
     
-    double angle = Math.PI / 3;
-    
-    Color color;
+    //Menu manipulatable
+    private Color color;
+    private int sides;
+    private double width;
+    private int speed;
+
     
     public void setColor(Color c) {
         this.color = c;
     }// setColor(Color)
+    
+    
+    public void setSides(int n) {
+        this.sides = n;
+    }// setSides(int)
+    
+    
+    public void setWidth(double width) {
+        this.width = width;
+    }// setWidth(double)
+    
+    
+    public void setSpeed(int n) {
+        
+    }// setSpeed(int)
+    
     
     public SwingPanel3D() {
        Timer timer = new Timer(50, this);

@@ -100,9 +100,9 @@ public class PolygonPrism {
         v2 = this.shape2Points.get(0);
         Vector v3 = this.shape2Points.get(length - 1);
         
-        triangle = new Polygon3D(v0, v1, v2);
+        triangle = new Polygon3D(v2, v1, v0);
         triangleList.add(triangle);
-        triangle = new Polygon3D(v0, v2, v3);
+        triangle = new Polygon3D(v2, v0, v3);
         triangleList.add(triangle);
         
         for(int i = 0; i < length - 1; i++) {
@@ -111,9 +111,9 @@ public class PolygonPrism {
             v2 = this.shape2Points.get(i + 1);
             v3 = this.shape2Points.get(i);
         
-            triangle = new Polygon3D(v0, v1, v2);
+            triangle = new Polygon3D(v2, v1, v0);
             triangleList.add(triangle);
-            triangle = new Polygon3D(v0, v2, v3);
+            triangle = new Polygon3D(v2, v0, v3);
             triangleList.add(triangle);
         }// for
         

@@ -35,7 +35,8 @@ public class Swing3D extends JFrame implements ActionListener {
     private final String R_TYPE = "Type of Rotation";
     
     //Menu HashMaps
-    private final HashMap<String, Color> colors = new HashMap<>();
+    private final HashMap<String, Color> backColors = new HashMap<>();
+    private final HashMap<String, Color> shapeColors = new HashMap<>();
     private final HashMap<String, Integer> sideNums = new HashMap<>();
     private final HashMap<String, Integer> speeds = new HashMap<>();
     private final HashMap<String, Double> widths = new HashMap<>();
@@ -75,15 +76,25 @@ public class Swing3D extends JFrame implements ActionListener {
         
         
         //Color HashMap creation
-        this.colors.put("Red", new Color(255, 51, 51));
-        this.colors.put("Blue", new Color(51, 153, 255));
-        this.colors.put("Green", new Color(0, 204, 0));
-        this.colors.put("Orange", new Color(255, 153, 0));
-        this.colors.put("Gold", new Color(255, 204, 51));
-        this.colors.put("Purple", new Color(102, 0, 153));
-        this.colors.put("Brown", new Color(153, 102, 0));
-        this.colors.put("Gray", new Color(153, 153, 153));
-        this.colors.put("Yellow", new Color(255, 255, 0));
+        this.backColors.put(B_COLOR + ": " + "Red", new Color(255, 51, 51));
+        this.backColors.put(B_COLOR + ": " + "Blue", new Color(51, 153, 255));
+        this.backColors.put(B_COLOR + ": " + "Green", new Color(0, 204, 0));
+        this.backColors.put(B_COLOR + ": " + "Orange", new Color(255, 153, 0));
+        this.backColors.put(B_COLOR + ": " + "Gold", new Color(255, 204, 51));
+        this.backColors.put(B_COLOR + ": " + "Purple", new Color(102, 0, 153));
+        this.backColors.put(B_COLOR + ": " + "Brown", new Color(153, 102, 0));
+        this.backColors.put(B_COLOR + ": " + "Gray", new Color(153, 153, 153));
+        this.backColors.put(B_COLOR + ": " + "Yellow", new Color(255, 255, 0));
+        
+        this.shapeColors.put(S_COLOR + ": " + "Red", new Color(255, 51, 51));
+        this.shapeColors.put(S_COLOR + ": " + "Blue", new Color(51, 153, 255));
+        this.shapeColors.put(S_COLOR + ": " + "Green", new Color(0, 204, 0));
+        this.shapeColors.put(S_COLOR + ": " + "Orange", new Color(255, 153, 0));
+        this.shapeColors.put(S_COLOR + ": " + "Gold", new Color(255, 204, 51));
+        this.shapeColors.put(S_COLOR + ": " + "Purple", new Color(102, 0, 153));
+        this.shapeColors.put(S_COLOR + ": " + "Brown", new Color(153, 102, 0));
+        this.shapeColors.put(S_COLOR + ": " + "Gray", new Color(153, 153, 153));
+        this.shapeColors.put(S_COLOR + ": " + "Yellow", new Color(255, 255, 0));
         
         
         //Rotation type HashMap creation
@@ -123,12 +134,14 @@ public class Swing3D extends JFrame implements ActionListener {
         this.setJMenuBar(menuBar);
         
         //Background color
-        List<String> colorsList = new ArrayList<>();
-        colorsList.addAll(this.colors.keySet());
-        createNewMenu(menuBar, this.B_COLOR, colorsList);
+        List<String> backColorsList = new ArrayList<>();
+        backColorsList.addAll(this.backColors.keySet());
+        createNewMenu(menuBar, this.B_COLOR, backColorsList);
         
         //Shape color
-        createNewMenu(menuBar, this.S_COLOR, colorsList);
+        List<String> shapeColorsList = new ArrayList<>();
+        shapeColorsList.addAll(this.shapeColors.keySet());
+        createNewMenu(menuBar, this.S_COLOR, shapeColorsList);
         
         //Sides
         List<String> sideNumsList = new ArrayList<>();
@@ -160,10 +173,10 @@ public class Swing3D extends JFrame implements ActionListener {
         String actionCommand = event.getActionCommand();
         
         if(actionCommand.indexOf(B_COLOR) >= 0) {
-            this.panel.setBackground(this.colors.get(actionCommand));
+            this.panel.setBackground(this.backColors.get(actionCommand));
         }// if
         else if(actionCommand.indexOf(S_COLOR) >= 0) {
-            this.panel.setColor(this.colors.get(actionCommand));
+            this.panel.setColor(this.shapeColors.get(actionCommand));
         }// else if
         else if(actionCommand.indexOf(S_SIDES) >= 0) {
             this.panel.setSides(this.sideNums.get(actionCommand));

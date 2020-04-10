@@ -8,6 +8,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
  * An environment for working with 3D shapes.
@@ -37,6 +40,19 @@ public class Swing3D extends JFrame implements ActionListener {
     private final SwingPanel3D panel;
     
     
+    public void createMenu(JMenuBar m, String name, List<String> s) {
+        JMenu menu = new JMenu(name);
+        m.add(menu);
+        
+        for(String itemName : s) {
+            JMenuItem newItem = new JMenuItem(itemName);
+            newItem.addActionListener(this);
+            newItem.setActionCommand(itemName);
+            menu.add(newItem);
+        }// for
+    }// createMenu
+    
+            
     public Swing3D() {
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setTitle(FRAME_TITLE);

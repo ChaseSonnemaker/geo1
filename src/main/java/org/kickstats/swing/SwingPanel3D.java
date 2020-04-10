@@ -47,7 +47,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     
     public void setSpeed(int n) {
-        
+        this.speed = n;
     }// setSpeed(int)
     
     

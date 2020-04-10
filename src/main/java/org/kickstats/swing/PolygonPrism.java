@@ -5,8 +5,9 @@ package org.kickstats.swing;
  * Models a prism in 3D space.
  * 
  * Uses a series of vectors which represent vertices and a series of triangular
- * Polygon3D objects for modeling the prism. Contains methods designed to 
- * facilitate transformation and visually representation of the prism. 
+ * Polygon3D objects for modeling the prism. Extends the PolygonTwoFace class  
+ * allowing it to inherit methods designed to facilitate transformation and 
+ * visual representation of prism-like 3D shapes. 
  * 
  * @author Chase Sonnemaker 
  * @version 10 April 2020
@@ -56,5 +57,6 @@ public class PolygonPrism extends PolygonTwoFace {
         //Finding triangle list
         this.makeTriangles();
     }// PolygonPrism(int, double, double)
+    
     
 }// PolygonPrism

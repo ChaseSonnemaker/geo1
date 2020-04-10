@@ -29,6 +29,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     private int sides;
     private double width;
     private int speed;
+    private int rotationSelection;
 
     
     public void setColor(Color c) {
@@ -49,6 +50,24 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     public void setSpeed(int n) {
         this.speed = n;
     }// setSpeed(int)
+    
+    
+    public Matrix getRotation(int selection, double angle) {
+        Matrix newRotation = new Matrix();
+        
+        switch(selection){
+            case 0:
+                newRotation.rotateX(angle);
+                break;
+            case 1:
+                newRotation.rotateY(angle);
+                break;
+            case 2:
+                newRotation.rotateZ(angle);
+                break;
+        }// switch
+        return newRotation;
+    }// getRotation(int, double)
     
     
     public SwingPanel3D() {

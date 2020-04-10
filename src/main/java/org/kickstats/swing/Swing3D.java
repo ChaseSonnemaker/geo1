@@ -41,7 +41,6 @@ public class Swing3D extends JFrame implements ActionListener {
     private final HashMap<String, Double> widths = new HashMap<>();
     private final HashMap<String, Integer> types = new HashMap<>();
     
-    
     //Panel
     private final SwingPanel3D panel;
     
@@ -81,6 +80,13 @@ public class Swing3D extends JFrame implements ActionListener {
         this.colors.put("Brown", new Color(153, 102, 0));
         this.colors.put("Gray", new Color(153, 153, 153));
         this.colors.put("White", new Color(255, 255, 255));
+        
+        
+        //Rotation type HashMap creation
+        this.types.put("x-axis Rotation", 0);
+        this.types.put("y-axis Rotation", 1);
+        this.types.put("z-axis Rotation", 2);
+        
         
         
         this.setVisible(true);

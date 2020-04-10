@@ -45,6 +45,9 @@ public class Swing3D extends JFrame implements ActionListener {
     //Panel
     private final SwingPanel3D panel;
     
+    public void orderList(List<String> s) {
+        
+    }// orderList(List<String>)
     
     public final void createNewMenu(JMenuBar m, String name, List<String> s) {
         JMenu menu = new JMenu(name);
@@ -80,25 +83,25 @@ public class Swing3D extends JFrame implements ActionListener {
         this.colors.put("Purple", new Color(102, 0, 153));
         this.colors.put("Brown", new Color(153, 102, 0));
         this.colors.put("Gray", new Color(153, 153, 153));
-        this.colors.put("White", new Color(255, 255, 255));
+        this.colors.put("Yellow", new Color(255, 255, 0));
         
         
         //Rotation type HashMap creation
-        this.types.put("x-axis Rotation", 0);
-        this.types.put("y-axis Rotation", 1);
-        this.types.put("z-axis Rotation", 2);
+        this.types.put(R_TYPE + ": " + "x-axis", 0);
+        this.types.put(R_TYPE + ": " + "y-axis", 1);
+        this.types.put(R_TYPE + ": " + "z-axis", 2);
         
         
         //widths, sideNums, and speeds HashMap creation
         for(int i = 0; i < items; i++) {
-            int sides = 3 + i * 3;
-            String sidesName = "Sides: " + sides;
+            int sides = 4 + i * 4;
+            String sidesName = S_SIDES + ": " + sides;
             
             int speed = i;
-            String speedName = "Speed: " + speed;
+            String speedName = R_SPEED + ": " + speed;
             
             double width = 0.1 + i * 0.1;
-            String widthName = "Width: " + width;
+            String widthName = S_WIDTH + ": " + width;
             
             this.sideNums.put(sidesName, sides);
             this.speeds.put(speedName, speed);
@@ -107,12 +110,12 @@ public class Swing3D extends JFrame implements ActionListener {
         
         
         //Set initial shape values
-        this.panel.setBackground(this.colors.get("Purple"));
-        this.panel.setColor(this.colors.get("White"));
-        this.panel.setSides(this.sideNums.get("Sides: 3"));
-        this.panel.setSpeed(this.speeds.get("Speed: 2"));
-        this.panel.setWidth(this.widths.get("Width: 0.1"));
-        this.panel.setRotation(this.types.get("x-axis Rotation"));
+        this.panel.setBackground(new Color(51, 153, 255));
+        this.panel.setColor(new Color(255, 51, 51));
+        this.panel.setSides(4);
+        this.panel.setSpeed(2);
+        this.panel.setWidth(0.3);
+        this.panel.setRotation(0);
         
         
         //Create menus

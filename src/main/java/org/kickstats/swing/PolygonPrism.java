@@ -21,8 +21,8 @@ public class PolygonPrism extends PolygonTwoFace {
      * will be centered at the origin in 3D space.
      * 
      * @param sides The number of sides the each of the main faces should have.
-     * @param radius The radius of the largest circle that completely 
-     * surrounds each of the main faces.
+     * @param radius The radius of the smallest circle that can completely 
+     * surround each of the main faces.
      * @param height The distance the main faces are from each other (the 
      * height of the rectangular side faces).
      */

@@ -14,10 +14,14 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 /**
- * An environment for working with 3D shapes.
+ * Creates a window that animates a rotating, shaded 3D regular prism.
+ * 
+ * The background color as well as the prism's color, number of main face 
+ * sides, width, speed of rotation, and rotation type can all be manipulated 
+ * through menus on the windows. 
  * 
  * @author Chase Sonnemaker with guidance from Leon Tabak's code.
- * @version 7 April 2020
+ * @version 10 April 2020
  */
 public class Swing3D extends JFrame implements ActionListener {
     
@@ -47,6 +51,14 @@ public class Swing3D extends JFrame implements ActionListener {
     private final SwingPanel3D panel;
     
     
+    /**
+     * Creates a new JMenu object attached to a JMenuBar object with a 
+     * specified name and list of items.
+     * 
+     * @param m The JMenuBar object that this JMenu will be located on.
+     * @param name The name of the JMenu.
+     * @param s A list of items to be placed in the JMenu.
+     */
     public final void createNewMenu(JMenuBar m, String name, List<String> s) {
         JMenu menu = new JMenu(name);
         m.add(menu);
@@ -59,7 +71,16 @@ public class Swing3D extends JFrame implements ActionListener {
         }// for
     }// createMenu
     
-            
+    
+    /**
+     * Creates the window with a SwingPanel3D panel and creates menus through
+     * which users can interact with the animation.
+     * 
+     * Creates HashMaps which are used to create menus. There are menu options 
+     * for background color, shape color, number of main face sides,
+     * width of the prism, speed of the rotation, and axis of the 
+     * rotation. Also sets the initial values of these menu options.
+     */
     public Swing3D() {
         
         //Initial setup
@@ -166,6 +187,14 @@ public class Swing3D extends JFrame implements ActionListener {
     }// Swing3D()
     
     
+    /**
+     * Listens for menu interaction and changes sets according values
+     * in the SwingPanel3D class to produce changes.
+     * 
+     * Allows the user to set the parameters of the rotating prism animation.
+     * 
+     * @param event A click on a menu by a user.
+     */
     @Override
     public void actionPerformed(ActionEvent event) {
         String actionCommand = event.getActionCommand();
@@ -190,7 +219,10 @@ public class Swing3D extends JFrame implements ActionListener {
         }// else if
     }// actionPerformed(ActionEvent)
     
-    
+    /**
+     * Creates an instance of this class which creates the window and begins 
+     * the animation.
+     */
     public static void main(String[] args) {
         Swing3D s3D  = new Swing3D();
     } // main( String [] )

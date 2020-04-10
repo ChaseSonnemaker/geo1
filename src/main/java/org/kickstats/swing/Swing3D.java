@@ -27,7 +27,7 @@ public class Swing3D extends JFrame implements ActionListener {
     private final String S_COLOR = "Shape Color";
     private final String SIDES = "Number of Sides";
     private final String SPEED = "Rotation Speed";
-    private final String WIDTH = "Shape Width";
+    private final String S_WIDTH = "Shape Width";
     private final String R_TYPE = "Type of Rotation";
     
     //Menu lists

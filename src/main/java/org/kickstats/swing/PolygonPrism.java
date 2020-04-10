@@ -16,11 +16,11 @@ import java.util.List;
  */
 public class PolygonPrism {
     
-    protected List<Vector> shape1Points = new ArrayList<>();
-    protected Vector shape1Center;
-    protected List<Vector> shape2Points = new ArrayList<>();
-    protected Vector shape2Center;
-    protected List<Polygon3D> triangles = new ArrayList<>();
+    private List<Vector> shape1Points = new ArrayList<>();
+    private Vector shape1Center;
+    private List<Vector> shape2Points = new ArrayList<>();
+    private Vector shape2Center;
+    private List<Polygon3D> triangles = new ArrayList<>();
     
     /**
      * Creates an instance of the PolygonPrism class with specified attributes.
@@ -76,7 +76,7 @@ public class PolygonPrism {
      * list based on transformations made to the vertices of this 
      * PolygonPrism object.
      */
-    public void makeTriangles() {
+    public final void makeTriangles() {
         List<Polygon3D> triangleList = new ArrayList<>();
         
         //Creating shape 1 triangles

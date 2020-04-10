@@ -105,13 +105,13 @@ public class Swing3D extends JFrame implements ActionListener {
         
         //widths, sideNums, and speeds HashMap creation
         for(int i = 0; i < items; i++) {
-            int sides = 4 + i * 4;
+            int sides = 5 + i * 5;
             String sidesName = S_SIDES + ": " + sides;
             
             int speed = i;
             String speedName = R_SPEED + ": " + speed;
             
-            double width = 0.1 + i * 0.1;
+            double width = 0.4 + i * 0.2;
             String widthFormat = String.format("%.2f", width);
             String widthName = String.format(S_WIDTH + ": " + widthFormat);
             
@@ -124,10 +124,10 @@ public class Swing3D extends JFrame implements ActionListener {
         //Set initial shape values
         this.panel.setBackground(new Color(51, 153, 255));
         this.panel.setColor(new Color(255, 51, 51));
-        this.panel.setSides(4);
+        this.panel.setSides(15);
         this.panel.setSpeed(2);
-        this.panel.setWidth(0.3);
-        this.panel.setRotation(0);
+        this.panel.setWidth(0.8);
+        this.panel.setRotation(1);
         
         
         //Create menus

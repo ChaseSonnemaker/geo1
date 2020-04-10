@@ -8,6 +8,7 @@ import java.awt.Shape;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -33,6 +34,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     //Menu manipulatable
     private Color color;
+    private int shape;
     private int sides;
     private double width;
     private int speed;
@@ -47,6 +49,38 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     public void setColor(Color c) {
         this.color = c;
     }// setColor(Color)
+    
+    
+    public void setShape(int n) {
+        this.shape = n;
+    }// setShape(int)
+    
+    
+    public List<Polygon3D> getShapeOutline(Matrix m) {
+        List<Polygon3D> shapeList = new ArrayList<>();
+
+        switch(this.shape) {
+            case 0:
+                PolygonPrism prism = new PolygonPrism(this.sides, this.RADIUS, 
+                                                        this.width);
+                prism.change(m);
+                shapeList = prism.getOrderedShapes();
+                break;
+            case 1:
+                PolygonAntiPrism antiPrism = new PolygonAntiPrism(this.sides, 
+                                                    this.RADIUS, this.width);
+                antiPrism.change(m);
+                shapeList = antiPrism.getOrderedShapes();
+                break;
+            case 2:
+                PolygonPyramid pyramid = new PolygonPyramid(this.sides, 
+                                                    this.RADIUS, this.width);
+                pyramid.change(m);
+                shapeList = pyramid.getOrderedShapes();
+                break;       
+        }// switch
+        return shapeList;
+    }// getShapeOutline(Matrix)
     
     
     /**
@@ -165,14 +199,11 @@ public class SwingPanel3D extends JPanel implements ActionListener {
 
         
         //Create prism object and rotate it
-        PolygonPrism prism = new PolygonPrism(this.sides, this.RADIUS, 
-                                                this.width);
-        prism.change(rotation);
+        List<Polygon3D> shapeList = this.getShapeOutline(rotation);
 
 
         //Create shapes and shade
-        List<Polygon3D> prismToDraw = prism.getOrderedShapes();
-        for(Polygon3D p : prismToDraw) {
+        for(Polygon3D p : shapeList) {
             
             //Determine shading
             int red = color.getRed();

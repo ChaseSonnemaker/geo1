@@ -33,6 +33,7 @@ public class Swing3D extends JFrame implements ActionListener {
     //Menu name constants
     private final String B_COLOR = "Background Color";
     private final String S_COLOR = "Shape Color";
+    private final String S_TYPE = "Shape Type";
     private final String S_SIDES = "Sides";
     private final String R_SPEED = "Rotation Speed";
     private final String S_WIDTH = "Shape Width";
@@ -41,6 +42,7 @@ public class Swing3D extends JFrame implements ActionListener {
     //Menu HashMaps
     private final HashMap<String, Color> backColors = new HashMap<>();
     private final HashMap<String, Color> shapeColors = new HashMap<>();
+    private final HashMap<String, Integer> shapeTypes = new HashMap<>();
     private final HashMap<String, Integer> sideNums = new HashMap<>();
     private final HashMap<String, Integer> speeds = new HashMap<>();
     private final HashMap<String, Double> widths = new HashMap<>();
@@ -116,10 +118,16 @@ public class Swing3D extends JFrame implements ActionListener {
         
         
         //Rotation type HashMap creation
+        this.shapeTypes.put(S_TYPE + ": " + "Prism", 0);
+        this.shapeTypes.put(S_TYPE + ": " + "Anti-Prism", 1);
+        this.shapeTypes.put(S_TYPE + ": " + "Pyramid", 2);
+        
+        
+        //Rotation type HashMap creation
         this.types.put(R_TYPE + ": " + "x-axis", 0);
         this.types.put(R_TYPE + ": " + "y-axis", 1);
         this.types.put(R_TYPE + ": " + "z-axis", 2);
-        
+
         
         //widths, sideNums, and speeds HashMap creation
         for(int i = 0; i < items; i++) {
@@ -161,6 +169,11 @@ public class Swing3D extends JFrame implements ActionListener {
         List<String> shapeColorsList = new ArrayList<>();
         shapeColorsList.addAll(this.shapeColors.keySet());
         createNewMenu(menuBar, this.S_COLOR, shapeColorsList);
+        
+        //Shape type
+        List<String> shapeTypesList = new ArrayList<>();
+        shapeTypesList.addAll(this.shapeTypes.keySet());
+        createNewMenu(menuBar, this.S_TYPE, shapeTypesList);
         
         //Sides
         List<String> sideNumsList = new ArrayList<>();
@@ -204,6 +217,9 @@ public class Swing3D extends JFrame implements ActionListener {
         }// if
         else if(actionCommand.indexOf(S_COLOR) >= 0) {
             this.panel.setColor(this.shapeColors.get(actionCommand));
+        }// else if
+        else if(actionCommand.indexOf(S_TYPE) >= 0) {
+            this.panel.setShape(this.shapeTypes.get(actionCommand));
         }// else if
         else if(actionCommand.indexOf(S_SIDES) >= 0) {
             this.panel.setSides(this.sideNums.get(actionCommand));

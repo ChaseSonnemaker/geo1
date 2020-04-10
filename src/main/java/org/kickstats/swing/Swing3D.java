@@ -112,7 +112,8 @@ public class Swing3D extends JFrame implements ActionListener {
             String speedName = R_SPEED + ": " + speed;
             
             double width = 0.1 + i * 0.1;
-            String widthName = S_WIDTH + ": " + width;
+            String widthFormat = String.format("%.2f", width);
+            String widthName = String.format(S_WIDTH + ": " + widthFormat);
             
             this.sideNums.put(sidesName, sides);
             this.speeds.put(speedName, speed);

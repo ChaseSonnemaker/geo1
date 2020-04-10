@@ -13,10 +13,13 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- * A panel of 3D shapes.
+ * Creates a panel which animates a spinning shaded 3D regular prism.
+ * 
+ * Designed to be used in the Swing3D class, and is the panel that the 
+ * window created by Swing3D class uses.
  * 
  * @author Chase Sonnemaker with guidance from Leon Tabak's code.
- * @version 7 April 2020
+ * @version 10 April 2020
  */
 public class SwingPanel3D extends JPanel implements ActionListener {
     
@@ -36,31 +39,73 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     private int rotationSelection;
 
     
+    /**
+     * Sets the color of the 3D prism.
+     * 
+     * @param c The color the 3D prism will be set to.
+     */
     public void setColor(Color c) {
         this.color = c;
     }// setColor(Color)
     
     
+    /**
+     * Sets the number of sides that the main faces of the 3D prism will have.
+     * 
+     * @param n The number of sides the 3D prism's main faces will have.
+     */
     public void setSides(int n) {
         this.sides = n;
     }// setSides(int)
     
     
+    /**
+     * Sets the width of the 3D prism.
+     * 
+     * This is the distance the main faces are from each other (the height of
+     * the rectangular side faces).
+     * 
+     * @param width The width the 3D prism will be set to have.
+     */
     public void setWidth(double width) {
         this.width = width;
     }// setWidth(double)
     
     
+    /**
+     * Sets the factor that the rotation of the 3D prism is multiplied by.
+     * 
+     * This allows for faster or slower rotation.
+     * 
+     * @param n The factor that the rotation speed will be multiplied by.
+     */
     public void setSpeed(int n) {
         this.speed = n;
     }// setSpeed(int)
     
     
+    /**
+     * Sets the axis of rotation of the 3D prism.
+     * 
+     * @param n A number representing an axis of rotation to apply to the 3D
+     * prism. 0 corresponds to x-axis rotation, 1 corresponds to y-axis 
+     * rotation, and 2 corresponds to z-axis rotation.
+     */
     public void setRotation(int n) {
         this.rotationSelection = n;
     }// setRotation(int)
     
     
+    /**
+     * Creates a 4x4 matrix modeling a rotation of a specified angle 
+     * around a set axis.
+     * 
+     * Uses the currently set axis of rotation, which can be changed using 
+     * the setRotation method, to create this matrix.
+     * 
+     * @param angle The angle (radians) of rotation.
+     * @return A 4x4 matrix modeling the specified rotation.
+     */
     public Matrix getRotation(double angle) {
         Matrix newRotation = new Matrix();
         
@@ -79,12 +124,24 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     }// getRotation(double)
     
     
+    /**
+     * Creates an instance of this class which starts a timer that controls 
+     * animation speed.
+     */
     public SwingPanel3D() {
        Timer timer = new Timer(50, this);
        timer.start();
     } // SwingPanel3D()
     
     
+    /**
+     * Creates, transforms, draws, and shades the PolygonPrism object. 
+     * 
+     * The main method used to create the images. Documented details of how 
+     * this works can be found in the source code.
+     * 
+     * @param g A Graphics object. 
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -141,6 +198,15 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     }//paintComponent(Graphics)    
     
     
+    /**
+     * Uses a timer created during the creation of this class instance to 
+     * change the angle of the PolygonPrism object and redraw the image.
+     * 
+     * This creates an animation effect and allows for changes to be made to 
+     * the attributes of the PolygonPrism.
+     * 
+     * @param event An event trigger caused by the timer.
+     */
     @Override
     public void actionPerformed(ActionEvent event) {
         double angleChange = this.ROTATION_ANGLE * this.speed;

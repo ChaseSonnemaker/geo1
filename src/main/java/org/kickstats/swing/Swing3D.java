@@ -29,7 +29,7 @@ public class Swing3D extends JFrame implements ActionListener {
     //Menu name constants
     private final String B_COLOR = "Background Color";
     private final String S_COLOR = "Shape Color";
-    private final String S_SIDES = "Number of Sides";
+    private final String S_SIDES = "Sides";
     private final String R_SPEED = "Rotation Speed";
     private final String S_WIDTH = "Shape Width";
     private final String R_TYPE = "Type of Rotation";
@@ -146,8 +146,7 @@ public class Swing3D extends JFrame implements ActionListener {
         List<String> typesList = new ArrayList<>();
         typesList.addAll(this.types.keySet());
         createNewMenu(menuBar, this.R_TYPE, typesList);
-        
-        
+
         
         this.setVisible(true);
     }// Swing3D()
@@ -157,6 +156,24 @@ public class Swing3D extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         String actionCommand = event.getActionCommand();
         
+        if(actionCommand.indexOf(B_COLOR) >= 0) {
+            this.panel.setBackground(this.colors.get(actionCommand));
+        }// if
+        else if(actionCommand.indexOf(S_COLOR) >= 0) {
+            this.panel.setColor(this.colors.get(actionCommand));
+        }// else if
+        else if(actionCommand.indexOf(S_SIDES) >= 0) {
+            this.panel.setSides(this.sideNums.get(actionCommand));
+        }// else if
+        else if(actionCommand.indexOf(S_WIDTH) >= 0) {
+            this.panel.setWidth(this.widths.get(actionCommand));
+        }// else if
+        else if(actionCommand.indexOf(R_SPEED) >= 0) {
+            this.panel.setSpeed(this.speeds.get(actionCommand));
+        }// else if
+        else if(actionCommand.indexOf(R_TYPE) >= 0) {
+            this.panel.setRotation(this.types.get(actionCommand));
+        }// else if
     }// actionPerformed(ActionEvent)
     
     

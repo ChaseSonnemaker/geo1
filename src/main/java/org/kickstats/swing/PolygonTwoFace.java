@@ -153,8 +153,11 @@ public abstract class PolygonTwoFace {
             int smallestIndex = i;
             
             for(int j = i + 1; j < length; j++) {
-                double smallestZ = shapeList.get(smallestIndex).smallestZ();
-                double currentZ = shapeList.get(j).smallestZ();
+                Vector smallestNorm = shapeList.get(smallestIndex).getNormal();
+                Vector currentNorm = shapeList.get(j).getNormal();
+                
+                double smallestZ = smallestNorm.get(2);
+                double currentZ = currentNorm.get(2);
                 
                 
                 if(smallestZ > currentZ) {

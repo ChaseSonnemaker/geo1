@@ -99,28 +99,6 @@ public class Polygon3D {
     
     
     /**
-     * Returns the smallest z-axis coordinate of all of the vertices of this
-     * Polygon3D object.
-     * 
-     * Used for 3D modeling when determining which shapes to draw first.
-     * 
-     * @return The smallest z-axis coordinate of all of the vertices of this 
-     * Polygon3D object.
-     */
-    public double smallestZ() {
-        double smallestZ = this.points.get(0).get(2);
-        for(Vector point : this.points) {
-            double z = point.get(2);
-            
-            if(z < smallestZ) {
-                smallestZ = z;
-            }// if
-        }// for
-        return smallestZ;
-    }// smallestZ()
-    
-    
-    /**
      * Creates a 2D shape equivalent of this Polygon3D object.
      * 
      * This allows the polygon to be visually drawn and animated.

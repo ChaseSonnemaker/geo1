@@ -131,13 +131,13 @@ public class Swing3D extends JFrame implements ActionListener {
         
         //widths, sideNums, and speeds HashMap creation
         for(int i = 0; i < items; i++) {
-            int sides = 5 + i * 5;
+            int sides = 3 + i * 3;
             String sidesName = S_SIDES + ": " + sides;
             
             int speed = i;
             String speedName = R_SPEED + ": " + speed;
             
-            double width = 0.4 + i * 0.2;
+            double width = 0.1 + i * 0.1;
             String widthFormat = String.format("%.2f", width);
             String widthName = String.format(S_WIDTH + ": " + widthFormat);
             

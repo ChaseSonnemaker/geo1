@@ -46,7 +46,7 @@ public class Swing3D extends JFrame implements ActionListener {
     private final SwingPanel3D panel;
     
     
-    public void createMenu(JMenuBar m, String name, List<String> s) {
+    public final void createNewMenu(JMenuBar m, String name, List<String> s) {
         JMenu menu = new JMenu(name);
         m.add(menu);
         
@@ -104,6 +104,49 @@ public class Swing3D extends JFrame implements ActionListener {
             this.speeds.put(speedName, speed);
             this.widths.put(widthName, width);            
         }// for
+        
+        
+        //Set initial shape values
+        this.panel.setBackground(this.colors.get("Purple"));
+        this.panel.setColor(this.colors.get("White"));
+        this.panel.setSides(this.sideNums.get("Sides: 3"));
+        this.panel.setSpeed(this.speeds.get("Speed: 2"));
+        this.panel.setWidth(this.widths.get("Width: 0.1"));
+        this.panel.setRotation(this.types.get("x-axis Rotation"));
+        
+        
+        //Create menus
+        JMenuBar menuBar = new JMenuBar();
+        this.setJMenuBar(menuBar);
+        
+        //Background color
+        List<String> colorsList = new ArrayList<>();
+        colorsList.addAll(this.colors.keySet());
+        createNewMenu(menuBar, this.B_COLOR, colorsList);
+        
+        //Shape color
+        createNewMenu(menuBar, this.S_COLOR, colorsList);
+        
+        //Sides
+        List<String> sideNumsList = new ArrayList<>();
+        sideNumsList.addAll(this.sideNums.keySet());
+        createNewMenu(menuBar, this.S_SIDES, sideNumsList);
+       
+        //Widths
+        List<String> widthsList = new ArrayList<>();
+        widthsList.addAll(this.widths.keySet());
+        createNewMenu(menuBar, this.S_WIDTH, widthsList);
+        
+        //Speed
+        List<String> speedsList = new ArrayList<>();
+        speedsList.addAll(this.speeds.keySet());
+        createNewMenu(menuBar, this.R_SPEED, speedsList);
+        
+        //Type
+        List<String> typesList = new ArrayList<>();
+        typesList.addAll(this.types.keySet());
+        createNewMenu(menuBar, this.R_TYPE, typesList);
+        
         
         
         this.setVisible(true);

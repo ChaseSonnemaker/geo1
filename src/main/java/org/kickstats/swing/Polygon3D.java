@@ -124,12 +124,14 @@ public class Polygon3D {
     
     
     /**
-     * Returns a vector that is perpendicular to this Polygon3D object. 
+     * Returns a vector that is perpendicular to this Polygon3D object and has 
+     * a magnitude of 1. 
      * 
      * Uses the clockwise direction of the first 3 vertices to calculate so the
      * Polygon3D class expects vertices to be added in a clockwise direction. 
      * 
-     * @return A vector that is perpendicular to this polygon.
+     * @return A vector that is perpendicular to this polygon and has a 
+     * magnitude of 1.
      */
     public Vector getNormal() {       
         Vector v0 = this.points.get(0);

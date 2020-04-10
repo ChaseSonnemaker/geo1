@@ -3,7 +3,6 @@ package org.kickstats.swing;
 
 import java.awt.Shape;
 import java.awt.geom.Path2D;
-import static java.lang.Math.max;
 import java.util.ArrayList;
 import java.util.List;
 

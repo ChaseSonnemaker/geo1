@@ -56,6 +56,11 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     }// setSpeed(int)
     
     
+    public void setRotation(int n) {
+        this.rotationSelection = n;
+    }// setRotation(int)
+    
+    
     public Matrix getRotation(double angle) {
         Matrix newRotation = new Matrix();
         

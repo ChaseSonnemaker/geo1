@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * Uses 4 element vectors as vertices to model a 2D polygon in 3D space.
  * 
- * This class is used to model 3D shapes, such as a prism, 
- * in 2D space so they can be visualized.
+ * This class is used to model 3D shapes, such as a prism, an anti-prism, or  
+ * a pyramid in 2D space so they can be visualized.
  * 
  * @author Chase Sonnemaker with guidance from Leon Tabak's code.
  * @version 10 April 2020

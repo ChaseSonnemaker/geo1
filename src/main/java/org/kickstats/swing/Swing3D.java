@@ -6,6 +6,7 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -33,8 +34,13 @@ public class Swing3D extends JFrame implements ActionListener {
     private final String S_WIDTH = "Shape Width";
     private final String R_TYPE = "Type of Rotation";
     
-    //Menu lists
-    private final List<Color> colors = new ArrayList<>();
+    //Menu HashMaps
+    private final HashMap<String, Color> colors = new HashMap<>();
+    private final HashMap<String, Integer> sideNums = new HashMap<>();
+    private final HashMap<String, Integer> speeds = new HashMap<>();
+    private final HashMap<String, Double> widths = new HashMap<>();
+    private final HashMap<String, Integer> types = new HashMap<>();
+    
     
     //Panel
     private final SwingPanel3D panel;
@@ -54,6 +60,8 @@ public class Swing3D extends JFrame implements ActionListener {
     
             
     public Swing3D() {
+        
+        //Initial setup
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setTitle(FRAME_TITLE);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -61,7 +69,19 @@ public class Swing3D extends JFrame implements ActionListener {
         Container pane = this.getContentPane();
         this.panel = new SwingPanel3D();
         pane.add(panel);
-        this.panel.setBackground(Color.white);
+        
+        
+        //Color HashMap creation
+        this.colors.put("Red", new Color(255, 51, 51));
+        this.colors.put("Blue", new Color(51, 153, 255));
+        this.colors.put("Green", new Color(0, 204, 0));
+        this.colors.put("Orange", new Color(255, 153, 0));
+        this.colors.put("Gold", new Color(255, 204, 51));
+        this.colors.put("Purple", new Color(102, 0, 153));
+        this.colors.put("Brown", new Color(153, 102, 0));
+        this.colors.put("Gray", new Color(153, 153, 153));
+        this.colors.put("White", new Color(255, 255, 255));
+        
         
         this.setVisible(true);
     }// Swing3D()

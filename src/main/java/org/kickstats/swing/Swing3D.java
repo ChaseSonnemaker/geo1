@@ -29,8 +29,8 @@ public class Swing3D extends JFrame implements ActionListener {
     //Menu name constants
     private final String B_COLOR = "Background Color";
     private final String S_COLOR = "Shape Color";
-    private final String SIDES = "Number of Sides";
-    private final String SPEED = "Rotation Speed";
+    private final String S_SIDES = "Number of Sides";
+    private final String R_SPEED = "Rotation Speed";
     private final String S_WIDTH = "Shape Width";
     private final String R_TYPE = "Type of Rotation";
     
@@ -40,6 +40,7 @@ public class Swing3D extends JFrame implements ActionListener {
     private final HashMap<String, Integer> speeds = new HashMap<>();
     private final HashMap<String, Double> widths = new HashMap<>();
     private final HashMap<String, Integer> types = new HashMap<>();
+    private final int items = 9;
     
     //Panel
     private final SwingPanel3D panel;
@@ -87,6 +88,22 @@ public class Swing3D extends JFrame implements ActionListener {
         this.types.put("y-axis Rotation", 1);
         this.types.put("z-axis Rotation", 2);
         
+        
+        //widths, sideNums, and speeds HashMap creation
+        for(int i = 0; i < items; i++) {
+            int sides = 3 + i * 3;
+            String sidesName = "Sides: " + sides;
+            
+            int speed = i;
+            String speedName = "Speed: " + speed;
+            
+            double width = 0.1 + i * 0.1;
+            String widthName = "Width: " + width;
+            
+            this.sideNums.put(sidesName, sides);
+            this.speeds.put(speedName, speed);
+            this.widths.put(widthName, width);            
+        }// for
         
         
         this.setVisible(true);

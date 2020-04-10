@@ -5,8 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author irish
+ * Contains instance variables and methods used to construct and visualize
+ * prism-like shapes with two main faces.
+ * 
+ * An abstract class extended to classes that model shapes like antiprisms 
+ * and prisms. Contains instance variables which are vectors and lists of 
+ * vectors representing the vertices and centers of a prism-like shape. 
+ * Also contains an instance variable which is a list of triangular Polygon3D 
+ * objects and methods used to transform and draw prism-like shapes.
+ * 
+ * @author Chase Sonnemaker
+ * @version 10 April 2020
  */
 public abstract class PolygonTwoFace {
     
@@ -16,15 +25,15 @@ public abstract class PolygonTwoFace {
     protected Vector shape2Center;
     protected List<Polygon3D> triangles = new ArrayList<>();
     
+    
     /**
-     * Creates the triangles that make up this PolygonPrism object.
+     * Creates the triangles that make up this prism-like object.
      * 
-     * Uses the vertices stored in this PolygonPrism object to construct a list 
+     * Uses the vertices stored in this prism-like object to construct a list 
      * of triangular Polygon3D objects out of the main and side faces. This 
-     * list is then stored in this PolygonPrism object. Used to 
-     * construct the initial triangle list and to update the stored triangle 
-     * list based on transformations made to the vertices of this 
-     * PolygonPrism object.
+     * list is then stored in this object. Used to construct the initial 
+     * triangle list and to update the stored triangle list based on 
+     * transformations made to the vertices of this prism-like object.
      */
     public final void makeTriangles() {
         List<Polygon3D> triangleList = new ArrayList<>();
@@ -100,11 +109,12 @@ public abstract class PolygonTwoFace {
         this.triangles = triangleList;
     }// makeTriangles()
     
+    
     /**
-     * Transforms this PolygonPrism object to reflect some 3D transformation 
+     * Transforms this prism-like object to reflect some 3D transformation 
      * modeled by a 4x4 matrix.
      * 
-     * Allows the prism to be moved, scaled, and rotated, updating all of the 
+     * Allows the shape to be moved, scaled, and rotated, updating all of the 
      * stored vector vertices and Polygon3D objects accordingly.
      * 
      * @param m A 4x4 matrix modeling a 3D transformation.
@@ -131,19 +141,18 @@ public abstract class PolygonTwoFace {
     
     /**
      * Orders and returns the list of triangular Polygon3D objects stored in 
-     * this object based on the smallest z-axis coordinate in each triangle.
+     * this object based on the polygon's unit-normal vector's z-coordinate.
      * 
      * Designed to return a list of Polygon3D objects that can then be 
      * converted to shapes and visually represented. Uses a selection sort 
-     * algorithm to order the list from from smallest smallest z-axis coordinate 
-     * to largest. This is an attempt to solve the issue of which faces should 
-     * be drawn first when visually representing a 3D prism so that hidden faces 
-     * are not drawn over faces that would be in view. While not a perfect 
-     * solution, this works very well for prisms with large heights and many 
-     * main face sides.
+     * algorithm to order the list from smallest unit-normal vector z-coordinate 
+     * to largest. This creates an ordering by which the faces should be drawn 
+     * to ensure the correct layering for 3D representation of this prism-like
+     * shape.
      * 
-     * @return A list of triangular Polygon3D objects that make up this prism
-     * and is ordered from the smallest smallest z-axis coordinate to largest.
+     * @return A list of triangular Polygon3D objects that make up this 
+     * prism-like object and are ordered from the smallest unit-normal vector 
+     * z-coordinate to largest.
      */
     public List<Polygon3D> getOrderedShapes() {
         List<Polygon3D> shapeList = this.triangles;
@@ -172,4 +181,5 @@ public abstract class PolygonTwoFace {
         return shapeList;
     }// getOrderedShapes()
     
-}
+    
+}// PolygonTwoFace

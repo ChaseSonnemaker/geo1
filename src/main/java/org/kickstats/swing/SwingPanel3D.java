@@ -25,6 +25,11 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     double angle = Math.PI / 3;
     
+    Color color;
+    
+    public void setColor(Color c) {
+        this.color = c;
+    }// setColor(Color)
     
     public SwingPanel3D() {
        Timer timer = new Timer(50, this);
@@ -63,7 +68,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         rotationY.rotateY(angle);
         rotationZ.rotateZ(angle);
         
-        Matrix rotate = rotationX.multiply(rotationZ);
+        Matrix rotate = rotationY.multiply(rotationX);
         
 //        Matrix rotation2 = new Matrix();
 //        rotation2.rotateY(angle);
@@ -115,7 +120,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
 //        double origR = 102.0 / 255.0;
 //        double origG = 0.0 / 255.0;
 //        double origB = 153.0 / 255.0;
-        Color color = Color.red;
+        Color color = Color.blue;
         double ambientColor = 0.2;
         Vector lightV = new Vector(1.0, 2.0, 4.0);
         lightV = lightV.normalize();

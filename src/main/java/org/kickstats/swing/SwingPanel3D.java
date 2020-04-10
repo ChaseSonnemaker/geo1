@@ -22,6 +22,9 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     private final double RADIUS = 0.5;
     private final double ROTATION_ANGLE = (2 * Math.PI) / 200;
+    private final double AMBIENT_LIGHT = 0.25;
+    private final Vector LIGHT_VECTOR = new Vector(1.0, 2.0, 4.0).normalize();
+    
     private double currentAngle = 0;
     
     //Menu manipulatable
@@ -52,10 +55,10 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     }// setSpeed(int)
     
     
-    public Matrix getRotation(int selection, double angle) {
+    public Matrix getRotation(double angle) {
         Matrix newRotation = new Matrix();
         
-        switch(selection){
+        switch(this.rotationSelection){
             case 0:
                 newRotation.rotateX(angle);
                 break;
@@ -67,7 +70,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
                 break;
         }// switch
         return newRotation;
-    }// getRotation(int, double)
+    }// getRotation(double)
     
     
     public SwingPanel3D() {
@@ -81,7 +84,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D) g;
         
-        //Create AffineTransform for initial 
+        //Create AffineTransform for initial scaling
         int w = this.getWidth();
         int h = this.getHeight();
         
@@ -94,37 +97,29 @@ public class SwingPanel3D extends JPanel implements ActionListener {
         transform.concatenate(translate);
         
 
-        Matrix rotationX = new Matrix();
-        Matrix rotationY = new Matrix();
-        Matrix rotationZ = new Matrix();
+        //Create rotation matrix
+        Matrix rotation = this.getRotation(this.currentAngle);
+
         
-        rotationX.rotateX(angle);
-        rotationY.rotateY(angle);
-        rotationZ.rotateZ(angle);
-        
-        Matrix rotate = rotationY.multiply(rotationX);
+        //Create prism object and rotate it
+        PolygonPrism prism = new PolygonPrism(this.sides, this.RADIUS, 
+                                                this.width);
+        prism.change(rotation);
 
-        PolygonPrism prism = new PolygonPrism(54, 0.8, 0.5);
-        prism.change(rotate);
 
-        Color color = Color.blue;
-        double ambientColor = 0.2;
-        Vector lightV = new Vector(1.0, 2.0, 4.0);
-        lightV = lightV.normalize();
-
-        List<Polygon3D> toDraw = prism.getOrderedShapes();
-        for(Polygon3D p : toDraw) {
-            Shape s = p.getShape();
-            s = transform.createTransformedShape(s);
+        //Create shapes and shade
+        List<Polygon3D> prismToDraw = prism.getOrderedShapes();
+        for(Polygon3D p : prismToDraw) {
             
+            //Determine shading
             int red = color.getRed();
             int green = color.getGreen();
             int blue = color.getBlue();
             
             Vector normalP = p.getNormal();
             
-            double focusedColor = lightV.dot(normalP);
-            double colorChange = Math.max(ambientColor, focusedColor);
+            double focusedColor = this.LIGHT_VECTOR.dot(normalP);
+            double colorChange = Math.max(this.AMBIENT_LIGHT, focusedColor);
             
             red = (int) ( red * colorChange);
             green = (int) (green * colorChange);
@@ -132,11 +127,14 @@ public class SwingPanel3D extends JPanel implements ActionListener {
             
             g2D.setColor(new Color(red, green, blue));
             
+            //Create and fill shape
+            Shape s = p.getShape();
+            s = transform.createTransformedShape(s);
             g2D.fill(s);
         }// for
-
     }//paintComponent(Graphics)    
-        
+    
+    
     @Override
     public void actionPerformed(ActionEvent event) {
         if(this.angle < (2 * Math.PI)) {

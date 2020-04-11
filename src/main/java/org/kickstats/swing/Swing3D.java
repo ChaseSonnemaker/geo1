@@ -14,7 +14,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 /**
- * Creates a window that animates a rotating, shaded 3D shape.
+ * Creates a window that animates a rotating shaded 3D shape.
  * 
  * The background color as well as the shape's color, type of 3D shape,
  * number of main faces, sides, width, speed of rotation, and 

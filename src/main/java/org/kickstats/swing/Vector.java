@@ -2,15 +2,14 @@
 package org.kickstats.swing;
 
 /**
- * Models a 4 element vector.
+ * Models a 4 element vector used to model a vertex in 3D space.
  * 
- * Designed to model a vector in 3D space. As a result nearly all of these
- * methods ignore the fourth element in the vector and assume the resulting 
- * value to be 1. Not recommended to use this class if math needs to be done 
- * with all 4 elements in the vector.
+ * As a result nearly all of these methods ignore the fourth element in the 
+ * vector and assume the resulting value to be 1. Not recommended to use 
+ * this class if math needs to be done with all 4 elements in the vector.
  * 
  * @author Chase Sonnemaker
- * @version 5 April 2020
+ * @version 10 April 2020
  */
 public class Vector {
     

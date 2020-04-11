@@ -9,7 +9,7 @@ import static java.lang.Math.sin;
  * for 4 element vectors in 3D space.
  * 
  * @author Chase Sonnemaker
- * @version 5 April 2020
+ * @version 10 April 2020
  */
 public class Matrix {
     

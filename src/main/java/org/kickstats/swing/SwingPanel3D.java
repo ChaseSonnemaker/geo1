@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- * Creates a panel which animates a spinning shaded 3D shape.
+ * Creates a panel used to animate a rotating shaded 3D shape.
  * 
  * Designed to be used in the Swing3D class, and is the panel that the 
  * window created by Swing3D class uses.

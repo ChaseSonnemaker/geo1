@@ -9,7 +9,7 @@ package org.kickstats.swing;
  * class allowing it to inherit methods designed to facilitate 
  * transformation and visual representation of prism-like 3D shapes. More
  * information about antiprisms can be found 
- * <<a href="https://math.wikia.org/wiki/Antiprism">here</a>.
+ * <a href="https://math.wikia.org/wiki/Antiprism">here</a>.
  * 
  * @author Chase Sonnemaker
  * @version 10 April 2020

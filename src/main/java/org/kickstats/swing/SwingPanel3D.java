@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- * Creates a panel which animates a spinning shaded 3D regular prism.
+ * Creates a panel which animates a spinning shaded 3D shape.
  * 
  * Designed to be used in the Swing3D class, and is the panel that the 
  * window created by Swing3D class uses.
@@ -42,20 +42,42 @@ public class SwingPanel3D extends JPanel implements ActionListener {
 
     
     /**
-     * Sets the color of the 3D prism.
+     * Sets the color of the 3D shape.
      * 
-     * @param c The color the 3D prism will be set to.
+     * @param c The color the 3D shape will be set to.
      */
     public void setColor(Color c) {
         this.color = c;
     }// setColor(Color)
     
-    
+    /**
+     * Sets the shape-type of the 3D shape.
+     * 
+     * @param n An integer corresponding to a 3D shape type.
+     * 0 corresponds to a prism, 1 corresponds to an antiprism,
+     * and 2 corresponds to a pyramid.
+     */
     public void setShape(int n) {
         this.shape = n;
     }// setShape(int)
     
-    
+    /**
+     * Creates a list of Polygon3D objects which come from a transformed
+     * 3D shape. 
+     * 
+     * Uses the instance variable <code>shape</code> defined in this class to 
+     * determine the type of 3D shape object to create. Uses the other instance 
+     * variables and constants of <code>sides</code>, <code>RADIUS</code>, and
+     * <code>width</code> defined in this class as parameters for the 3D object. 
+     * The returned Polygon3D object list is ordered such that each polygon 
+     * can be converted into a shape and drawn to visualize a 3D shape object.
+     * 
+     * @param m A matrix that models a 3D transformation or the identity matrix 
+     * if no change is required. 
+     * @return A list of Polygon3D objects ordered from smallest unit-vector 
+     * z-coordinate to largest, all ready to be converted to shapes and drawn 
+     * to visualize a 3D shape with class defined parameters.
+     */
     public List<Polygon3D> getShapeOutline(Matrix m) {
         List<Polygon3D> shapeList = new ArrayList<>();
 
@@ -84,9 +106,9 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     
     /**
-     * Sets the number of sides that the main faces of the 3D prism will have.
+     * Sets the number of sides that the main face(s) of the 3D shape will have.
      * 
-     * @param n The number of sides the 3D prism's main faces will have.
+     * @param n The number of sides that the 3D shape's main face(s) will have.
      */
     public void setSides(int n) {
         this.sides = n;
@@ -94,12 +116,14 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     
     /**
-     * Sets the width of the 3D prism.
+     * Sets the width of the 3D shape.
      * 
-     * This is the distance the main faces are from each other (the height of
-     * the rectangular side faces).
+     * This is the distance the main faces are from each other (the 
+     * perpendicular height of the side faces) or, for pyramids, the distance 
+     * from the main face to the capstone (the perpendicular height of the side
+     * triangle faces).
      * 
-     * @param width The width the 3D prism will be set to have.
+     * @param width The width the 3D shape will be set to have.
      */
     public void setWidth(double width) {
         this.width = width;
@@ -107,7 +131,7 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     
     /**
-     * Sets the factor that the rotation of the 3D prism is multiplied by.
+     * Sets the factor that the rotation of the 3D shape is multiplied by.
      * 
      * This allows for faster or slower rotation.
      * 
@@ -119,10 +143,10 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     
     /**
-     * Sets the axis of rotation of the 3D prism.
+     * Sets the axis of rotation of the 3D shape.
      * 
      * @param n A number representing an axis of rotation to apply to the 3D
-     * prism. 0 corresponds to x-axis rotation, 1 corresponds to y-axis 
+     * shape. 0 corresponds to x-axis rotation, 1 corresponds to y-axis 
      * rotation, and 2 corresponds to z-axis rotation.
      */
     public void setRotation(int n) {
@@ -134,11 +158,12 @@ public class SwingPanel3D extends JPanel implements ActionListener {
      * Creates a 4x4 matrix modeling a rotation of a specified angle 
      * around a set axis.
      * 
-     * Uses the currently set axis of rotation, which can be changed using 
-     * the setRotation method, to create this matrix.
+     * Uses the instance variable <code>rotationSelection</code>, which can be 
+     * set using the setRotation method, to select an axis of rotation and 
+     * create this matrix.
      * 
      * @param angle The angle (radians) of rotation.
-     * @return A 4x4 matrix modeling the specified rotation.
+     * @return A 4x4 matrix modeling the specified axis of rotation.
      */
     public Matrix getRotation(double angle) {
         Matrix newRotation = new Matrix();
@@ -169,9 +194,9 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     
     /**
-     * Creates, transforms, draws, and shades the PolygonPrism object. 
+     * Creates, transforms, draws, and shades the 3D shape object. 
      * 
-     * The main method used to create the images. Documented details of how 
+     * The method used to create the images. Documented details of how 
      * this works can be found in the source code.
      * 
      * @param g A Graphics object. 
@@ -231,10 +256,10 @@ public class SwingPanel3D extends JPanel implements ActionListener {
     
     /**
      * Uses a timer created during the creation of this class instance to 
-     * change the angle of the PolygonPrism object and redraw the image.
+     * change the angle of the 3D shape object and redraw the image.
      * 
      * This creates an animation effect and allows for changes to be made to 
-     * the attributes of the PolygonPrism.
+     * the attributes of the 3D Shape.
      * 
      * @param event An event trigger caused by the timer.
      */
